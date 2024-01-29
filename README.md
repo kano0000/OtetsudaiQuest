@@ -51,5 +51,5 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-- フリーイラスト素材として以下を使用予定
-  - stockmaterial (https://stockmaterial.net/about/) 
+- フリーイラスト素材として以下を使用
+  - てがきっず (https://tegakisozai.com/) 
