@@ -53,3 +53,4 @@
 ## 使用素材
 - フリーイラスト素材として以下を使用
   - てがきっず (https://tegakisozai.com/) 
+  - Canva (ttps://www.canva.com/)
