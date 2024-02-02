@@ -12,13 +12,14 @@
     <script src="https://kit.fontawesome.com/ac7cef6f2b.js" crossorigin="anonymous"></script>
   </head>
 
-  <body style="background-color:#3c4c74;">
+  <body>
     <% if user_signed_in? %>
       <header>
         <%= render "layouts/header" %>
       </header>
     <% end %>
       <main>
+        <%=flash[:notice] %>
         <%= yield %>
         <span id="back">
           <a href="#" id="scrollButton">

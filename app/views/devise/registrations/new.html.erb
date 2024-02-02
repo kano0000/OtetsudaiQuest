@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col mt-4">
-      <h1 class="text-center mb-4" style="font-weight:bold; color:#ffffff; font-family: monospase;">とうろく</h1>
-        <div style="padding: 15px; margin-bottom: 10px; border: 13px dotted #298c75; background-color: #34b496;">
+<div  style="background-color:#3c4c74;">
+  <div class="container">
+    <div class="row">
+      <div class="col mt-4">
+        <h1 class="text-center mb-4" style="font-weight:bold; color:#ffffff; font-family: monospase;">とうろく</h1>
+          <div style="padding: 15px; margin-bottom: 10px; border: 13px dotted #298c75; background-color: #34b496;">
 
-          <%= form_with model: @user, url: user_registration_path do |f| %>
+            <%= form_with model: @user, url: user_registration_path do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="field">
@@ -46,3 +47,4 @@
       <%= image_tag "saturn.png", :size => "400x550" %>
     </div>
   </div>
+</div>
