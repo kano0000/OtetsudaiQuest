@@ -48,6 +48,25 @@
   transform: translateY(5px);
 }
 
+.btn-guest {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 20px 24px;
+  background-color: #ffd150;
+  box-shadow: 0 10px 0 #ffc41d;
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+
+.btn-guest:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
 .btn-area {
   margin-top: 450px;
   z-index: 2;
