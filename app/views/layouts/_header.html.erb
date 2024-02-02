@@ -1,0 +1,57 @@
+<div id="navArea">
+  <nav>
+    <div class="inner">
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "logo.png", :size => "120x120" %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "あ",about_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "い", about_path  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "う", about_path  %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="toggle_btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  
+  <div id="mask"></div>
+
+</div>
+
+  
+<script>
+  $(function() {
+    var $body   = $('body');
+    var $btn   = $('.toggle_btn');
+    var $mask  = $('#mask');
+    var open   = 'open'; // class
+    // menu open close
+    $btn.on( 'click', function() {
+     if ( ! $body.hasClass( open ) ) {
+        $body.addClass( open );
+      } else {
+        $body.removeClass( open );
+      }
+    });
+    // mask close
+    $mask.on('click', function() {
+      $body.removeClass( open );
+    });
+  } )(jQuery);
+</script>

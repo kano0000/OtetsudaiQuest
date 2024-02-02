@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/ac7cef6f2b.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ac7cef6f2b.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="background-color:#3c4c74;">
+    <% if user_signed_in? %>
+      <header>
+        <%= render "layouts/header" %>
+      </header>
+    <% end %>
+      <main>
+        <%= yield %>
+        <span id="back">
+          <a href="#" id="scrollButton">
+            <%= image_tag asset_path('rocket.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+          </a>
+        </span>
+      </main>
   </body>
 </html>
