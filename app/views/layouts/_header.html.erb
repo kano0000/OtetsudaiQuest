@@ -8,16 +8,19 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "マイページ", user_path(current_user) %>
+          <%= link_to about_path do %>
+            <i class="fa-solid fa-book-open"></i> メニュー
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "い", about_path  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "う", about_path  %>
+          <%= link_to user_path(current_user) do %>
+            <i class="fa-solid fa-user"></i> マイページ
+          <% end %>
         </li>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+          <% end %>
         </li>
       </ul>
     </div>

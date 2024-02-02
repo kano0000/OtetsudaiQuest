@@ -16,13 +16,13 @@
             <th><%= @user.introduction %></th>
           </tr>
         </table>
-          <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fa-solid fa-user-gear"></i>
+          <%= link_to edit_user_path(@user), class: "btn btn-warning btn-block" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
           <% end %>
     </div>
     <div class = "col-md-7 offset-md-1">
       <h2 class = "mb-3">メンバー一覧</h2>
-        
+        <%= render 'children/index', children: @children %>
     </div>
   </div>
 </div>

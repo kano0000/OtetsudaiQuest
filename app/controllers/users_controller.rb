@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @children = current_user.children
+    @child = Child.new
   end
   
   def edit

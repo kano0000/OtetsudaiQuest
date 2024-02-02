@@ -1,7 +1,7 @@
 <div class = "container mt-5">
   <div class = "row">
     <div class = "col-8 mx-auto">
-      <h1><%= @child.name %>　のプロフィール</h1>
+      <h1>あたらしく登録する</h1>
         <%= render "layouts/errors", obj: @child %>
         <%= form_with model: @child do |f| %>
         <div class="form-group">
@@ -13,17 +13,22 @@
           <%= f.date_field :birth_at, class: "form-control" %>
         </div>
         <div class="form-group">
+          <%= f.label :age, "年齢" %>
+          <p><%= @child.age.present? ? @child.age : '登録無し' %></p>
+        </div>
+        <div class="form-group">
           <%= f.label :introduction, "ひとこと" %>
           <%= f.text_area :introduction, class: "form-control"%>
         </div>
         <div class="form-group">
-          <%= f.label :image, "写真を変更" %>
+          <%= f.label :image,  "写真を登録"%>
           <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
         </div>
         <div class="form-group">
-          <%= f.submit "更新する", class: "btn btn-info" %>
+          <%= f.submit "追加する", class: "btn btn-secondary" %>
         </div>
         <% end %>
     </div>
   </div>
 </div>
+
