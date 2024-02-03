@@ -2,9 +2,10 @@ class Child < ApplicationRecord
   
   belongs_to :user
   
-  has_one_attached :profile_image
   
-  validates :name, presence: true, uniqueness: true, length: {in: 2..20}
+  has_one_attached :profile_image
+
+  validates :name, presence: true, length: {in: 2..20}
 
   def get_profile_image(width,height)
     unless profile_image.attached?
@@ -21,6 +22,10 @@ class Child < ApplicationRecord
     else
       nil
     end
+  end
+  
+  def having_points
+    
   end
   
 end

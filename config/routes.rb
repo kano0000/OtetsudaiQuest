@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about', as: "about"
   resources :users, only: [:show, :edit, :update]
   resources :children, only: [:new, :create, :show, :edit, :update]
-
-
+  resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
 
 end
