@@ -2,8 +2,8 @@
   <div class = "container">
     <div class = "row">
       <div class= "btn-wrapper col-5 mx-auto btn-area">
-        <%= link_to "つづきから", new_user_session_path, class: "btn-login btn-block mb-5"%>
-        <%= link_to "あたらしくはじめる", new_user_registration_path, class: "btn-signin btn-block" %>
+        <%= link_to "つづきから", new_user_session_path, :style => "text-decoration: none; color:#ffffff;", class: "btn-login btn-block mb-5"%>
+        <%= link_to "あたらしくはじめる", new_user_registration_path, :style => "text-decoration: none; color:#ffffff;", class: "btn-signin btn-block" %>
       </div>
     </div>
     <div class="scroll-area">
@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row">
       <div class=" btn-wrapper col-5 mx-auto">
-        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "btn-guest btn-block mb-5"%>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, :style => "text-decoration: none; color:#ffffff;", class: "btn-guest btn-block mb-5"%>
       </div>
     </div>
   </div>
