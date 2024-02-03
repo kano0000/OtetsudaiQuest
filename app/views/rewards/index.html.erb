@@ -1,22 +1,27 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 mx-auto">
-      <h2 class="mb-4" style="font-weight:bold; color:#FF9900; font-size:45px;"><strong>プレゼントメニュー</strong></h2>
-        <div>
-          <% @rewards.each do |reward| %>
-            <div class="card card-post">
-              <%= link_to reward_path(reward) do %>
-                <%= image_tag reward.get_gift_image(100,100) %><br>
-                <%= reward.name %>
-              <% end %>
-              <p>ポイント数</p>
-              <p><%= reward.point %></p>
-            </div>
-          <% end %>
-        </div>
-        <%= link_to new_reward_path, class: "btn btn-warning" do %>
-          <i class="fa-solid fa-pen-to-square"></i> 作成する
-        <% end %>
+      <h2 class="mb-4 contents-title text-center" style="font-weight:bold; color:#FF9900; font-size:45px;"><strong>プレゼントメニュー</strong></h2>
+        <div class="texts-wrapper">
+           <div class="row">
+            <% @rewards.each do |reward| %>
+              <div class="col-12 col-md-6 col-lg-4">
+                <%= link_to reward_path(reward), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
+                  <div class="card mb-4 shadow-lg">
+                    <%= image_tag reward.get_gift_image(200,200) %>
+                      <div class="card-body">
+                        <p class="text-center"><%= reward.name %><p>
+                        <p class="text-center"><%= reward.point %> ポイント</p>
+                      </div>
+                   </div>
+                <% end %>
+              </div>
+            <% end %>
+           </div>
+         </div>
+       </div> 
     </div>
+    <%= link_to new_reward_path, class: "btn btn-warning" do %>
+      <i class="fa-solid fa-pen-to-square"></i> 作成する
+    <% end %>
   </div>
-</div>

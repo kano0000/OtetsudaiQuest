@@ -17,6 +17,14 @@
             <th style="background-color: #FFBBBB;">メッセージ</th>
             <td><%=  @reward.description %></td>
           </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">交換</th>
+            <% if @reward.published == true %>
+              <td>公開中</td>
+            <% else %>
+              <td>準備中</td>
+            <% end %>
+          </tr>
         </tbody>
       </table>
         <%= link_to rewards_path, class: "btn btn-info" do %>
