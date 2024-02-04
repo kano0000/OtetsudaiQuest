@@ -27,7 +27,12 @@
           </tr>
         </tbody>
       </table>
-        <%= link_to "編集する", edit_child_path(@child), class: "btn btn-success btn-sm d-flex align-items-center justify-content-center ml-5", style: "width: 120px; height: 40px; border-radius: 10px;" %>
+      <%= link_to user_path(@child.user), class: "btn btn-info" do %>
+        <i class="fa-solid fa-caret-left"></i> もどる
+      <% end %>
+      <%= link_to edit_child_path(@child), class: "btn btn-success" do %>
+        <i class="fa-solid fa-pen-to-square"></i> 編集する
+      <% end %>
     </div>
   </div>
 </div>

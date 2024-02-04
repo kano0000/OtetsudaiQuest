@@ -10,12 +10,28 @@
             <td><%= @task.task_list.name %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">ポイント数</th>
+            <th style="background-color: #FFBBBB;">獲得ポイント数</th>
             <td><%= @task.point %> ポイント</td>
           </tr>
           <tr>
             <th style="background-color: #FFBBBB;">メッセージ</th>
             <td><%= @task.description %></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">開始日時</th>
+            <td><%= @task.start_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">終了日時</th>
+            <td><%= @task.end_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">参加メンバー</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">ステータス</th>
+            <td></td>
           </tr>
         </tbody>
       </table>
