@@ -26,7 +26,7 @@ class TaskListsController < ApplicationController
     @task_list = TaskList.find(params[:id])
     if @task_list.update(task_list_params)
       flash[:notice] = "更新しました。"
-    redirect_to task_lists_path
+      redirect_to task_lists_path
     else
       render :index
     end
