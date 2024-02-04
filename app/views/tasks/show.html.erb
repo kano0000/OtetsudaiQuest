@@ -48,6 +48,9 @@
         <%= link_to edit_task_path(@task), class: "btn btn-success" do %>
           <i class="fa-solid fa-pen-to-square"></i> 編集する
         <% end %>
+        <%= link_to start_path, method: :post, class: "btn btn-danger" do %>
+          <i class="fa-solid fa-flag-checkered"></i> はじめる
+        <% end %>
     </div>
   </div>
 </div>

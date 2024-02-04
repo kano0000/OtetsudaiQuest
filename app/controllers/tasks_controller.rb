@@ -37,6 +37,18 @@ class TasksController < ApplicationController
       render :show
     end
   end
+  
+  def start
+    @task = Task.find(params[:id])
+  end
+  
+  def finish
+    
+  end
+  
+  def thanks
+    
+  end
 
   private
 
