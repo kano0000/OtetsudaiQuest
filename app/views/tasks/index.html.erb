@@ -6,9 +6,9 @@
           <div class="col-12 col-md-6 col-lg-4">
             <%= link_to task_path(task), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
               <div class="card mb-4 shadow-lg">
-                <%= image_tag reward.get_gift_image(200,200) %>
+                <%= image_tag task.get_quest_image(200,200) %>
                   <div class="card-body">
-                    <p class="text-center"><%= task.name %><p>
+                    <p class="text-center"><%= task.task_list.name %><p>
                     <p class="text-center"><%= task.point %> ポイント</p>
                   </div>
                </div>
@@ -21,5 +21,5 @@
         <i class="fa-solid fa-pen-to-square"></i> 作成する
       <% end %>
     </div>
-  </div> 
+  </div>
 </div>

@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.new(task_params)
-    @task.user_id = current_user_id
+    @task.user_id = current_user.id
     if @task.save
       flash[:notice] = "登録しました"
       redirect_to tasks_path
@@ -35,6 +35,12 @@ class TasksController < ApplicationController
     else
       render :show
     end
+  end
+  
+  private
+  
+  def task_params
+    params.require(:task).permit(:task_list_id, :description, :point, :num_people, :start_at, :end_at, :quest_image)
   end
     
 end
