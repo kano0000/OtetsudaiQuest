@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :task_list
+  has_many :child_tasks
+  has_many :children, through: :child_tasks
   
   has_one_attached :quest_image
   

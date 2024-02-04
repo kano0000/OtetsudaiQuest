@@ -1,6 +1,7 @@
 class Reward < ApplicationRecord
-  
   belongs_to :user
+  has_many :child_rewards
+  has_many :children, through: :child_rewards
   
   has_one_attached :gift_image
   

@@ -1,6 +1,10 @@
 class Child < ApplicationRecord
   
   belongs_to :user
+  has_many :child_rewards
+  has_many :rewards, through: :child_rewards
+  has_many :child_tasks
+  has_many :tasks, through: :child_tasks
   
   
   has_one_attached :profile_image
