@@ -1,0 +1,42 @@
+<div class = "container mt-5">
+  <div class = "row">
+    <div class = "col-8 mx-auto">
+      <h1>編集する</h1>
+        <%= render "layouts/errors", obj: @task %>
+        <%= form_with model: @task do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "タイトル" %>
+          <%= f.collection_select :task_list_id, TaskList.all, :id, :name, include_blank: "選択して下さい" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, "メッセージ" %>
+          <%= f.text_area :description, class: "form-control"%>
+        </div>
+        <div>
+          <%= f.label :people, "必要人数" %>
+          <%= f.select :people,[["1人", 1],["2人", 2],["3人", 3],["4人", 4],["5人", 5]], {include_blank: "人数を選択して下さい"} %>
+        </div>
+        <div>
+          <%= f.label :start_at, "開始日時" %>
+          <%= f.datetime_field :start_at, class: 'form-control'%>
+        </div>
+        <div>
+          <%= f.label :end_at, "終了日時" %>
+          <%= f.datetime_field :end_at, class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :point, "獲得ポイント数" %>
+          <%= f.number_field :point, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :quest_image,  "写真を登録"%>
+          <%= f.file_field :quest_image, class: "form-control-file",accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "更新する", class: "btn btn-secondary" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
