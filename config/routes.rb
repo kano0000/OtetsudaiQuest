@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :children, only: [:new, :create, :show, :edit, :update]
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
+  resources :tasks, only: [:index, :new, :create, :edit, :update]
 end
