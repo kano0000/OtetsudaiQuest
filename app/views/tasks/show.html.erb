@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <h2 class="mb-4" style="font-weight:bold; color:#FF9900; font-size:45px;"><strong><%= @task.task_list.name %></strong></h2>
+      <table class="table table-bordered table-condensed" style="background-color: #FFFFBB;">
+        <tbody>
+          <%= image_tag @task.get_quest_image(200,200) %>
+          <tr>
+            <th style="background-color: #FFBBBB; width: 20%;">なまえ</th>
+            <td><%= @task.task_list.name %></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">ポイント数</th>
+            <td><%= @task.point %> ポイント</td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFBBBB;">メッセージ</th>
+            <td><%= @task.description %></td>
+          </tr>
+        </tbody>
+      </table>
+        <%= link_to tasks_path, class: "btn btn-info" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
+        <%= link_to edit_task_path(@task), class: "btn btn-success" do %>
+          <i class="fa-solid fa-pen-to-square"></i> 編集する
+        <% end %>
+    </div>
+  </div>
+</div>
