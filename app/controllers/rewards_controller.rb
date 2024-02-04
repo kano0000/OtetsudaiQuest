@@ -38,6 +38,10 @@ class RewardsController < ApplicationController
       render :edit
     end
   end
+  
+  def admin_index
+    @rewards  = current_user.rewards
+  end
 
   private
 

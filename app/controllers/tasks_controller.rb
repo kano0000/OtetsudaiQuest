@@ -38,6 +38,10 @@ class TasksController < ApplicationController
     end
   end
   
+  def admin_index
+    @tasks  = current_user.tasks
+  end
+  
   def start
     @task = Task.find(params[:id])
   end

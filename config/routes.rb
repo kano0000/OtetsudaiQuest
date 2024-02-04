@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   post 'tasks/:id/start' => 'tasks#start', as: 'start'
   post 'tasks/:id/finish' => 'tasks#finish', as: 'finish'
   get 'tasks/thanks' => 'tasks#thanks', as: 'thanks'
+  #保護者使用画面
+  get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
+  get 'rewards/:id/admin_index' => 'rewards#admin_index', as: 'rewards_admin_index'
+
 end

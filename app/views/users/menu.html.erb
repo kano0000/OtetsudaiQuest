@@ -4,8 +4,7 @@
     <div class= "col-10 mt-5 mx-auto">
       <h1 class="mb-5 contents-title text-center" style="font-weight:bold; color:#FF9900;"><strong>メニュー</strong></h1>
         <div class="row mb-5">
-          
-          
+
           <div class="col-6 mt-5">
             <%= link_to new_task_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f46c5c;">
@@ -16,8 +15,7 @@
               </div>
             <% end %>
           </div>
-          
-          
+
           <div class="col-6 mt-5">
             <%= link_to new_reward_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f7c453;">
@@ -28,7 +26,7 @@
               </div>
             <% end %>
           </div>
-          
+
           <div class="col-6 mt-5">
             <%= link_to task_lists_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f46c5c;">
@@ -39,7 +37,7 @@
               </div>
             <% end %>
           </div>
-          
+
           <div class="col-6 mt-5">
             <%= link_to tasks_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f7c453;">
@@ -50,9 +48,9 @@
               </div>
             <% end %>
           </div>
-        
+
           <div class="col-6 mt-5">
-            <%= link_to tasks_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+            <%= link_to tasks_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f46c5c;">
                 <div class="card-body">
                   <h3 class="text-center mt-2"><strong>クエストを編集する</strong></h3><br>
@@ -61,9 +59,9 @@
               </div>
             <% end %>
           </div>
-          
+
           <div class="col-6 mt-5">
-            <%= link_to tasks_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+            <%= link_to rewards_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
               <div class="card shadow-lg" style= "background-color:#f7c453;">
                 <div class="card-body">
                   <h3 class="text-center mt-2"><strong>プレゼントを編集する</strong></h3><br>
@@ -72,7 +70,7 @@
               </div>
             <% end %>
           </div>
-          
+
         </div>
       </div>
     </div>

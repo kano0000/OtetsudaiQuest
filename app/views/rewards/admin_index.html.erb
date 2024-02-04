@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class = "table table-borderd" style="background-color: #FFFFBB;">
+        <tr style="background-color: #FFBBBB;">
+          <th></th>
+          <th>なまえ</th>
+          <th>必要ポイント数</th>
+          <th colspan="3"></th>
+        </tr>
+        <tr>
+          <% @rewards.each do |reward| %>
+          <td>
+            <%= image_tag reward.get_gift_image(100,100) %>
+          </td>
+          <td>
+            <%= reward.name %>
+          </td>
+          <td>
+            <%= reward.point %> ポイント
+          </td>
+          <td>
+            <%= link_to edit_reward_path(reward), class: "btn btn-success" do %>
+              <i class="fa-solid fa-pen-to-square"></i> 編集する
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
