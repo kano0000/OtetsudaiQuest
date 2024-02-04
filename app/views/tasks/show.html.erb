@@ -26,9 +26,15 @@
             <td><%= @task.end_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
           </tr>
           <tr>
-            <%= form_with model: @task.
-            <th style="background-color: #FFBBBB;">参加メンバー</th>
-            <td></td>
+            <th style="background-color: #FFBBBB;">参加メンバー<br>人数: <%= @task.num_people %>人</th>
+            <td>
+            <% @children.each do |child| %>
+              <label>
+                <%= check_box_tag "task[child_ids][]", child.id %>
+                <%= child.name %>
+              </label><br>
+            <% end %>
+            </td>
           </tr>
           <tr>
             <th style="background-color: #FFBBBB;">ステータス</th>

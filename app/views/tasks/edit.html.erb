@@ -13,8 +13,8 @@
           <%= f.text_area :description, class: "form-control"%>
         </div>
         <div>
-          <%= f.label :people, "必要人数" %>
-          <%= f.select :people,[["1人", 1],["2人", 2],["3人", 3],["4人", 4],["5人", 5]], {include_blank: "人数を選択して下さい"} %>
+          <%= f.label :num_people, "必要人数" %>
+          <%= f.select :num_people,[["1人", 1],["2人", 2],["3人", 3],["4人", 4],["5人", 5]], {include_blank: "人数を選択して下さい"} %>
         </div>
         <div>
           <%= f.label :start_at, "開始日時" %>

@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @children = current_user.children
   end
 
   def new
@@ -31,7 +32,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:notice] = "更新しました。"
-      redirect_to tasks_path
+      redirect_to task_path(@task)
     else
       render :show
     end
