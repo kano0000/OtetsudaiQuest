@@ -1,0 +1,18 @@
+<table class="table border-top border-bottom table-condensed mt-4" style="background-color: #FFFFBB;">
+  <thead class="thead-center">
+    <tr>
+      <th class="text-center" style="background-color: #FFBBBB; padding-right: 50px;">お手伝い名</th>
+      <th class="text-center" style="background-color: #FFBBBB;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% task_lists.each do |task_list| %>
+      <tr>
+        <td class="text-center align-middle" style="padding-right: 50px;"><%= task_list.name %></td>
+        <td class="text-center align-middle">
+          <%= link_to "編集する", edit_task_list_path(task_list), class: "btn btn-warning btn-sm", style: "border-radius: 12px;" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

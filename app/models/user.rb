@@ -6,6 +6,7 @@ class User < ApplicationRecord
          
   has_many :children, dependent: :destroy
   has_many :rewards, dependent: :destroy
+  has_many :task_lists, dependent: :destroy
 
   
   has_one_attached :profile_image

@@ -1,0 +1,13 @@
+<%= form_with model: task_list, method: :post, local: false do |f| %>
+  <div class="form-row align-items-center mt-4">
+    <div class="col-md-3 mb-2">
+      <%= f.label :name, "お手伝い名", class: "text-md-right", style: "font-size: 22px; font-weight:bold; " %>
+    </div>
+    <div class="col-md-6 mb-2">
+      <%= f.text_field :name, placeholder: 'お手伝い名', class: "form-control" %>
+    </div>
+    <div class="col-md-3 mb-2 pl-5">
+      <%= f.submit "新規登録", class: "btn btn-warning btn" , style: "width: 170px; border-radius: 12px;" %>
+    </div>
+  </div>
+<% end %>

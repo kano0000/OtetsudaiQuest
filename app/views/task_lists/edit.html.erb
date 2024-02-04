@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h2 class="mt-5 mb-4" style="font-size:45px; text-align: center;"><strong><%= @task_list.name %> を編集する</strong></h2>
+
+      <%= form_with model: @task_list, method: :patch do |f| %>
+        <div class="form-row align-items-center">
+          <div class="col-md-3 mb-1 text-md-right mx-auto">
+            <%= f.label :name, "お手伝い名" %>
+          </div>
+          <div class="col-md-5 mb-1 mx-auto">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="col mb-2 mx-auto">
+            <%= f.submit "保存する", class: "btn btn-success", style: "border-radius: 12px;" %>
+          </div>
+          <div class="col mb-2 mx-auto">
+          <%= link_to "削除する", task_list_path(@task_list), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
