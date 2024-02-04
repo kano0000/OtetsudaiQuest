@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_04_014320) do
+ActiveRecord::Schema.define(version: 2024_02_04_040033) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +70,22 @@ ActiveRecord::Schema.define(version: 2024_02_04_014320) do
     t.index ["user_id"], name: "index_task_lists_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "point"
+    t.integer "num_people"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer "status", default: 0
+    t.integer "user_id"
+    t.integer "task_list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_list_id"], name: "index_tasks_on_task_list_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -89,4 +105,6 @@ ActiveRecord::Schema.define(version: 2024_02_04_014320) do
   add_foreign_key "children", "users"
   add_foreign_key "rewards", "users"
   add_foreign_key "task_lists", "users"
+  add_foreign_key "tasks", "task_lists"
+  add_foreign_key "tasks", "users"
 end
