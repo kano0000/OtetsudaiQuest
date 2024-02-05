@@ -1,0 +1,13 @@
+<% if task.status == "preparing" %>
+  <%= link_to "スタート", status_change_path(task), class: 'btn btn-primary', method: :get, remote: true %>
+<% elsif task.status == "in_progress" %>
+  <%= link_to "できた！", status_change_path(task), class: 'btn btn-primary', method: :get, remote: true %>
+<% elsif task.status == "reported_complete" %>
+    <%= link_to "OK", status_change_path(task), class: 'btn btn-primary', method: :get, remote: true %>
+    <%= link_to "もう一回 !", status_change_path(task), class: 'btn btn-primary', method: :get, remote: true %>
+<% elsif task.status == "again" %>
+  <%= link_to "できた！", status_change_path(task), class: 'btn btn-primary', method: :get, remote: true %>
+<% else %>
+  <%= link_to "クリア！！", thanks_path(task), class: 'btn btn-primary' %>
+
+<% end %>

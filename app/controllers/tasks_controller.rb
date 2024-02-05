@@ -42,10 +42,24 @@ class TasksController < ApplicationController
     @tasks  = current_user.tasks
   end
   
-  def start
+  def status_change
     @task = Task.find(params[:id])
+    if @task.status == "preparing"
+      @task.update(status: "in_progress")
+    elsif @task.status == "in_progress"
+      @task.update(status: "reported_complete")
+    elsif @task.status == "reported_complete"
+      if params[:check] == "OK"
+       @task.update(status: "completed")
+      else
+        @task.update(status: "again")
+      end
+    elsif @task.status == "again"
+      @task.update(status: "reported_complete")
+    end
+    #redirect_to in_progress_path(@task)
   end
-
+  
   def thanks
   end
 

@@ -14,23 +14,6 @@ class Task < ApplicationRecord
     completed: 4
   }
   
-  def update_status(status)
-    
-    if status == 0
-      
-    elsif status == 1
-      
-    elsif status == 2
-      
-    elsif status == 3
-
-    else
-    
-    end
-      
-  end
-  
-  
   def get_quest_image(width,height)
     unless quest_image.attached?
       file_path = Rails.root.join('app/assets/images/quest_image.png')

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <h1 class= "text-center">クエスト</h1>
+        <div class="m-5 col-5 mx-auto">
+          <div id = "quest-status" >
+            <h2 class="border p-4 text-center">
+              <%= render 'status', task: @task %>
+            </h2>
+          </div>
+        </div>
+        <div id = "quest-btn" class="text-center">
+          <%= render 'btn', task: @task %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

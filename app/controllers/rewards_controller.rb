@@ -42,6 +42,10 @@ class RewardsController < ApplicationController
   def admin_index
     @rewards  = current_user.rewards
   end
+  
+  def exchange
+    
+  end
 
   private
 

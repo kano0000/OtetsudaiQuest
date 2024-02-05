@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get 'user/menu' => 'users#menu', as: 'menu'
   resources :children, only: [:new, :create, :show, :edit, :update]
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
+  get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update]
-  get 'tasks/:id/start' => 'tasks#start', as: 'start'
-  get 'tasks/thanks' => 'tasks#thanks', as: 'thanks'
+  get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
+  get 'tasks/:id/in_progress' => 'tasks#in_progress', as: 'in_progress'
+  get 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
   get 'rewards/:id/admin_index' => 'rewards#admin_index', as: 'rewards_admin_index'
