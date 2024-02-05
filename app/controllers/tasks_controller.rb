@@ -45,13 +45,8 @@ class TasksController < ApplicationController
   def start
     @task = Task.find(params[:id])
   end
-  
-  def finish
-    
-  end
-  
+
   def thanks
-    
   end
 
   private

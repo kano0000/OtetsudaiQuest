@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   
   has_one_attached :quest_image
   
-  # 制作ステータス => 0:準備中 1:実行中 2:完了報告 3:やりなおし 4:完了
+  # ステータス => 0:準備中 1:実行中 2:完了報告 3:やりなおし 4:完了
   enum status: {
     preparing: 0,
     in_progress: 1,
@@ -13,6 +13,22 @@ class Task < ApplicationRecord
     again: 3,
     completed: 4
   }
+  
+  def update_status(status)
+    
+    if status == 0
+      
+    elsif status == 1
+      
+    elsif status == 2
+      
+    elsif status == 3
+
+    else
+    
+    end
+      
+  end
   
   
   def get_quest_image(width,height)

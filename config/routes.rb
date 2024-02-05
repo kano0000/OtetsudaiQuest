@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update]
-  post 'tasks/:id/start' => 'tasks#start', as: 'start'
-  post 'tasks/:id/finish' => 'tasks#finish', as: 'finish'
+  get 'tasks/:id/start' => 'tasks#start', as: 'start'
   get 'tasks/thanks' => 'tasks#thanks', as: 'thanks'
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
