@@ -36,10 +36,11 @@
           <tr>
             <th style="background-color: #FFBBBB;">参加メンバー<br>人数: <%= @task.num_people %>人</th>
             <td>
-              <%= form_with model: [@task, @child_task] do |f| %>
+              <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
                 <% @children.each do |child| %>
                   <label>
-                    <%= f.check_box :child, { multiple: true }, child.id, nil %>
+                    <%# checkedは、child_tasksのchild_idの配列に今ループしているchild.idがあるかチェックして true / false を返す (include?) %>
+                    <%= f.check_box :child_tasks, {multiple: true, checked: @task.child_tasks.pluck(:child_id).include?(child.id)}, child.id %>
                     <%= child.name %>
                   </label><br>
                 <% end %>

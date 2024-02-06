@@ -7,7 +7,8 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @children = current_user.children
-    @child_task = ChildTask.new
+    @task_new = Task.new
+    # @child_task = Task.new
   end
 
   def new
@@ -38,14 +39,14 @@ class TasksController < ApplicationController
       render :show
     end
   end
-  
+
   def admin_index
     @tasks  = current_user.tasks
   end
-  
+
   def status_change
     @task = Task.find(params[:id])
-    
+
     if @task.status == "preparing"
       @task.update(status: "in_progress")
     elsif @task.status == "in_progress"
@@ -72,5 +73,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:task_list_id, :description, :point, :num_people, :start_at, :end_at, :quest_image)
   end
-  
+
 end

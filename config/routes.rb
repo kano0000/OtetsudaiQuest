@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :child_tasks, only: [:create, :destroy]
+    resources :child_tasks, only: [:update, :destroy]
   end
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
   get 'tasks/:id/in_progress' => 'tasks#in_progress', as: 'in_progress'

@@ -3,7 +3,7 @@ class Child < ApplicationRecord
   belongs_to :user
   has_many :child_rewards
   has_many :rewards, through: :child_rewards
-  has_many :child_tasks
+  has_many :child_tasks, dependent: :destroy
   has_many :tasks, through: :child_tasks
   
   
