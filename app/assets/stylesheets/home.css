@@ -1,11 +1,11 @@
 .main-visual {
-  background-image: url('/assets/top.png'); /* 相対パスを使用 */
-  background-size: cover; /* 画像を表示エリアに完全に表示させる */
+  background-image: url('/assets/top.png'); 
+  background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;
   height: 950px;
   width: 100%;
-  margin: 0; /* ボディのマージンをリセットして余白を削除 */
+  margin: 0; 
   z-index: 1;
   position: relative;
 }
@@ -21,7 +21,7 @@
   border-radius: 60px;
   color: #fff;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
+  text-decoration: none; 
 }
 
 .btn-login:active {
@@ -40,7 +40,7 @@
   border-radius: 60px;
   color: #fff;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
+  text-decoration: none; 
 }
 
 .btn-signin:active {
@@ -59,7 +59,7 @@
   border-radius: 60px;
   color: #fff;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
+  text-decoration: none;
 }
 
 .btn-guest:active {

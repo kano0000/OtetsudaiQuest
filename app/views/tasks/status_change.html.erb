@@ -3,13 +3,13 @@
     <div class="col-10 mx-auto">
       <h1 class= "text-center">クエスト</h1>
         <div class="m-5 col-5 mx-auto">
-          <div id = "quest-status" >
-            <h2 class="border p-4 text-center">
+          <div class="border p-4 text-center mb-3" >
+            <h2 id = "quest-status">
               <%= render 'status', task: @task %>
             </h2>
           </div>
         </div>
-        <div id = "quest-btn" class="text-center">
+        <div id = "quest-btn", class="text-center mt-3">
           <%= render 'btn', task: @task %>
         </div>
       </div>

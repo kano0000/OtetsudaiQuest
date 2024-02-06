@@ -142,3 +142,32 @@ nav .inner ul li:not(:first-child):hover {
   width: 200px;
   height: 300px;
 }
+
+.custom-button {
+  text-align: center;
+  line-height: 150px;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 30px 30px;
+  background-color: #34b496;;
+  box-shadow: 0 15px 0 #298c75;
+  border-radius: 50%; 
+  width: 200px; 
+  height: 200px; 
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.custom-button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.custom-button,
+.custom-button:link,
+.custom-button:visited {
+  text-decoration: none;
+  color: #fff;
+}

@@ -44,12 +44,13 @@ class TasksController < ApplicationController
   
   def status_change
     @task = Task.find(params[:id])
+    
     if @task.status == "preparing"
       @task.update(status: "in_progress")
     elsif @task.status == "in_progress"
       @task.update(status: "reported_complete")
     elsif @task.status == "reported_complete"
-      if params[:check] == "OK"
+      if params[:check] == 'OK'
        @task.update(status: "completed")
       else
         @task.update(status: "again")
