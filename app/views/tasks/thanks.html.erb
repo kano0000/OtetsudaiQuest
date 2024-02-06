@@ -10,12 +10,14 @@
           <div class="point-area">
             <h2>持っているポイント</h2>
             <table>
+              <tr>
               <% @children.each do |child| %>
                 <th><%= child.name %></th>
                 <th><%= child.point %></th>
                 <th> >> </th>
-                <th><%= child.point %></th>
+                <th><%= child.point+= @task.point %></th>
               <% end %>
+              </tr>
             </table>
         </div>
     </div>

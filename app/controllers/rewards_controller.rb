@@ -44,7 +44,8 @@ class RewardsController < ApplicationController
   end
   
   def exchange
-    
+    @reward = Reward.find(params[:id])
+    @children = current_user.children
   end
 
   private
