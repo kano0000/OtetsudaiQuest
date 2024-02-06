@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @children = current_user.children
+    @child_task = ChildTask.new
   end
 
   def new
@@ -60,8 +61,10 @@ class TasksController < ApplicationController
     end
     #redirect_to in_progress_path(@task)
   end
-  
+
   def thanks
+    @task = Task.find(params[:id])
+    @children = @task.children
   end
 
   private
@@ -69,5 +72,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:task_list_id, :description, :point, :num_people, :start_at, :end_at, :quest_image)
   end
-
+  
 end
