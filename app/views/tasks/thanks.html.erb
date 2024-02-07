@@ -3,12 +3,12 @@
     <div class="col-10 mx-auto">
       <h1 class= "text-center">\\　おめでとう !!　//</h1>
        <div class="m-5 col-5 mx-auto">
-          <div class="border p-4 text-center mb-3" >
-            <h2><%= @task.point %> ポイントゲット</h2>
+          <div style="padding: 15px; margin-bottom: 10px; border: 13px dotted #33ff99; background-color: #ffff99;" >
+            <h2 class = "text-center", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h2>
           </div>
-          <div class="point-area">
+          <div class="point-area mt-4">
             <h2>持っているポイント</h2>
-            <table>
+            <table class = "table mt-4">
               <% @children.each do |child| %>
               <tr>
                 <th><%= child.name %></th>
@@ -20,12 +20,14 @@
               </tr>
               <% end %>
             </table>
-            <%= link_to about_path,class: "btn btn-info" do %>
-              <i class="fa-solid fa-caret-left"></i> もどる
-            <% end %>
-            <%= link_to user_path(current_user),class: "btn btn-success" do %>
-              <i class="fa-solid fa-user"></i> マイページへ
-            <% end %>
+            <div class = "mt-4">
+              <%= link_to about_path,class: "btn btn-info" do %>
+                <i class="fa-solid fa-caret-left"></i> もどる
+              <% end %>
+              <%= link_to user_path(current_user),class: "btn btn-success" do %>
+                <i class="fa-solid fa-user"></i> マイページへ
+              <% end %>
+            </div>
         </div>
     </div>
   </div>
