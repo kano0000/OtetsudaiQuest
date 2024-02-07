@@ -1,4 +1,5 @@
 class RewardsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @is_parent = params[:is_parent]
@@ -47,7 +48,16 @@ class RewardsController < ApplicationController
     @reward = Reward.find(params[:id])
     @children = current_user.children
   end
+  
+  def update_child_point
+    @child = Child.find(params[:child_id])
+    @reward = Reward.find(params[:id])
+    @child_reward = ChildReward.find_by(child: @child, reward: @reward)
 
+    @child.point -= @reward.point
+    @child.save
+  end 
+  
   private
 
   def reward_params

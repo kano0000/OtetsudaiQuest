@@ -1,4 +1,5 @@
 class ChildTasksController < ApplicationController
+  before_action :authenticate_user!
 
   def update
     child_task = current_user.tasks.find(params[:task_id]).child_tasks
