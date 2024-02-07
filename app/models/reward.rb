@@ -5,6 +5,8 @@ class Reward < ApplicationRecord
   
   has_one_attached :gift_image
   
+  validates :name, presence: true
+  validates :point, presence: true
   
   def get_gift_image(width,height)
     unless gift_image.attached?

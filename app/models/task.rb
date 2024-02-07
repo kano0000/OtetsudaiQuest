@@ -4,6 +4,9 @@ class Task < ApplicationRecord
   has_many :children, through: :child_tasks
 
   has_one_attached :quest_image
+  
+  validates :num_people, presence: true
+  validates :point, presence: true
 
   # ステータス => 0:準備中 1:実行中 2:完了報告 3:やりなおし 4:完了
   enum status: {
