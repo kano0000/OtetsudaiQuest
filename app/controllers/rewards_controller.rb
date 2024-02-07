@@ -19,7 +19,13 @@ class RewardsController < ApplicationController
   end
 
   def index
-    @rewards = current_user.rewards
+    if params[:latest]
+      @rewards = current_user.rewards.order(created_at: :desc)
+    elsif params[:most_point]
+      @rewards = current_user.rewards.order(point: :desc)
+    else
+      @rewards = current_user.rewards
+    end
   end
 
   def show

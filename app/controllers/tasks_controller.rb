@@ -2,7 +2,13 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = current_user.tasks
+    if params[:latest]
+      @tasks = current_user.tasks.order(created_at: :desc)
+    elsif params[:most_point]
+      @tasks = current_user.tasks.order(point: :desc)
+    else
+      @tasks = current_user.tasks
+    end
   end
 
   def show
