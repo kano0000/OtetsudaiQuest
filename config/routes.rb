@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
   get 'tasks/:id/in_progress' => 'tasks#in_progress', as: 'in_progress'
   get 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
+  
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
   get 'rewards/:id/admin_index' => 'rewards#admin_index', as: 'rewards_admin_index'
