@@ -9,17 +9,23 @@
           <div class="point-area">
             <h2>持っているポイント</h2>
             <table>
-              <tr>
               <% @children.each do |child| %>
+              <tr>
                 <th><%= child.name %></th>
                 <th><%= child.point %></th>
                 <th> >> </th>
                   <% new_point = child.point + @task.point %>
                   <% child.update(point: new_point) %>
                 <th><%= new_point %></th>
-              <% end %>
               </tr>
+              <% end %>
             </table>
+            <%= link_to about_path,class: "btn btn-info" do %>
+              <i class="fa-solid fa-caret-left"></i> もどる
+            <% end %>
+            <%= link_to user_path(current_user),class: "btn btn-success" do %>
+              <i class="fa-solid fa-user"></i> マイページへ
+            <% end %>
         </div>
     </div>
   </div>
