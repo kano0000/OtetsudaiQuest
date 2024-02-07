@@ -14,7 +14,9 @@
                 <th><%= child.name %></th>
                 <th><%= child.point %></th>
                 <th> >> </th>
-                <th><%= child.point+= @task.point %></th>
+                  <% new_point = child.point + @task.point %>
+                  <% child.update(point: new_point) %>
+                <th><%= new_point %></th>
               <% end %>
               </tr>
             </table>
