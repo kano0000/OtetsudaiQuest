@@ -15,18 +15,20 @@
           </tr>
         </tbody>
       </table>
-      <h2>交換する人を選んでね</h2>
-      <%= form_with model: @reward, url: exchange_path, method: :get do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "なまえ" %>
-          <%= f.collection_select :child_id, @children, :id, :name, include_blank: "選択して下さい" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "決定", class: "btn btn-secondary" %>
-        </div>
-      <% end %>
+      <div class = "m-5 text-center">
+        <h2 class = "mb-3">交換する人を選んでね</h2>
+        <%= form_with model: @reward, url: exchange_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "なまえ" %>
+            <%= f.collection_select :child_id, @children, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "決定", class: "btn btn-warning" %>
+          </div>
+        <% end %>
+      </div>
       <% if @child.present? %>
-      <div id = "exchange_point">
+      <div id = "exchange_point", class = "mb-3 text-center">
         <%= render "child_point", {child: @child, reward: @reward} %>
       </div>
       <% end %>
