@@ -1,5 +1,10 @@
 @use '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
+
+* {
+  font-family: 'Kosugi Maru', sans-serif;
+}
 /*============
 ハンバーガーメニュー
 =============*/
