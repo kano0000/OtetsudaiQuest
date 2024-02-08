@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get 'user/menu' => 'users#menu', as: 'menu'
   resources :children, only: [:new, :create, :show, :edit, :update]
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
-  post 'rewards/:id/update_child_point' => 'rewards#update_child_point', as: 'update_child_point'
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
+  #post 'rewards/:id/update_child_point' => 'rewards#update_child_point', as: 'update_child_point'
+  post 'rewards/:id/confirm' => 'rewards#confirm', as: 'confirm'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
     resources :child_tasks, only: [:update, :destroy]
