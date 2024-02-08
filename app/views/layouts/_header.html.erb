@@ -36,30 +36,32 @@
     <span></span>
     <span></span>
   </div>
-  
-  
+
+
   <div id="mask"></div>
 
 </div>
 
-  
+
 <script>
-  $(function() {
-    var $body   = $('body');
-    var $btn   = $('.toggle_btn');
-    var $mask  = $('#mask');
+ $(document).ready(function () {
+    var body   = $('body');
+    var btn   = $('.toggle_btn');
+    var mask  = $('#mask');
     var open   = 'open'; // class
-    // menu open close
-    $btn.on( 'click', function() {
-     if ( ! $body.hasClass( open ) ) {
-        $body.addClass( open );
-      } else {
-        $body.removeClass( open );
-      }
-    });
-    // mask close
-    $mask.on('click', function() {
-      $body.removeClass( open );
-    });
-  } )(jQuery);
+    if (btn.length > 0) {
+      // menu open close
+      btn.on( 'click', function() {
+       if ( ! body.hasClass( open ) ) {
+          body.addClass( open );
+        } else {
+          body.removeClass( open );
+        }
+      });
+      // mask close
+      mask.on('click', function() {
+        body.removeClass( open );
+      });
+    }
+  })
 </script>

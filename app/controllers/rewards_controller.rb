@@ -54,19 +54,19 @@ class RewardsController < ApplicationController
     @reward = Reward.find(params[:id])
     @children = current_user.children
     selected_child_id = params[:reward][:child_id] if params[:reward].present?
-    @child = Child.find_by(id: selected_child_id) if selected_child_id.present?
+    @child = Child.find_by(id: selected_child_id) if selected_child_id.present? # FIXME
   end
 
   def update_child_point
-    @child = Child.find_by(params[:child_id])
+    @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:id])
     @child_reward = ChildReward.find_by(child: @child, reward: @reward)
-    redirect_to confirm_path
+    redirect_to confirm_path(child_id: @child, reward_id: @reward)
   end
 
   def confirm
-    @child = Child.find_by(params[:child_id])
-    @reward = Reward.find_by(params[:reward_id])
+    @child = Child.find(params[:child_id])
+    @reward = Reward.find(params[:reward_id])
   end
 
   def order

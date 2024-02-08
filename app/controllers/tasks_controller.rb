@@ -55,19 +55,21 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     if @task.status == "preparing"
-      @task.update(status: "in_progress")
+      if params[:start] == "true"
+        @task.update(status: "in_progress")
+      end
     elsif @task.status == "in_progress"
       @task.update(status: "reported_complete")
     elsif @task.status == "reported_complete"
       if params[:check] == 'OK'
-       @task.update(status: "completed")
+      @task.update(status: "completed")
       else
         @task.update(status: "again")
       end
     elsif @task.status == "again"
       @task.update(status: "reported_complete")
     end
-    #redirect_to in_progress_path(@task)
+    # redirect_to in_progress_path(@task)
   end
 
   def thanks

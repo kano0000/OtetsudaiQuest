@@ -1,9 +1,9 @@
 <% if task.status == "preparing" %>
-  <%= link_to "スタート", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
+  <%= link_to "スタート", status_change_path(task, start: "true"), class: 'custom-button', method: :get, remote: true %>
 <% elsif task.status == "in_progress" %>
   <%= link_to "できた！", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
 <% elsif task.status == "reported_complete" %>
-  <%= link_to "OK", status_change_path(task), data: {check: 'OK'}, class: 'custom-button mr-5', method: :get, remote: true %>
+  <%= link_to "OK", status_change_path(task, check: "OK"), class: 'custom-button mr-5', method: :get, remote: true %>
   <%= link_to "もう一回 !", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
 <% elsif task.status == "again" %>
   <%= link_to "できた！", thanks_path(task), class: 'custom-button' %>

@@ -137,6 +137,7 @@ nav .inner ul li:not(:first-child):hover {
   position: fixed;
   right: 20px;
   bottom: 10px;
+  z-index: 9999;
 }
 .arrow{
   width: 200px;
@@ -156,9 +157,9 @@ nav .inner ul li:not(:first-child):hover {
   padding: 30px 30px;
   background-color: #34b496;;
   box-shadow: 0 15px 0 #298c75;
-  border-radius: 50%; 
-  width: 200px; 
-  height: 200px; 
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
   color: #fff;
   transition: all 0.3s;
 }
