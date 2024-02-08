@@ -1,7 +1,11 @@
-<h1>交換完了画面</h1>
-
-
-<% new_point = @child.point - @reward.point %>
-<% @child.update(point: new_point) %>
-<%= new_point%>
-<%= @child.inspect %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <h1 class= "text-center">交換完了画面</h1>
+        <% new_point = @child.point - @reward.point %>
+        <% @child.update(point: new_point) %>
+        <%= new_point%>
+        <%= @child.inspect %>
+    </div>
+  </div>
+</div>
