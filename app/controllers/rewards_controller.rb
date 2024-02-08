@@ -57,18 +57,20 @@ class RewardsController < ApplicationController
     @child = Child.find_by(id: selected_child_id) if selected_child_id.present?
   end
 
-  #def update_child_point
-   # @child = Child.find(params[:id])
-    #@reward = Reward.find(params[:id])
-    #@child_reward = ChildReward.find_by(child: @child, reward: @reward)
-    #redirect_to confirm_path
-  #end
+  def update_child_point
+    @child = Child.find_by(params[:child_id])
+    @reward = Reward.find(params[:id])
+    @child_reward = ChildReward.find_by(child: @child, reward: @reward)
+    redirect_to confirm_path
+  end
 
   def confirm
-    child = Child.find(params[:child_id])  # child_id を使用するように修正
-    reward = Reward.find(params[:reward_id])  # 実際のパラメータ名に合わせて修正
-    new_point = child.point - reward.point
-    child.update(point: new_point)
+    @child = Child.find_by(params[:child_id])
+    @reward = Reward.find_by(params[:reward_id])
+  end
+
+  def order
+    @rewards = current_user.rewards
   end
 
   private
