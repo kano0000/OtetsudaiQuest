@@ -54,7 +54,7 @@ class RewardsController < ApplicationController
     @reward = Reward.find(params[:id])
     @children = current_user.children
     selected_child_id = params[:reward][:child_id] if params[:reward].present?
-    @child = Child.find_by(id: selected_child_id) if selected_child_id.present? # FIXME
+    @child = Child.find(selected_child_id) if selected_child_id.present?
   end
 
   def update_child_point

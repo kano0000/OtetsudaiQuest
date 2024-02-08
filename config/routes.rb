@@ -11,14 +11,16 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   get 'user/menu' => 'users#menu', as: 'menu'
   resources :children, only: [:new, :create, :show, :edit, :update]
-  resources :rewards, only: [:new, :create, :index, :show, :edit, :update]
+  resources :rewards, only: [:new, :create, :index, :show, :edit, :update] do
+    resources :child_rewards, only: [:create]
+  end
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
   post 'rewards/:id/update_child_point' => 'rewards#update_child_point', as: 'update_child_point'
   get 'rewards/:id/confirm' => 'rewards#confirm', as: 'confirm'
   get 'rewards/:id/order' => 'rewards#order', as: 'order'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :child_tasks, only: [:update, :destroy]
+    resources :child_tasks, only: [:update]
   end
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
   #get 'tasks/:id/in_progress' => 'tasks#in_progress', as: 'in_progress'

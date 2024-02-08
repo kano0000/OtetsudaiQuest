@@ -69,7 +69,6 @@ class TasksController < ApplicationController
     elsif @task.status == "again"
       @task.update(status: "reported_complete")
     end
-    # redirect_to in_progress_path(@task)
   end
 
   def thanks
