@@ -53,10 +53,12 @@ class RewardsController < ApplicationController
   def exchange
     @reward = Reward.find(params[:id])
     @children = current_user.children
+    selected_child_id = params[:reward][:child_id] if params[:reward].present?
+    @child = Child.find_by(id: selected_child_id) if selected_child_id.present?
   end
   
   def update_child_point
-    @child = Child.find(params[:child_id])
+    @child = Child.find(params[:id])
     @reward = Reward.find(params[:id])
     @child_reward = ChildReward.find_by(child: @child, reward: @reward)
 

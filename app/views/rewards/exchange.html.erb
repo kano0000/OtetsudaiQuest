@@ -16,7 +16,7 @@
         </tbody>
       </table>
       <h2>交換する人を選んでね</h2>
-      <%= form_with model: @reward do |f| %>
+      <%= form_with model: @reward, url: exchange_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :name, "なまえ" %>
           <%= f.collection_select :child_id, @children, :id, :name, include_blank: "選択して下さい" %>
