@@ -5,27 +5,43 @@
         <div class = "text-center">
           <%= image_tag @child.get_profile_image(300,300) %>
         </div>
-      <table class="table table-bordered table-condensed" style="background-color: #FFFFBB;">
+      <table class="table table-border">
         <tbody>
           <tr>
-            <th style="background-color: #FFBBBB; width: 20%;">なまえ</th>
+            <th>おなまえ</th>
             <td><%=  @child.name %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">お誕生日</th>
+            <th>お誕生日</th>
             <td><%=  @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">年齢</th>
+            <th>年齢</th>
             <td><%=  @child.age %>さい</td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">ひとこと</th>
+            <th>ひとこと</th>
             <td><%=  @child.introduction %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">ポイント数</th>
+            <th>ポイント数</th>
             <td><%=  @child.point %> ポイント</td>
+          </tr>
+          <tr>
+            <th>おてつだいクリア数</th>
+            <td>回</td>
+          </tr>
+          <tr>
+            <th>レベル</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>すきなたべもの</th>
+            <td>回</td>
+          </tr>
+          <tr>
+            <th>しょうらいのゆめ</th>
+            <td>回</td>
           </tr>
         </tbody>
       </table>
