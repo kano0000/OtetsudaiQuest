@@ -5,6 +5,15 @@
 * {
   font-family: 'Kosugi Maru', sans-serif;
 }
+
+body {
+  background-color: #0c548c;
+}
+
+.title {
+  color: #f7c453;
+}
+
 /*============
 ハンバーガーメニュー
 =============*/
@@ -179,4 +188,38 @@ nav .inner ul li:not(:first-child):hover {
 .custom-button:visited {
   text-decoration: none;
   color: #fff;
+}
+
+/*============
+#card
+=============*/
+
+.panel-box .panel {
+  position:relative;
+  overflow:hidden;
+}
+
+.panel {
+  background-color: #F8F5E7;
+}
+
+.panel-box .panel::before {
+  position:absolute;
+  top:0;
+  left:-100%;
+  bottom:0;
+  margin:auto 0;
+  width:100px;
+  height:200%;
+  content:"";
+  background:linear-gradient(to right, #fff, #fff 10%, transparent 10%, transparent 20%, #fff 20%, #fff 90%, transparent 90%, transparent 94%, #fff 94%);
+  opacity:0.3;
+  transform:translate(-50%) rotate(45deg);
+  transition:left 0.6s ease-in, transform 0.6s ease-in;
+}
+
+.panel-box .panel:hover::before {
+  left:150%;
+  transform:translate(50%) rotate(45deg);
+  transition-timing-function:ease-out, ease-out;
 }

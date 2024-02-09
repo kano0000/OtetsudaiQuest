@@ -1,5 +1,5 @@
 .main-visual {
-  background-image: url('/assets/top.png'); 
+  background-image: url('/assets/top1.png'); 
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;
@@ -167,8 +167,7 @@
 }
 
 .top-main {
-  background: #3c4c74;
-  height: 1000px;
+   height: 1000px;
 }
 
 .top-main .container {

@@ -26,8 +26,11 @@
           <%= f.label :published, "準備中" %>
         </div>
         <div class="form-group">
-          <%= f.submit "更新する", class: "btn btn-secondary" %>
+          <%= f.submit "更新する", class: "btn btn-success", style: "border-radius: 12px;" %>
         </div>
+        <div class="col mb-2 mx-auto">
+          <%= link_to "削除する", reward_path(@reward), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
+          </div>
         <% end %>
     </div>
   </div>

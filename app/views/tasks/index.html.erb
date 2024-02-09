@@ -9,12 +9,14 @@
         <% @tasks.each do |task| %>
           <div class="col-12 col-md-6 col-lg-4">
             <%= link_to task_path(task), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
-              <div class="card mb-4 shadow-lg">
-                <%= image_tag task.get_quest_image(200,200) %>
-                  <div class="card-body">
-                    <p class="text-center"><%= task.task_list.name %><p>
-                    <p class="text-center"><%= task.point %> ポイント</p>
-                  </div>
+              <div class = "panel-box">
+                <div class="card mb-4 shadow-lg panel">
+                  <%= image_tag task.get_quest_image(200,200) %>
+                    <div class="card-body">
+                      <p class="text-center"><%= task.task_list.name %><p>
+                      <p class="text-center"><%= task.point %> ポイント</p>
+                    </div>
+                 </div>
                </div>
             <% end %>
           </div>

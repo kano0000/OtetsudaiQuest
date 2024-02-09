@@ -3,7 +3,7 @@
 <% if child.point.to_i > reward.point.to_i %>
   <h4>交換すると<strong><%= child.point - reward.point %>ポイント</strong>になるよ</h4>
   <div class = "m-3">
-    <%= link_to "本当に交換する？", update_child_point_path(reward, child_id: child.id), remote: true, method: :post, class: "btn btn-danger" %>
+    <%= link_to "本当に交換する？", update_child_point_path(reward, child_id: child.id), method: :post, class: "btn btn-danger" %>
   </div>
 <% else %>
   <h4><strong>ポイントが足りないよ</strong></h4>

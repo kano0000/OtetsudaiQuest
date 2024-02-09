@@ -1,11 +1,11 @@
 <div class="container mt-5">
   <div class = "row col-11 mx-auto">
     <div class = "col-md-4">
-      <h2 class = "mb-3">マイページ</h2>
-        <table class = "table table-borderd">
-          <tr>
-            <%= image_tag @user.get_profile_image(150,150) %>
-          </tr>
+      <h1 class = "mb-3 title"><strong>マイページ</strong></h1>
+        <div class = "text-center">
+          <%= image_tag @user.get_profile_image(150,150) %>
+        </div>
+        <table class = "table table-borderd mb-4", style = "color:#ffffff;">
           <tr>
             <th style = "width: 35%;">なまえ</th>
             <th><%= @user.name %></th>
@@ -18,9 +18,12 @@
           <%= link_to edit_user_path(@user), class: "btn btn-warning btn-block" do %>
             <i class="fa-solid fa-pen-to-square"></i>
           <% end %>
+          <div class = "mt-4">
+            <%= image_tag "mypage.png", :size => "300x190" %>
+          </div>
     </div>
     <div class = "col-md-7 offset-md-1">
-      <h2 class = "mb-3">メンバー一覧</h2>
+      <h1 class = "mb-3 title"><strong>パーティーメンバー</strong></h1>
         <%= render 'children/index', children: @children %>
     </div>
   </div>

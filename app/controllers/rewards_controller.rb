@@ -45,6 +45,12 @@ class RewardsController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    reward = Reward.find(params[:id])
+    reward.destroy
+    redirect_to rewards_admin_index_path(id: current_user.id)
+  end
 
   def admin_index
     @rewards  = current_user.rewards
@@ -67,6 +73,7 @@ class RewardsController < ApplicationController
   def confirm
     @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:reward_id])
+    ChildReward.create(child: @child, reward: @reward)
   end
 
   def order

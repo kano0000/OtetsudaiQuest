@@ -3,10 +3,8 @@ class ChildRewardsController < ApplicationController
   
   def create
     child = Child.find(params[:child_id])
-    rewards = Reward.find(params[:reward_id])
-    
-    ChildRewards.create(child: @child, reward: @reward)
-
-    
+    reward = current_user.child_rewards.new(child_id: child.id)
+    reward.save    
+    redirect_to request.referer
   end
 end
