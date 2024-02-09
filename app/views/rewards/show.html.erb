@@ -2,23 +2,23 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class="mb-4 title"><strong><%= @reward.name %></strong></h1>
-      <table class="table table-bordered table-condensed" style="background-color: #FFFFBB;">
+      <table class="table table-bordered table-condensed" style="background-color: #FFF7D8;">
         <tbody>
           <%= image_tag @reward.get_gift_image(200,200) %>
           <tr>
-            <th style="background-color: #FFBBBB; width: 20%;">なまえ</th>
+            <th style="background-color: #FF8C00; width: 20%;">なまえ</th>
             <td><%=  @reward.name %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">ポイント数</th>
+            <th style="background-color: #FF8C00;">ポイント数</th>
             <td><%=  @reward.point %> ポイント</td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">メッセージ</th>
+            <th style="background-color: #FF8C00;">メッセージ</th>
             <td><%=  @reward.description %></td>
           </tr>
           <tr>
-            <th style="background-color: #FFBBBB;">交換</th>
+            <th style="background-color: #FF8C00;">交換</th>
             <% if @reward.published == true %>
               <td>公開中</td>
             <% else %>
