@@ -1,36 +1,35 @@
-<div style= "background-color:#0c548c;">
-  <div class= "container">
-    <div class="row">
-    <div class= "col-10 mt-5 mx-auto">
-      <h1 class="mb-5 title text-center" style="font-weight:bold; color:#FF9900; font-size:50px;"><strong>メニュー</strong></h1>
-        <div class="row mb-5">
-          <div class="col-6">
-            <%= link_to tasks_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-              <div class="card shadow-lg" style= "background-color:#f46c5c;">
-                <div class="card-body">
-                  <h3 class="text-center mt-2"><strong>クエストを選ぶ</strong></h3><br>
-                  <p class="text-center mt-3"><i class="fa-solid fa-house-chimney fa-5x"></i></p>
-                </div>
+<div class= "container">
+  <div class="row">
+  <div class= "col-10 mt-5 mx-auto">
+    <h1 class="mb-5 title text-center"><strong>メニュー</strong></h1>
+      <div class="row mb-5">
+        <div class="col-6">
+          <%= link_to tasks_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+            <div class="card shadow-lg" style= "background-color:#f46c5c;">
+              <div class="card-body">
+                <h3 class="text-center mt-2"><strong>クエストを選ぶ</strong></h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-house-chimney fa-5x"></i></p>
               </div>
-            <% end %>
-          </div>
-          <div class="col-6">
-            <%= link_to rewards_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-              <div class="card shadow-lg" style= "background-color:#f7c453;">
-                <div class="card-body">
-                  <h3 class="text-center mt-2"><strong>プレゼントを選ぶ</strong></h3><br>
-                  <p class="text-center mt-3"><i class="fa-solid fa-gift fa-5x"></i></p>
-                </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to rewards_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+            <div class="card shadow-lg" style= "background-color:#f7c453;">
+              <div class="card-body">
+                <h3 class="text-center mt-2"><strong>プレゼントを選ぶ</strong></h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-gift fa-5x"></i></p>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row mt-5">
-      <%= image_tag "about.png", :size => "1000x550" %>
-    </div>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <%= image_tag "about.png", :size => "1000x550" %>
   </div>
+</div>
 </div>
