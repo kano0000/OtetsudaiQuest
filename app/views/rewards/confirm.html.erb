@@ -1,11 +1,12 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 mx-auto">
-      <h1 class= "text-center">交換完了画面</h1>
+      <h1 class= "title">交換完了！！</h1>
+      <p>交換したよ！これからもお手伝い頑張ってね</p>
         <% new_point = @child.point - @reward.point %>
         <% @child.update(point: new_point) %>
-        <%= new_point%>
-        <p>交換したよ！これからもお手伝い頑張ってね</p>
+        <h2><%= @child.name%></h2>
+        <p><%= new_point%></p>
     </div>
-  </div><%= @child.inspect %>
+  </div>
 </div>
