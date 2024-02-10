@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_06_131328) do
+ActiveRecord::Schema.define(version: 2024_02_10_071050) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2024_02_06_131328) do
     t.integer "reward_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "presented_date"
     t.index ["child_id"], name: "index_child_rewards_on_child_id"
     t.index ["reward_id"], name: "index_child_rewards_on_reward_id"
   end

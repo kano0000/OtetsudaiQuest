@@ -45,7 +45,7 @@ class RewardsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     reward = Reward.find(params[:id])
     reward.destroy
@@ -81,9 +81,19 @@ class RewardsController < ApplicationController
     @child_rewards = current_user.child_rewards.page(params[:page])
   end
 
+  def order_update
+    @child_reward = current_user.child_rewards.find(params[:child_reward_id])
+    @child_reward.update(presented_date: presented_date_params[:presented_date])
+    redirect_to order_path
+  end
+
   private
 
   def reward_params
     params.require(:reward).permit(:name, :description, :gift_image, :point, :published)
+  end
+
+  def presented_date_params
+    params.require(:child_reward).permit(:presented_date)
   end
 end

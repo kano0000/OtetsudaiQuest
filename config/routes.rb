@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about', as: "about"
   resources :users, only: [:show, :edit, :update]
   get 'user/menu' => 'users#menu', as: 'menu'
+  get 'rewards/order' => 'rewards#order', as: 'order'
   resources :children, only: [:new, :create, :show, :edit, :update]
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :child_rewards, only: [:create]
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
   post 'rewards/:id/update_child_point' => 'rewards#update_child_point', as: 'update_child_point'
   get 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
-  get 'rewards/:id/order' => 'rewards#order', as: 'order'
+  patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :child_tasks, only: [:update]

@@ -9,13 +9,27 @@
           <th>プレゼント名</th>
           <th>渡した日</th>
         </tr>
-        <% @child_rewards.each do |child_reward| %>
-          <tr>
-            <th><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></th>
-            <th><%= child_reward.child.name %></th>
-            <th><%= child_reward.reward.name %></th>
-          </tr>
-        <% end %>
+          <% @child_rewards.each do |child_reward| %>
+            <tr>
+              <td><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></td>
+              <td><%= child_reward.child.name %></td>
+              <td><%= child_reward.reward.name %></td>
+              <td>
+                <% if child_reward.presented_date.nil? %>
+                  <%= form_with model: child_reward, url: order_update_path(child_reward.id) do |f| %>
+                  <%= f.date_field :presented_date, class: "form-control" %>
+                  <%= f.submit "登録する", class: "btn btn-primary" %>
+                  <% end %>
+                <% else %>
+                  <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+              <td>
+              </td>
+            
+        
       </table>
       <div class = "pagination">
         <%= paginate @child_rewards %>
