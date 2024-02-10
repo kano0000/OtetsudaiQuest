@@ -27,8 +27,8 @@ class Child < ApplicationRecord
     end
   end
 
-  def having_points
-
-  end
+  # def num_clear
+  #   child_tasks.count
+  # end
 
 end

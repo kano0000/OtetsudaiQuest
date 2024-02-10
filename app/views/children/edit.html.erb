@@ -13,6 +13,14 @@
           <%= f.date_field :birth_at, class: "form-control" %>
         </div>
         <div class="form-group">
+          <%= f.label :favorite_food, "すきなたべもの" %>
+          <%= f.text_field :favorite_food, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :future_dream, "しょうらいのゆめ" %>
+          <%= f.text_field :future_dream, class: "form-control" %>
+        </div>
+        <div class="form-group">
           <%= f.label :introduction, "ひとこと" %>
           <%= f.text_area :introduction, class: "form-control"%>
         </div>

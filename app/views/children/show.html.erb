@@ -12,27 +12,27 @@
         <tbody>
           <tr>
             <th>おなまえ</th>
-            <td><%=  @child.name %></td>
+            <td><%= @child.name %></td>
           </tr>
           <tr>
             <th>お誕生日</th>
-            <td><%=  @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
+            <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
           </tr>
           <tr>
             <th>年齢</th>
-            <td><%=  @child.age %>さい</td>
+            <td><%= @child.age %>さい</td>
           </tr>
           <tr>
             <th>ひとこと</th>
-            <td><%=  @child.introduction %></td>
+            <td><%= @child.introduction %></td>
           </tr>
           <tr>
             <th>ポイント数</th>
-            <td><%=  @child.point %> ポイント</td>
+            <td><%= @child.point %> ポイント</td>
           </tr>
           <tr>
             <th>おてつだいクリア数</th>
-            <td>回</td>
+            <td><%= ChildTask.where(child_id: @child.id).count %>回</td>
           </tr>
           <tr>
             <th>レベル</th>
@@ -40,11 +40,11 @@
           </tr>
           <tr>
             <th>すきなたべもの</th>
-            <td></td>
+            <td><%= @child.favorite_food %></td>
           </tr>
           <tr>
             <th>しょうらいのゆめ</th>
-            <td></td>
+            <td><%= @child.future_dream %></td>
           </tr>
         </tbody>
       </table>
