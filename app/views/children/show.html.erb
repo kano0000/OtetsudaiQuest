@@ -4,16 +4,13 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto", style = "padding: 15px; margin-bottom: 10px; background-color: #FFF7D8;">
+      <h2 class="mt-3 text-center", style="color:#ff9933;"><strong><%= I18n.t("enums.child.level.#{@level}") %> のおてつだいヒーロー</strong></h2>
       <h1 class="mb-4 p-3 title" style = "border-bottom: 4px dashed;"><strong><%= @child.name %></strong></h1>
         <div class = "text-center">
           <%= image_tag @child.get_profile_image(300,300) %>
         </div>
       <table class="table table-border">
         <tbody>
-          <tr>
-            <th>おなまえ</th>
-            <td><%= @child.name %></td>
-          </tr>
           <tr>
             <th>お誕生日</th>
             <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
@@ -32,11 +29,7 @@
           </tr>
           <tr>
             <th>おてつだいクリア数</th>
-            <td><%= ChildTask.where(child_id: @child.id).count %>回</td>
-          </tr>
-          <tr>
-            <th>レベル</th>
-            <td></td>
+            <td><%= @num_clear %>回</td>
           </tr>
           <tr>
             <th>すきなたべもの</th>

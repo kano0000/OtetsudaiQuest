@@ -1,10 +1,10 @@
 class ChildrenController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @child = Child.new
   end
-  
+
   def create
     @child = Child.new(child_params)
     @child.user_id = current_user.id
@@ -16,15 +16,17 @@ class ChildrenController < ApplicationController
     end
 
   end
-  
+
   def show
     @child = Child.find(params[:id])
+    @num_clear = ChildTask.where(child_id: @child.id).count
+    @level = @child.level(@num_clear)
   end
-  
+
   def edit
     @child = Child.find(params[:id])
   end
-  
+
   def update
     @child = Child.find(params[:id])
     if @child.update(child_params)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_10_115416) do
+ActiveRecord::Schema.define(version: 2024_02_10_123821) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2024_02_10_115416) do
     t.integer "user_id", null: false
     t.string "favorite_food"
     t.string "future_dream"
+    t.integer "level", default: 0
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 

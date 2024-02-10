@@ -7,6 +7,12 @@ ja:
         reported_complete: "完了報告"
         again: "やりなおし"
         completed: "完了"
+    child:
+      level:
+        beginner: "かけだし"
+        normal: "ふつう"
+        master: "達人"
+        legend: "伝説"
   activerecord:
     errors:
       messages:

@@ -9,6 +9,27 @@ class Child < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true, length: {in: 2..20}
+  
+  # レベル => 0:かけだし 1:ふつう 2:達人 3:伝説
+  enum level: {
+    beginner: 0,
+    normal: 1,
+    master: 2,
+    legend: 3,
+  }
+  
+  def level(num_clear)
+    case num_clear
+    when 1..5
+      :beginner
+    when 6..15
+      :normal
+    when 16..25
+      :master
+    else
+      :legend
+    end
+  end
 
   def get_profile_image(width,height)
     unless profile_image.attached?
@@ -26,17 +47,5 @@ class Child < ApplicationRecord
       nil
     end
   end
-
-  # def num_clear
-  #   child_tasks.count
-  # end
   
-  # ステータス => 0:準備中 1:実行中 2:完了報告 3:やりなおし 4:完了
-  enum status: {
-    preparing: 0,
-    in_progress: 1,
-    reported_complete: 2,
-    again: 3,
-    completed: 4
-  }
 end
