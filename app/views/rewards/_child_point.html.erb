@@ -1,3 +1,4 @@
+<div class = "m-3 p-3 text-center" style="background-color: #FFF7D8;">
 <h2 class = "border-bottom m-3"><%= child.name %></h2>
 <h4>持っているポイント : <strong><%= child.point %> ポイント</strong></h4>
 <% if child.point.to_i > reward.point.to_i %>
@@ -8,3 +9,4 @@
 <% else %>
   <h4><strong>ポイントが足りないよ</strong></h4>
 <% end %>
+</div>
