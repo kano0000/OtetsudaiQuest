@@ -16,9 +16,18 @@ body {
   text-align: center;
 }
 
+
 /*============
 ハンバーガーメニュー
 =============*/
+
+.open #navArea nav {
+  left: 0;
+  opacity: 1;
+}
+
+#navArea {
+
 nav {
   display: block;
   position: fixed;
@@ -34,10 +43,7 @@ nav {
   z-index: 3;
   opacity: 0;
 }
-.open nav {
-  left: 0;
-  opacity: 1;
-}
+
 nav .inner {
   padding: 25px;
 }
@@ -69,6 +75,7 @@ nav .inner ul li:not(:first-child):hover {
     left: -220px;
     width: 220px;
   }
+}
 }
 /*============
 .toggle_btn
@@ -232,4 +239,16 @@ nav .inner ul li:not(:first-child):hover {
 
 .point-area {
   height: 220px;
+}
+
+/*============
+#text-color
+=============*/
+
+.text-decoration {
+  text-decoration: none; 
+}
+
+.text-white {
+  color: #fff
 }

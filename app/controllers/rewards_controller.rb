@@ -78,7 +78,7 @@ class RewardsController < ApplicationController
   end
 
   def order
-    @child_rewards = current_user.child_rewards
+    @child_rewards = current_user.child_rewards.page(params[:page])
   end
 
   private

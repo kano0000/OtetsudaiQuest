@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title">交換履歴</h1>
-      <table class = "table", style = "color: #fff;">
+      <table class = "table text-white">
         <tr>
           <th>日にち</th>
           <th>名前</th>
@@ -11,12 +11,17 @@
         </tr>
         <% @child_rewards.each do |child_reward| %>
           <tr>
-            <th><%= child_reward.created_at %></th>
+            <th><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></th>
             <th><%= child_reward.child.name %></th>
             <th><%= child_reward.reward.name %></th>
           </tr>
         <% end %>
       </table>
+      <div class = "text-center text-white">
+        <%= paginate @child_rewards %>
+      </div>
     </div>
   </div>
 </div>
+
+
