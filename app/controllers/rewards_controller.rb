@@ -78,7 +78,8 @@ class RewardsController < ApplicationController
   end
 
   def order
-    @child_rewards = current_user.child_rewards.page(params[:page])
+    @child_rewards = current_user.child_rewards.order(created_at: :desc).page(params[:page])
+    #@child_rewards = current_user.child_rewards.page(params[:page])
   end
 
   def order_update
