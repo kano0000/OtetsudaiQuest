@@ -1,5 +1,4 @@
 class Child < ApplicationRecord
-
   belongs_to :user
   has_many :child_rewards
   has_many :rewards, through: :child_rewards

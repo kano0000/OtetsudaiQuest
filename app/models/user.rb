@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :rewards, dependent: :destroy
   has_many :task_lists, dependent: :destroy
   has_many :tasks, dependent: :destroy
-  
+  has_many :child_rewards, through: :rewards
+
   has_one_attached :profile_image
   validates :name, presence: true, uniqueness: true, length: {in: 2..20}
   

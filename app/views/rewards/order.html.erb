@@ -9,7 +9,12 @@
           <th>プレゼント名</th>
           <th>渡した日</th>
         </tr>
-        <% @rewards.each do |reward| %>
+        <% @child_rewards.each do |child_reward| %>
+          <tr>
+            <th><%= child_reward.created_at %></th>
+            <th><%= child_reward.child.name %></th>
+            <th><%= child_reward.reward.name %></th>
+          </tr>
         <% end %>
       </table>
     </div>
