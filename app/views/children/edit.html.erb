@@ -1,37 +1,39 @@
 <div class = "container mt-5">
   <div class = "row">
     <div class = "col-8 mx-auto">
-      <h1><%= @child.name %>　のプロフィール</h1>
-        <%= render "layouts/errors", obj: @child %>
-        <%= form_with model: @child do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "なまえ" %>
-          <%= f.text_field :name, class: "form-control" %>
+      <h1 class = "title mb-3"><%= @child.name %>　のプロフィール</h1>
+        <div class = " bg-offwhite p-3">
+          <%= render "layouts/errors", obj: @child %>
+          <%= form_with model: @child do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "なまえ" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :birth_at, "誕生日" %>
+            <%= f.date_field :birth_at, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :favorite_food, "すきなたべもの" %>
+            <%= f.text_field :favorite_food, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :future_dream, "しょうらいのゆめ" %>
+            <%= f.text_field :future_dream, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction, "ひとこと" %>
+            <%= f.text_area :introduction, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :image, "写真を変更" %>
+            <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "更新する", class: "btn btn-info" %>
+          </div>
+          <% end %>
         </div>
-        <div class="form-group">
-          <%= f.label :birth_at, "誕生日" %>
-          <%= f.date_field :birth_at, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :favorite_food, "すきなたべもの" %>
-          <%= f.text_field :favorite_food, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :future_dream, "しょうらいのゆめ" %>
-          <%= f.text_field :future_dream, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :introduction, "ひとこと" %>
-          <%= f.text_area :introduction, class: "form-control"%>
-        </div>
-        <div class="form-group">
-          <%= f.label :image, "写真を変更" %>
-          <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "更新する", class: "btn btn-info" %>
-        </div>
-        <% end %>
     </div>
   </div>
 </div>
