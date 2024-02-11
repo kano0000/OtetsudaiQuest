@@ -46,7 +46,7 @@ class TasksController < ApplicationController
       render :show
     end
   end
-  
+
   def destroy
     task = Task.find_by(id: params[:id])
     task.destroy
@@ -80,6 +80,12 @@ class TasksController < ApplicationController
   def thanks
     @task = Task.find(params[:id])
     @children = @task.children
+  end
+
+  def thanks_view
+    @task = Task.find(params[:id])
+    @children = @task.children
+    render 'tasks/thanks'
   end
 
   private

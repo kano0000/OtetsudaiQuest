@@ -24,7 +24,8 @@ Rails.application.routes.draw do
     resources :child_tasks, only: [:update]
   end
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
-  get 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
+  post 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
+  get 'tasks/:id/thanks' => 'tasks#thanks_view'
 
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'

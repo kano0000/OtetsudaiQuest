@@ -1,37 +1,40 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 mx-auto">
-      <h1 class= "title">おめでとう !!</h1>
-       <div class="m-5 pt-3 col-9 mx-auto" style="background-color: #FFF7D8;">
+      <h1 class= "title m-0">おめでとう !!</h1>
+       <div class="m-5 p-3 col-9 mx-auto" style="background-color: #FFF7D8;">
           <div class = "m-3 p-4" style="background-color: #ffff99;" >
-            <h1 class = "text-center", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h1>
+            <h1 class = "text-center m-0", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h1>
           </div>
-          <div class="point-area mt-4">
-            <h2 class = "text-center">持っているポイント</h2>
+          <div class="point-area my-4">
+            <h2 class = "text-center m-0">持っているポイント</h2>
             <table class = "table mt-4"  style = "font-size: 20px;">
               <% @children.each do |child| %>
               <tr>
                 <th><%= child.name %></th>
                 <th><%= child.point %></th>
                 <th> >> </th>
+                <% if request.post? %>
                   <% new_point = child.point + @task.point %>
                   <% child.update(point: new_point) %>
-                <th><%= new_point %></th>
+                <% end %>
+                <th><%= request.post? ? new_point : child.point %></th>
               </tr>
               <% end %>
             </table>
-            <div class = "mt-4">
-              <%= link_to about_path,class: "btn btn-info" do %>
-                <i class="fa-solid fa-caret-left"></i> もどる
-              <% end %>
-              <%= link_to user_path(current_user),class: "btn btn-success" do %>
-                <i class="fa-solid fa-user"></i> マイページへ
-              <% end %>
-            </div>
         </div>
+      </div>
+      <div class="m-5 col-9 mx-auto">
+        <%= link_to about_path,class: "btn btn-info" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
+        <%= link_to user_path(current_user),class: "btn btn-success" do %>
+          <i class="fa-solid fa-user"></i> マイページへ
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 <div>
-  <%= image_tag "thanks.png", :size => "1200x400" %>
+  <%= image_tag "thanks.png", class: "img-fluid bg-bottom" %>
 </div>

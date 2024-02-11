@@ -9,7 +9,7 @@ class Child < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true, length: {in: 2..20}
-  
+
   # レベル => 0:かけだし 1:ふつう 2:達人 3:伝説
   enum level: {
     beginner: 0,
@@ -17,7 +17,7 @@ class Child < ApplicationRecord
     master: 2,
     legend: 3,
   }
-  
+
   def level(month_clear)
     case month_clear.to_i
     when 0..5
@@ -47,5 +47,5 @@ class Child < ApplicationRecord
       nil
     end
   end
-  
+
 end

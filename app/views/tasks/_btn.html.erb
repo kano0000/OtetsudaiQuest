@@ -8,5 +8,5 @@
 <% elsif task.status == "again" %>
   <%= link_to "できた！", thanks_path(task), class: 'custom-button' %>
 <% elsif task.status == "completed"%>
-  <%= link_to "クリア！！", thanks_path(task), class: 'custom-button' %>
+  <%= link_to "クリア！！", thanks_path(task), method: :post, class: 'custom-button' %>
 <% end %>

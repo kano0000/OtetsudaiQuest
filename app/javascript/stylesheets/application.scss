@@ -261,11 +261,18 @@ nav .inner ul li:not(:first-child):hover {
 #point-area
 =============*/
 
-.point-area {
-  height: 220px;
-}
+// .point-area {
+//   height: 220px;
+// }
 
 .pagination {
   justify-content: center;
   margin-top: 20px;
+}
+
+.bg-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -9999;
 }
