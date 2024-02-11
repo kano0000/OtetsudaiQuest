@@ -11,6 +11,10 @@
 #bg-color
 =============*/
 
+.grayscaled {
+  filter: grayscale(90%);
+}
+
 body {
   background-color: #0c548c;
 }

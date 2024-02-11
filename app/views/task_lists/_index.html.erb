@@ -1,15 +1,15 @@
-<table class="table border-top border-bottom table-condensed mt-4" style="background-color: #FFF7D8;">
+<table class="table border-top border-bottom table-condensed mt-4 bg-offwhite">
   <thead class="thead-center">
-    <tr>
-      <th class="text-center" style="background-color: #FF8C00; padding-right: 50px;">お手伝い名</th>
-      <th class="text-center" style="background-color: #FF8C00;"></th>
+    <tr class="text-center bg-orange">
+      <th>お手伝い名</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% task_lists.each do |task_list| %>
-      <tr>
-        <td class="text-center align-middle" style="padding-right: 50px;"><%= task_list.name %></td>
-        <td class="text-center align-middle">
+      <tr class="text-center align-middle">
+        <td><%= task_list.name %></td>
+        <td>
           <%= link_to "編集する", edit_task_list_path(task_list), class: "btn btn-warning btn-sm", style: "border-radius: 12px;" %>
         </td>
       </tr>

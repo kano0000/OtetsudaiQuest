@@ -19,7 +19,7 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find(params[:id])
-    @num_clear = ChildTask.where(child_id: @child.id).count
+    @num_clear =  @child.tasks.where(status: 4).count
     @level = @child.level(@num_clear)
   end
 

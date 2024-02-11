@@ -4,7 +4,7 @@
       <h2 class="m-5 title"><strong><%= @task_list.name %> を編集する</strong></h2>
 
       <%= form_with model: @task_list, method: :patch do |f| %>
-        <div class="form-row align-items-center p-5" , style = "padding: 15px; margin-bottom: 10px; background-color: #FFF7D8;">
+        <div class="form-row align-items-center p-5 bg-offwhite">
           <div class="col-md-3 mb-1 text-md-right mx-auto">
             <%= f.label :name, "お手伝い名" %>
           </div>
