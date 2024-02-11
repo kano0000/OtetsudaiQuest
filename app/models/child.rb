@@ -20,7 +20,7 @@ class Child < ApplicationRecord
   
   def level(num_clear)
     case num_clear
-    when 1..5
+    when 0..5
       :beginner
     when 6..15
       :normal

@@ -6,9 +6,26 @@
   font-family: 'Kosugi Maru', sans-serif;
 }
 
+
+/*============
+#bg-color
+=============*/
+
 body {
   background-color: #0c548c;
 }
+
+.bg-offwhite {
+  background-color: #FFF7D8
+}
+
+.bg-orange {
+  background-color: #FF8C00
+}
+
+/*============
+#text-color
+=============*/
 
 .title {
   color: #f7c453;
@@ -16,6 +33,9 @@ body {
   text-align: center;
 }
 
+.text-white {
+  color: #fff
+}
 
 /*============
 ハンバーガーメニュー
@@ -241,15 +261,7 @@ nav .inner ul li:not(:first-child):hover {
   height: 220px;
 }
 
-/*============
-#text-color
-=============*/
-
 .pagination {
   justify-content: center;
   margin-top: 20px;
-}
-
-.text-white {
-  color: #fff
 }
