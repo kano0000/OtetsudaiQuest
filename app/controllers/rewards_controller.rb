@@ -79,7 +79,8 @@ class RewardsController < ApplicationController
 
   def order
     @child_rewards = current_user.child_rewards.order(created_at: :desc).page(params[:page])
-    #@child_rewards = current_user.child_rewards.page(params[:page])
+    unread_notifications = current_user.notifications.where(read: false)
+    unread_notifications.update_all(read: true)
   end
 
   def order_update

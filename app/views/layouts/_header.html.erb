@@ -25,6 +25,7 @@
         <li class="nav-item">
           <%= link_to menu_path do %>
             <i class="fa-solid fa-gear"></i> おうちの方はこちら
+            <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
           <% end %>
         </li>
       </ul>
@@ -36,10 +37,7 @@
     <span></span>
     <span></span>
   </div>
-
-
   <div id="mask"></div>
-
 </div>
 
 
