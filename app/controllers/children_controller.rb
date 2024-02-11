@@ -19,7 +19,8 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find(params[:id])
-    @num_clear =  @child.tasks.where(status: "completed").count
+    @total_clear = @child.tasks.where(status: "completed").count
+    @month_clear = @child.tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
     @level = @child.level(@num_clear)
   end
 

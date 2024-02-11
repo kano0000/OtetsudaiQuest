@@ -18,8 +18,8 @@ class Child < ApplicationRecord
     legend: 3,
   }
   
-  def level(num_clear)
-    case num_clear
+  def level(month_clear)
+    case month_clear.to_i
     when 0..5
       :beginner
     when 6..15
