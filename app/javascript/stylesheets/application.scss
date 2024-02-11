@@ -8,15 +8,21 @@
 
 
 /*============
-#bg-color
+#bg
 =============*/
+body {
+  background-color: #0c548c;
+}
+
+.bg-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -9999;
+}
 
 .grayscaled {
   filter: grayscale(100%);
-}
-
-body {
-  background-color: #0c548c;
 }
 
 .bg-offwhite {
@@ -257,22 +263,7 @@ nav .inner ul li:not(:first-child):hover {
   transition-timing-function:ease-out, ease-out;
 }
 
-/*============
-#point-area
-=============*/
-
-// .point-area {
-//   height: 220px;
-// }
-
 .pagination {
   justify-content: center;
   margin-top: 20px;
-}
-
-.bg-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: -9999;
 }
