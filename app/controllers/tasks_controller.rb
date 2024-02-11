@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     elsif params[:most_point]
       @tasks = current_user.tasks.order(point: :desc)
     else
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order(created_at: :desc)
     end
   end
 

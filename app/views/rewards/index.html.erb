@@ -8,16 +8,28 @@
       <div class="row">
         <% @rewards.each do |reward| %>
           <div class="col-12 col-md-6 col-lg-4">
-            <%= link_to reward_path(reward), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
+            <% if reward.published == true %>
+              <%= link_to reward_path(reward), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
+                <div class = "panel-box">
+                  <div class="card mb-4 shadow-lg panel">
+                    <%= image_tag reward.get_gift_image(200,200) %>
+                      <div class="card-body">
+                        <p class="text-center"><%= reward.name %><p>
+                        <p class="text-center"><%= reward.point %> ポイント</p>
+                      </div>
+                   </div>
+                </div>
+              <% end %>
+            <% else %>
               <div class = "panel-box">
-              <div class="card mb-4 shadow-lg panel">
-                <%= image_tag reward.get_gift_image(200,200) %>
-                  <div class="card-body">
-                    <p class="text-center"><%= reward.name %><p>
-                    <p class="text-center"><%= reward.point %> ポイント</p>
-                  </div>
-               </div>
-               </div>
+                <div class="card mb-4 shadow-lg panel grayscaled">
+                  <%= image_tag reward.get_gift_image(200,200) %>
+                    <div class="card-body">
+                      <p class="text-center"><%= reward.name %><p>
+                      <p class="text-center"><%= reward.point %> ポイント</p>
+                    </div>
+                </div>
+              </div>
             <% end %>
           </div>
         <% end %>
