@@ -1,8 +1,11 @@
-<div class="container mt-5">
+<div class = "text-center">
+  <%= image_tag "star4.png", class: "img-fluid" %>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title m-0">おめでとう !!</h1>
-       <div class="m-5 p-3 col-9 mx-auto bg-offwhite">
+       <div class="m-3 p-3 col-9 mx-auto bg-offwhite">
           <div class = "m-3 p-4" style="background-color: #ffff99;" >
             <h1 class = "text-center m-0", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h1>
           </div>
@@ -24,7 +27,7 @@
             </table>
         </div>
       </div>
-      <div class="m-5 col-9 mx-auto">
+      <div class="m-3 col-9 mx-auto">
         <%= link_to about_path,class: "btn btn-info" do %>
           <i class="fa-solid fa-caret-left"></i> もどる
         <% end %>
