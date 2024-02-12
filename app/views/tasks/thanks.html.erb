@@ -1,13 +1,10 @@
-<div class = "text-center">
-  <%= image_tag "star4.png", class: "img-fluid" %>
-</div>
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title m-0">おめでとう !!</h1>
        <div class="m-3 p-3 col-9 mx-auto bg-offwhite">
-          <div class = "m-3 p-4" style="background-color: #ffff99;" >
-            <h1 class = "text-center m-0", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h1>
+          <div class="m-3 p-3" style="background-color: #ffff99;" >
+            <h2 class = "text-center m-0", style = "color:#ff3333;"><strong><%= @task.point %> ポイントゲット</strong></h2>
           </div>
           <div class="point-area my-4">
             <h2 class = "text-center m-0">持っているポイント</h2>
@@ -41,3 +38,47 @@
 <div>
   <%= image_tag "thanks.png", class: "img-fluid bg-bottom" %>
 </div>
+
+<script>
+
+var duration = 7 * 1000;
+
+var animationEnd = Date.now() + duration;
+
+var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+
+
+function randomInRange(min, max) {
+
+return Math.random() * (max - min) + min;
+
+}
+
+
+
+var interval = setInterval(function() {
+
+var timeLeft = animationEnd - Date.now();
+
+
+
+if (timeLeft <= 0) {
+
+return clearInterval(interval);
+
+}
+
+
+
+var particleCount = 50 * (timeLeft / duration);
+
+// since particles fall down, start a bit higher than random
+
+confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+
+confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+
+}, 250);
+
+</script>
