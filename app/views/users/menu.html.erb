@@ -42,7 +42,10 @@
             <div class="card shadow-lg" style= "background-color:#f7c453;">
               <div class="card-body">
                 <h3 class="text-center mt-2"><strong>プレゼント交換履歴</strong>
-                <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
+                <% notifications_count = current_user.notifications.where(read: false).count %>
+                <% if notifications_count > 0 %>
+                  <span class="badge badge-danger"><%= notifications_count %></span>
+                <% end %>
                 </h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-cart-shopping fa-3x"></i></p>
               </div>
