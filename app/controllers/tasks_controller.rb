@@ -4,11 +4,11 @@ class TasksController < ApplicationController
   def index
     # 実行できるものを前に出して並び替え
     if params[:latest]
-     @tasks = current_user.tasks.order(status: :asc, created_at: :desc)
+     @tasks = current_user.tasks.order(status: :asc, created_at: :desc).page(params[:page]).per(9)
     elsif params[:most_point]
-     @tasks = current_user.tasks.order(status: :asc, point: :desc)
+     @tasks = current_user.tasks.order(status: :asc, point: :desc).page(params[:page]).per(9)
     else
-      @tasks = current_user.tasks.order(created_at: :desc)
+      @tasks = current_user.tasks.order(created_at: :desc).page(params[:page]).per(9)
     end
   end
 

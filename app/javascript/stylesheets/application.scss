@@ -451,9 +451,30 @@ nav .inner ul li:not(:first-child):hover {
   transition-timing-function:ease-out, ease-out;
 }
 
+/*============
+#pagination
+=============*/
+
+.pagination>li>a {
+  border: none;
+  color: #f7c453;
+  padding: 3px;
+}
+
+.pagination>.active>a {
+  background: #fff;
+  border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
 .pagination {
-  justify-content: center;
-  margin-top: 20px;
+  margin: 10px;
+  font-size: 20px;
+  padding: 2px;
 }
 
 /*============

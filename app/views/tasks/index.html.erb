@@ -4,7 +4,7 @@
 <div class="container">
   <div class="col-10 mx-auto">
     <h1 class="mb-4 title"><strong>クエストメニュー</strong></h1>
-    <div class = "text-right m-3", style= "color:#ffffff;;">
+    <div class = "text-right m-3 text-white">
       <h5><%= link_to '新着順', tasks_path(latest: "true"), :style => "text-decoration: none; color:#ffffff;"%>　|
       <%= link_to 'ポイント順', tasks_path(most_point: "true"), :style => "text-decoration: none; color:#ffffff;"%></h5>
     </div>
@@ -36,6 +36,9 @@
             <%end %>
           </div>
         <% end %>
+    </div>
+    <div class = "col-3 mx-auto pagination text-center">
+      <%= paginate @tasks %>
     </div>
   </div>
 </div>
