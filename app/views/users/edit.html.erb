@@ -1,25 +1,36 @@
-<div class = "container mt-5">
-  <div class = "row">
-    <div class = "col-8 mx-auto">
-      <h1>ユーザ情報</h1>
-        <%= render "layouts/errors", obj: @user %>
-        <%= form_with model: @user do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "なまえ" %>
-          <%= f.text_field :name, class: "form-control" %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h1 class="title mb-3">ユーザ情報</h1>
+        <div class = "bg-offwhite p-3">
+          <%= render "layouts/errors", obj: @user %>
+          <%= form_with model: @user do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "なまえ" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction, "自己紹介" %>
+            <%= f.text_area :introduction, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :image, "写真" %>
+            <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "更新する", class: "btn btn-info" %>
+          </div>
+          <% end %>
         </div>
-        <div class="form-group">
-          <%= f.label :introduction, "自己紹介" %>
-          <%= f.text_area :introduction, class: "form-control"%>
-        </div>
-        <div class="form-group">
-          <%= f.label :image, "写真" %>
-          <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "更新する", class: "btn btn-info" %>
-        </div>
+        <div>
+        <%= link_to :back, class: "btn btn-info m-5" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
         <% end %>
+      </div>
     </div>
   </div>
 </div>
+<div>
+  <%= image_tag "star2.png", class: "img-fluid bg-bottom" %>
+</div>
+
