@@ -1,7 +1,8 @@
 <div class = "container mt-5">
   <div class = "row">
-    <div class = "col-8 mx-auto bg-offwhite">
-      <h1><%= @reward.name %> を変更する</h1>
+    <div class = "col-8 mx-auto">
+      <h1 class="title mb-5"><%= @reward.name %> を変更する</h1>
+      <div class="p-3 bg-offwhite">
         <%= render "layouts/errors", obj: @reward %>
         <%= form_with model: @reward do |f| %>
         <div class="form-group">
@@ -33,6 +34,8 @@
           </div>
         <% end %>
     </div>
+    </div>
+  </div>
   </div>
 </div>
 <div>

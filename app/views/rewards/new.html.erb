@@ -1,37 +1,39 @@
-<div class = "container mt-5">
-  <div class = "row">
-    <div class = "col-8 mx-auto bg-offwhite", style = "padding: 15px; margin-bottom: 10px;">
-      <h1 class = "text-center m-4 p-2 border-bottom ">あたらしく登録する</h1>
-        <%= render "layouts/errors", obj: @reward %>
-        <%= form_with model: @reward do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "なまえ" %>
-          <%= f.text_field :name, class: "form-control" %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h1 class="title mb-5">あたらしく登録する</h1>
+        <div class="p-3 bg-offwhite", style = "padding: 15px; margin-bottom: 10px;">
+          <%= render "layouts/errors", obj: @reward %>
+          <%= form_with model: @reward do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "なまえ" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :point, "必要ポイント数" %>
+            <%= f.number_field :point, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, "ひとこと" %>
+            <%= f.text_area :description, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :reward_image,  "写真を登録"%>
+            <%= f.file_field :reward_image, class: "form-control-file",accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "追加する", class: "btn btn-success" %>
+          </div>
+          <% end %>
         </div>
-        <div class="form-group">
-          <%= f.label :point, "必要ポイント数" %>
-          <%= f.number_field :point, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :description, "ひとこと" %>
-          <%= f.text_area :description, class: "form-control"%>
-        </div>
-        <div class="form-group">
-          <%= f.label :reward_image,  "写真を登録"%>
-          <%= f.file_field :reward_image, class: "form-control-file",accept: "image/*" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "追加する", class: "btn btn-success" %>
-        </div>
-        <% end %>
-         <div>
+        <div class="mt-5">
           <%= link_to menu_path, class: "btn btn-info" do %>
             <i class="fa-solid fa-caret-left"></i> もどる
           <% end %>
         </div>
+      </div>
     </div>
   </div>
-</div>
 <div>
   <%= image_tag "star2.png", class: "img-fluid bg-bottom" %>
 </div>
