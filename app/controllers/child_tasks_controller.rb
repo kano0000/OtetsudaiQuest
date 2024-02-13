@@ -13,7 +13,7 @@ class ChildTasksController < ApplicationController
     end
 
     if task.num_people < mission_children # タスクの人数より計算人数が多ければエラーを出す
-      redirect_to request.referer, notice: "人数が多すぎるです。"
+      redirect_to request.referer, notice: "人数が多すぎるよ"
       return
     end
 
@@ -24,7 +24,7 @@ class ChildTasksController < ApplicationController
       child_task.create(child_id: ct) # 送られてきたデータを中間テーブルに書き込む
     end
 
-    redirect_to request.referer, notice: "子供がタスクに登録されました。"
+    redirect_to request.referer, notice: "エントリーしました！"
   end
 
 

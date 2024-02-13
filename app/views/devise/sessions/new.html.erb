@@ -1,28 +1,23 @@
-<div style="background-color:#3c4c74;">
-  <div class="container">
-    <div class="row">
-      <div class="col mt-4">
-        <h1 class="text-center mb-4" style="font-weight:bold; color:#ffffff; font-family: monospase;">ログイン</h1>
-          <div style="padding: 15px; margin-bottom: 10px; border: 13px dotted #369ada; background-color: #61b0e2;">
-          
+<div class="container">
+  <div class="row">
+    <div class="col mt-5">
+      <h1 class="text-center mb-4" style="font-weight:bold; color:#ffffff; font-family: monospase;">ログイン</h1>
+        <div style="padding: 15px; margin-bottom: 10px; border: 13px dotted #369ada; background-color: #61b0e2;">
           <%= form_with model: @user, url: user_session_path do |f| %>
             <div class="field">
               <%= f.label :email, "メールアドレス" %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
-
             <div class="field">
               <%= f.label :password, "パスワード" %><br />
               <%= f.password_field :password, autocomplete: "current-password" %>
             </div>
-
             <% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
               </div>
             <% end %>
-
             <div class="actions">
               <%= f.submit "ログイン" %>
             </div>
@@ -32,9 +27,13 @@
     </div>
   </div>
 </div>
-  <div class="container">
-    <div class="row mt-5">
-      <%= image_tag "saturn.png", :size => "400x550" %>
-    </div>
+<div class="mt-5">
+  <%= link_to root_path, class: "btn btn-info" do %>
+    <i class="fa-solid fa-caret-left"></i> もどる
+  <% end %>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <%= image_tag "saturn.png", :size => "400x550", class: "img-fluid bg-bottom" %>
   </div>
 </div>

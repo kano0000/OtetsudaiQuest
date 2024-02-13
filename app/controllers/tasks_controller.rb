@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   end
 
   def admin_index
-    @tasks  = current_user.tasks
+    @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
   end
 
   def status_change

@@ -54,7 +54,7 @@ class RewardsController < ApplicationController
   end
 
   def admin_index
-    @rewards  = current_user.rewards
+    @rewards = current_user.rewards.page(params[:page])
   end
 
   def exchange
