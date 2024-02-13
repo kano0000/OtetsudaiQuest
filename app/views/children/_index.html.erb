@@ -20,4 +20,6 @@
   </tr>
   <% end %>
 </table>
-<%= link_to "メンバーを増やす", new_child_path, class:"btn btn-danger rounded-pill"%>
+<%= link_to new_child_path, class:"btn btn-danger rounded-pill" do %>
+  <i class="fa-solid fa-plus"></i> メンバーを増やす
+<% end %>

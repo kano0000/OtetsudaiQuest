@@ -3,9 +3,9 @@ class TasksController < ApplicationController
 
   def index
     if params[:latest]
-      @tasks = current_user.tasks.order(created_at: :desc)
+     @tasks = current_user.tasks.order(status: :asc, created_at: :desc)
     elsif params[:most_point]
-      @tasks = current_user.tasks.order(point: :desc)
+     @tasks = current_user.tasks.order(status: :asc, point: :desc)
     else
       @tasks = current_user.tasks.order(created_at: :desc)
     end
