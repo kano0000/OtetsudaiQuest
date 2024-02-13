@@ -15,7 +15,7 @@
     <%= image_tag "status2.png", :size => "500x550", class: "img-fluid bg-bottom" %>
   </div>
 <% elsif task.status == "again" %>
-  <%= link_to "できた！", thanks_path(task), class: 'custom-button' %>
+  <%= link_to "できた！", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
   <div>
     <%= image_tag "status3.png", :size => "500x550", class: "img-fluid bg-bottom" %>
   </div>
