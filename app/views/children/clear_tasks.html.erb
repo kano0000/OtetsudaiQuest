@@ -1,0 +1,46 @@
+<div class = "text-center">
+  <%= image_tag "star.png", class: "img-fluid" %>
+</div>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-8 mx-auto">
+      <h1 class="title mb-5"><%= @child.name %> のクリア一覧</h1>
+      <table class ="table table-borderd bg-offwhite">
+        <tr class = "bg-orange">
+          <th>日にち</th>
+          <th></th>
+          <th>クエスト</th>
+          <th>獲得ポイント数</th>
+          <th></th>
+        </tr>
+        <tr>
+          <% @tasks.each do |task| %>
+          <td><%= task.updated_at.strftime("%Y年 %m月 %d日") %></td>
+          <td>
+            <%= image_tag task.get_quest_image(100,100) %>
+          </td>
+          <td>
+            <%= task.task_list.name %>
+          </td>
+          <td>
+            <%= task.point %> ポイント
+          </td>
+          <td>
+            <%= link_to task_path(task) do %> 
+              <i class="fa-solid fa-arrow-right"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <div class = "col-3 mx-auto pagination text-center">
+        <%= paginate @tasks %>
+      </div>
+      <div>
+        <%= link_to child_path(@child), class: "btn btn-info" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

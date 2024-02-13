@@ -19,22 +19,6 @@
             <td><%= @task.description %></td>
           </tr>
           <tr>
-            <th>開始日時</th>
-            <% if @task.start_at.present? %>
-              <td><%= @task.start_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
-            <% else %>
-              <td>開始時間未設定</td>
-            <% end %>
-          </tr>
-          <tr>
-            <th>終了日時</th>
-            <% if @task.end_at.present? %>
-              <td><%= @task.end_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
-            <% else %>
-              <td>終了時間未設定</td>
-            <% end %>
-          </tr>
-          <tr>
             <th>参加メンバー<br>人数: <%= @task.num_people %>人</th>
             <td>
               <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
@@ -56,11 +40,13 @@
         </tbody>
       </table>
       <div class = "mb-3">
-        <%= link_to tasks_path, class: "btn btn-info" do %>
+        <%= link_to :back, class: "btn btn-info" do %>
           <i class="fa-solid fa-caret-left"></i> もどる
         <% end %>
-        <%= link_to status_change_path(@task), class: "btn btn-danger" do %>
-          <i class="fa-solid fa-flag-checkered"></i> はじめる
+        <% unless @task.status == "completed" %>
+          <%= link_to status_change_path(@task), class: "btn btn-danger" do %>
+            <i class="fa-solid fa-flag-checkered"></i> はじめる
+          <% end %>
         <% end %>
       </div>
     </div>

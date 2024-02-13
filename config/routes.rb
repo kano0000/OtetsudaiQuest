@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'user/menu' => 'users#menu', as: 'menu'
   get 'rewards/order' => 'rewards#order', as: 'order'
   resources :children, only: [:new, :create, :show, :edit, :update]
+  get 'children/:id/clear_tasks' => 'children#clear_tasks', as: 'clear_tasks'
   resources :rewards, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :child_rewards, only: [:create]
   end

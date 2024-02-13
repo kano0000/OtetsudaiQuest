@@ -14,7 +14,6 @@ class ChildrenController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
@@ -37,6 +36,11 @@ class ChildrenController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def clear_tasks
+    @child = Child.find(params[:id])
+    @tasks = @child.tasks.order(updated_at: :desc).page(params[:page]).per(10)
   end
 
 private

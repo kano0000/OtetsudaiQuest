@@ -25,7 +25,7 @@ class RewardsController < ApplicationController
     elsif params[:most_point]
       @rewards = current_user.rewards.order(published: :desc, point: :desc).page(params[:page]).per(9)
     else
-      @rewards = current_user.rewards.page(params[:page])
+      @rewards = current_user.rewards.order(created_at: :desc).page(params[:page])
     end
   end
 
