@@ -18,7 +18,7 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: -9999;
+  z-index: -999;
 }
 
 .grayscaled {
@@ -26,13 +26,26 @@ body {
 }
 
 .bg-offwhite {
-  background-color: #FFF7D8
+  background-color: #FFF7D8;
 }
 
 .bg-orange {
-  background-color: #FF8C00
+  background-color: #FF8C00;
 }
 
+.bg-bottom-game {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.bg-bottom-leftmid {
+  position: fixed;
+  bottom: 2%;
+  left: 10%;
+  z-index: 0;
+}
 /*============
 #text-color
 =============*/
@@ -485,7 +498,6 @@ nav .inner ul li:not(:first-child):hover {
   position: fixed;
   bottom: 20%;
   right: 10%;
-  z-index: -9999;
   animation: bound 8s infinite;
 
 }
