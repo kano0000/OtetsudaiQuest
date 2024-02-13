@@ -2,7 +2,8 @@ class TaskListsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @task_lists = current_user.task_lists
+    # 新規投稿したものが上に来るように並べる
+    @task_lists = current_user.task_lists.order(created_at: :desc)
     @task_list = TaskList.new
   end
   

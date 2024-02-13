@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # 実行できるものを前に出して並び替え
     if params[:latest]
      @tasks = current_user.tasks.order(status: :asc, created_at: :desc)
     elsif params[:most_point]
@@ -15,7 +16,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @children = current_user.children
     @task_new = Task.new
-    # @child_task = Task.new
   end
 
   def new

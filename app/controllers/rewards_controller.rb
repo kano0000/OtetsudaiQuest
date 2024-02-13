@@ -19,10 +19,11 @@ class RewardsController < ApplicationController
   end
 
   def index
+    # 公開されているものを前に出して並び替え
     if params[:latest]
-      @rewards = current_user.rewards.order(created_at: :desc)
+      @rewards = current_user.rewards.order(published: :desc, created_at: :desc)
     elsif params[:most_point]
-      @rewards = current_user.rewards.order(point: :desc)
+      @rewards = current_user.rewards.order(published: :desc, point: :desc)
     else
       @rewards = current_user.rewards
     end
