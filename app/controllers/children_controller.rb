@@ -37,14 +37,15 @@ class ChildrenController < ApplicationController
       render :edit
     end
   end
-  
+
   def clear_tasks
     @child = Child.find(params[:id])
     @tasks = @child.tasks.order(updated_at: :desc).page(params[:page]).per(10)
   end
-  
+
   def order_lists
-    
+    @child = Child.find(params[:id])
+    @child_rewards = current_user.child_rewards.where(child_id: @child.id).order(created_at: :desc).page(params[:page]).per(10)
   end
 
 private

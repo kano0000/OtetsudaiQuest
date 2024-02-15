@@ -1,1 +1,33 @@
-<h1>orderlists</h1>
+<div class = "text-center">
+  <%= image_tag "star.png", class: "img-fluid" %>
+</div>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-8 mx-auto">
+      <h1 class="title mb-5"><%= @child.name %> のプレゼント交換一覧</h1>
+      <table class = "table bg-offwhite">
+        <tr class = "bg-orange">
+          <th>日にち</th>
+          <th>プレゼント名</th>
+          <th>受け取った日</th>
+        </tr>
+          <% @child_rewards.each do |child_reward| %>
+            <tr>
+              <td><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></td>
+              <td><%= child_reward.reward.name %></td>
+              <td>
+                <% if child_reward.presented_date.nil? %>
+                  もう少し待っててね
+                <% else %>
+                  <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+      </table>
+      <div class="text-center pagination">
+        <%= paginate @child_rewards %>
+      </div>
+    </div>
+  </div>
+</div>
