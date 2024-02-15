@@ -42,6 +42,10 @@ class ChildrenController < ApplicationController
     @child = Child.find(params[:id])
     @tasks = @child.tasks.order(updated_at: :desc).page(params[:page]).per(10)
   end
+  
+  def order_lists
+    
+  end
 
 private
 
