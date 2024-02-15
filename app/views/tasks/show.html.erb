@@ -13,7 +13,7 @@
       <table class="table table-border text-center" style="font-size: 20px;">
         <tbody>
           <tr style="font-size: 25px;">
-            <th>獲得ポイント数</th>
+            <th><ruby>獲得<rt>かくとく</rt></ruby>ポイント</th>
             <th class="text-red"><%= @task.point %> ポイント</th>
           </tr>
           <tr>
@@ -21,7 +21,7 @@
             <td><%= @task.description %></td>
           </tr>
           <tr>
-            <th>参加メンバー<br>人数: <%= @task.num_people %>人</th>
+            <th><ruby>参加<rt>さんか</rt></ruby>メンバー<br><ruby>必要人数<rt>ひつようにんずう</rt></ruby>: <%= @task.num_people %>人</th>
             <td>
               <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
                 <% @children.each do |child| %>
@@ -31,7 +31,9 @@
                     <%= child.name %>
                   </label><br>
                 <% end %>
-                <%= f.submit "登録する", class: "btn btn-primary" %>
+                <% unless @task.status == "completed" %>
+                  <%= f.submit "登録する", class: "btn btn-primary" %>
+                <% end %>
               <% end %>
             </td>
           </tr>
