@@ -1,3 +1,4 @@
+// スクロール
 $(document).on('turbolinks:load', function() {
   var scrollButton = $('#scrollButton');
 
@@ -21,4 +22,13 @@ $(document).on('turbolinks:load', function() {
       scrollButton.fadeOut();
     }
   }
+});
+
+
+// 画面遷移アニメーション
+$(window).on('load',function() {
+    $("#splash-logo").delay(1200).fadeOut('slow');
+    $("#splash").delay(1800).fadeOut('slow',function(){
+        $('.game-page').addClass('appear');
+    });
 });
