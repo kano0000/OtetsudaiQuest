@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-10 mx-auto">
-      <h1 class= "title">交換完了！！</h1>
+      <h1 class= "title"><ruby>交換<rt>こうかん</rt></ruby><ruby>完了<rt>かんりょう</rt></ruby>！！</h1>
       <div class="text-white">
-        <p>交換したよ！これからもお手伝い頑張ってね</p>
+        <p><ruby>交換<rt>こうかん</rt></ruby>したよ！これからもおてつだいがんばってね</p>
           <% new_point = @child.point - @reward.point %>
           <% @child.update(point: new_point) %>
           <h2><%= @child.name%></h2>
