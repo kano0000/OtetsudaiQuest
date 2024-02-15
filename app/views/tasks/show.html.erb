@@ -4,15 +4,17 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto bg-offwhite">
-      <h1 class="mb-4 title"><strong><%= @task.task_list.name %></strong></h1>
-      <div class = "text-center">
+      <div class = "col-5 mx-auto m-4">
+        <h2 class="p-3 title border border-radius rounded-pill bg-orange text-white"><strong><%= @task.task_list.name %></strong></h2>
+      </div>
+      <div>
         <%= image_tag @task.get_quest_image(200,200) %>
       </div>
       <table class="table table-border text-center" style="font-size: 20px;">
         <tbody>
           <tr style="font-size: 25px;">
-            <th style="color: #000000;">獲得ポイント数</th>
-            <th style="color: #47cc81;"><%= @task.point %> ポイント</th>
+            <th>獲得ポイント数</th>
+            <th class="text-red"><%= @task.point %> ポイント</th>
           </tr>
           <tr>
             <th>メッセージ</th>

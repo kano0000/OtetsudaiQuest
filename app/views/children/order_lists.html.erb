@@ -17,7 +17,7 @@
               <td><%= child_reward.reward.name %></td>
               <td>
                 <% if child_reward.presented_date.nil? %>
-                  もう少し待っててね
+                  <p class="text-red">もう少し待っててね</p>
                 <% else %>
                   <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
                 <% end %>
@@ -25,9 +25,12 @@
             </tr>
           <% end %>
       </table>
-      <div class="text-center pagination">
+      <div class="pagination">
         <%= paginate @child_rewards %>
       </div>
+      <%= link_to child_path(@child), class: "btn btn-info m-5" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
     </div>
   </div>
 </div>
