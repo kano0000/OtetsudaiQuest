@@ -75,7 +75,8 @@ class RewardsController < ApplicationController
   def complete
     @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:id])
-    # ChildReward.create(child: @child, reward: @reward)
+    month_clear = @child.tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
+    @level = @child.level(month_clear)
   end
 
   def order
