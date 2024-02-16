@@ -14,11 +14,11 @@
       <table class="table table-border">
         <tbody>
           <tr>
-            <th>お誕生日</th>
+            <th>お<ruby>誕生日<rt>たんじょうび</rt></ruby></th>
             <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
           </tr>
           <tr>
-            <th>年齢</th>
+            <th><ruby>年齢<rt>ねんれい</rt></ruby></th>
             <td><%= @child.age %>さい</td>
           </tr>
           <tr>
@@ -26,11 +26,11 @@
             <td><%= @child.introduction %></td>
           </tr>
           <tr>
-            <th>ポイント数</th>
+            <th>ポイント</th>
             <td><%= @child.point %> ポイント</td>
           </tr>
           <tr>
-            <th>今月のおてつだいクリア数</th>
+            <th><ruby>今月<rt>こんげつ</rt></ruby>のおてつだいクリア<ruby>数<rt>すう</rt></ruby></th>
             <td><%= @month_clear %>回　(トータル:<%= @total_clear %>回)</td>
           </tr>
           <tr>
@@ -50,13 +50,13 @@
       <i class="fa-solid fa-caret-left"></i> もどる
     <% end %>
     <%= link_to edit_child_path(@child), class: "btn btn-success" do %>
-      <i class="fa-solid fa-pen-to-square"></i> 編集する
+      <i class="fa-solid fa-pen-to-square"></i> <ruby>変更<rt>へんこう</rt></ruby>する
     <% end %>
     <%= link_to clear_tasks_path(@child), class: "btn btn-danger" do %>
-      クエスト記録 <i class="fa-solid fa-caret-right"></i>
+      クエスト<ruby>記録<rt>きろく</rt></ruby> <i class="fa-solid fa-caret-right"></i>
     <% end %>
     <%= link_to order_lists_path(@child), class: "btn btn-danger" do %>
-      オーダー記録 <i class="fa-solid fa-caret-right"></i>
+      オーダー<ruby>記録<rt>きろく</rt></ruby> <i class="fa-solid fa-caret-right"></i>
     <% end %>
   </div>
 </div>

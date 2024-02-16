@@ -434,7 +434,7 @@ nav .inner ul li:not(:first-child):hover {
 .pagination>li>a {
   border: none;
   color: #f7c453;
-  padding: 3px;
+  padding: 15px;
 }
 
 .pagination>.active>a {
@@ -448,9 +448,9 @@ nav .inner ul li:not(:first-child):hover {
 }
 
 .pagination {
-  margin: 10px;
+  margin: 0 auto;
   font-size: 20px;
-  padding: 2px;
+  padding: 8px;
 }
 
 /*============
@@ -499,6 +499,15 @@ nav .inner ul li:not(:first-child):hover {
   z-index: 2;
   transform-origin: center bottom;
   animation: yurayura 4s linear infinite;
+}
+
+@keyframes yurayura {
+  0% , 100%{
+      transform: rotate(10deg);
+  }
+  50%{
+      transform: rotate(-10deg);
+  }
 }
 
 #splash {
@@ -698,19 +707,5 @@ nav .inner ul li:not(:first-child):hover {
   
   100%{
     transform: translateY(-100vh);
-  }
-}
-
-.treasure {
-  transform-origin: center bottom;
-  animation: yurayura 4s linear infinite;
-}
-
-@keyframes yurayura {
-  0% , 100%{
-      transform: rotate(10deg);
-  }
-  50%{
-      transform: rotate(-10deg);
   }
 }

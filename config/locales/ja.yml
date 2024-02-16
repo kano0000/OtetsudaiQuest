@@ -13,6 +13,13 @@ ja:
         normal: "ふつう"
         master: "達人"
         legend: "伝説"
+  views:
+    pagination:
+      first: "はじめ"
+      last: "おわり"
+      previous: "«"
+      next: "»"
+      truncate: "..."
   activerecord:
     errors:
       messages:

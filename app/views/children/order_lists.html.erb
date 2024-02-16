@@ -4,12 +4,12 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-8 mx-auto">
-      <h1 class="title mb-5"><%= @child.name %> のプレゼント交換一覧</h1>
+      <h1 class="title mb-5"><%= @child.name %> のプレゼント<ruby>交換<rt>こうかん</rt></ruby><ruby>一覧<rt>いちらん</rt></ruby></h1>
       <table class = "table bg-offwhite">
         <tr class = "bg-orange">
           <th>日にち</th>
           <th>プレゼント名</th>
-          <th>受け取った日</th>
+          <th>もらった日</th>
         </tr>
           <% @child_rewards.each do |child_reward| %>
             <tr>
@@ -17,7 +17,7 @@
               <td><%= child_reward.reward.name %></td>
               <td>
                 <% if child_reward.presented_date.nil? %>
-                  <p class="text-red">もう少し待っててね</p>
+                  <p class="text-red">もうすこしまっててね</p>
                 <% else %>
                   <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
                 <% end %>
