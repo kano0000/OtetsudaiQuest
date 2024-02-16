@@ -33,7 +33,7 @@ $(window).on('load',function() {
     });
 });
 
-//exchange_page
+//complete_page
 function createLines() {
   let line = document.createElement("div");
   line.setAttribute("class", "line");
@@ -51,7 +51,7 @@ function createLines() {
     // 光を消すまでの時間
     setTimeout(function () {
       completeBgElement.removeChild(line);
-    }, 6000);
+    }, 3000);
   }
 }
 
