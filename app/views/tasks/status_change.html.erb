@@ -11,20 +11,19 @@
   <div id="container">
     <div class="row">
       <div class="col-10 mx-auto">
-
-          <div class="m-5 col-3 mx-auto">
-            <div class="status_box p-2">
-              <h2 id = "quest-status", class="text-white">
-                <%= render 'status', task: @task %>
-              </h2>
-            </div>
+        <div class="m-5 col-3 mx-auto">
+          <div class="status_box p-2">
+            <h2 id = "quest-status", class="text-white">
+              <%= render 'status', task: @task %>
+            </h2>
           </div>
-          <div id = "quest-btn", class="mt-3">
-            <%= render 'btn', task: @task %>
-          </div>
+        </div>
+        <div id = "quest-btn", class="mt-3">
+          <%= render 'btn', task: @task %>
         </div>
       </div>
     </div>
+  </div>
   <div class="astronaut-container">
     <div class="astronaut-image text-right">
       <%= image_tag "astronaut.png", :size =>'300x300', class: "img-fluid" %>
@@ -34,3 +33,5 @@
       <%= image_tag "ground.png", class: "img-fluid" %>
   </div>
 </div>
+<!--<div class="mute_btn" onClick="mute()">muteの切り替え</div>-->
+<!--<audio controls src="<%#= asset_path('audio/game_music.mp3') %>" type="audio/mpeg"></audio>-->

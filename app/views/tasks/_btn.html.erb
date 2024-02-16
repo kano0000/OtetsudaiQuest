@@ -1,27 +1,31 @@
 <% if task.status == "preparing" %>
-  <%= link_to "スタート", status_change_path(task, start: "true"), class: 'custom-button', method: :get, remote: true %>
+  <%= link_to "スタート", status_change_path(task, start: "true"), { onclick: "audio()", class: 'custom-button', method: :get, remote: true } %>
   <div>
     <%= image_tag "status.png", :size => "500x550", class: "img-fluid alien" %>
   </div>
 <% elsif task.status == "in_progress" %>
-  <%= link_to "できた！", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
+  <%= link_to "できた！", status_change_path(task), { onclick: "audio()", class: 'custom-button', method: :get, remote: true } %>
   <div>
     <%= image_tag "status1.png", :size => "500x550", class: "img-fluid alien" %>
   </div>
 <% elsif task.status == "reported_complete" %>
-  <%= link_to "OK", status_change_path(task, check: "OK"), class: 'custom-button mr-5', method: :get, remote: true %>
-  <%= link_to "もう一回 !", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
+  <%= link_to "OK", status_change_path(task, check: "OK"), { onclick: "audio()", class: 'custom-button mr-5', method: :get, remote: true } %>
+  <%= link_to "もう一回 !", status_change_path(task), { onclick: "audio()", class: 'custom-button', method: :get, remote: true } %>
   <div>
     <%= image_tag "status2.png", :size => "500x550", class: "img-fluid alien" %>
   </div>
 <% elsif task.status == "again" %>
-  <%= link_to "できた！", status_change_path(task), class: 'custom-button', method: :get, remote: true %>
+  <%= link_to "できた！", status_change_path(task), { onclick: "audio()", class: 'custom-button', method: :get, remote: true } %>
   <div>
     <%= image_tag "status3.png", :size => "500x550", class: "img-fluid alien" %>
   </div>
-<% elsif task.status == "completed"%>
-  <%= link_to "クリア！！", thanks_path(task), method: :post, class: 'custom-button' %>
+<% elsif task.status == "completed" %>
+  <%= link_to "クリア！！", thanks_path(task), { onclick: "audio()", method: :post, class: 'custom-button' } %>
   <div>
     <%= image_tag "status4.png", :size => "500x550", class: "img-fluid alien" %>
   </div>
 <% end %>
+
+<audio id="btn_audio">
+  <source src="/assets/audio/game_btn.mp3" type="audio/mp3">
+</audio>

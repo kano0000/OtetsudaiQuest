@@ -59,3 +59,18 @@ function createLines() {
 setInterval(function () {
   createLines();
 }, 400);
+
+//game効果音
+function audio() {
+  document.getElementById('btn_audio').currentTime = 0; //連続クリックに対応
+  document.getElementById('btn_audio').play(); //クリックしたら音を再生
+}
+
+// muteの切り替え
+function mute() {
+  if (document.getElementById('btn_audio').muted) {
+      document.getElementById('btn_audio').muted = false;
+  } else {
+      document.getElementById('btn_audio').muted = true;
+  }
+}
