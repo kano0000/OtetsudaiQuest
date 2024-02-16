@@ -4,30 +4,61 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto">
-      <h1 class="mb-4 title"><strong><%= @reward.name %></strong></h1>
-      <table class="table table-bordered table-condensed bg-offwhite">
-        <tbody>
-          <%= image_tag @reward.get_gift_image(200,200) %>
-          <tr>
-            <th class = "bg-orange" style= "width: 20%;">なまえ</th>
-            <td><%=  @reward.name %></td>
-          </tr>
-          <tr>
-            <th class = "bg-orange">ポイント数</th>
-            <td><%=  @reward.point %> ポイント</td>
-          </tr>
-          <tr>
-            <th class = "bg-orange">メッセージ</th>
-            <td><%=  @reward.description %></td>
-          </tr>
-        </tbody>
-      </table>
-        <%= link_to rewards_path, class: "btn btn-info" do %>
-          <i class="fa-solid fa-caret-left"></i> もどる
-        <% end %>
-         <%= link_to exchange_path, class: "btn btn-danger" do %>
-          <i class="fa-solid fa-store"></i> <ruby>交換<rt>こうかん</rt></ruby>する
-        <% end %>
+      <div class="brown-box">
+        <div class="side_image m-3">
+          <%= image_tag @reward.get_gift_image(300,300) %>
+        </div>
+        <div class="side_text">
+          <h1 class="mb-4"><%=  @reward.name %></h1>
+          <table class="table table-borderless">
+            <tr class="border-blackdot">
+              <th>ポイント数</th>
+              <td><%=  @reward.point %> ポイント</td>
+            </tr>
+            <tr class="border-blackdot">
+              <th>メッセージ</th>
+              <td><%=  @reward.description %></td>
+            </tr>
+          </table>
+            <%= link_to exchange_path, class: "btn btn-danger" do %>
+              <i class="fa-solid fa-store"></i> <ruby>交換<rt>こうかん</rt></ruby>する
+            <% end %>
+        </div>
+      </div>
+      <%= link_to rewards_path, class: "btn btn-info" do %>
+        <i class="fa-solid fa-caret-left"></i> もどる
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+<!--      <h1 class="mb-4 title"><strong><%#= @reward.name %></strong></h1>-->
+<!--      <table class="table table-bordered table-condensed bg-offwhite">-->
+<!--        <tbody>-->
+<!--          <%#= image_tag @reward.get_gift_image(200,200) %>-->
+<!--          <tr>-->
+<!--            <th class = "bg-orange" style= "width: 20%;">なまえ</th>-->
+<!--            <td><%#=  @reward.name %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th class = "bg-orange">ポイント数</th>-->
+<!--            <td><%#=  @reward.point %> ポイント</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th class = "bg-orange">メッセージ</th>-->
+<!--            <td><%#=  @reward.description %></td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--        <%#= link_to rewards_path, class: "btn btn-info" do %>-->
+<!--          <i class="fa-solid fa-caret-left"></i> もどる-->
+<!--        <%# end %>-->
+<!--         <%#= link_to exchange_path, class: "btn btn-danger" do %>-->
+<!--          <i class="fa-solid fa-store"></i> <ruby>交換<rt>こうかん</rt></ruby>する-->
+<!--        <%# end %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
