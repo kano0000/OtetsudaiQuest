@@ -44,7 +44,7 @@ function createLines() {
     completeBgElement.appendChild(line);
 
     line.style.left = Math.random() * innerWidth + "px";
-    line.style.animationDuration = 3 + Math.random() * 12 + "s";
+    line.style.animationDuration = 1 + Math.random() * 12 + "s";
     line.style.width = Math.random() * 12 + "px";
     line.style.height = Math.random() * 12 + "px";
 
@@ -58,7 +58,7 @@ function createLines() {
 // 光を繰り返し発射する
 setInterval(function () {
   createLines();
-}, 400);
+}, 200);
 
 //game効果音
 function audio() {
