@@ -38,7 +38,7 @@ function createLines() {
   let line = document.createElement("div");
   line.setAttribute("class", "line");
 
-  // exchange_bg クラスを持つ要素にだけ光を追加
+  // complete_bg クラスを持つ要素にだけ光を追加
   let completeBgElement = document.querySelector(".complete_bg");
   if (completeBgElement) {
     completeBgElement.appendChild(line);

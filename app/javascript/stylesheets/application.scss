@@ -489,6 +489,7 @@ nav .inner ul li:not(:first-child):hover {
   bottom: 20%;
   right: 10%;
   animation: bound 8s infinite;
+  z-index: -100;
 }
 
 @keyframes bound {
@@ -519,6 +520,18 @@ nav .inner ul li:not(:first-child):hover {
   z-index: -100;
 }
 
+.bg-top-game {
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  z-index: -100;
+}
+
+.status_area {
+  margin-top: 10%;
+}
 .alien {
   position: fixed;
   bottom: 2%;
