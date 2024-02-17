@@ -36,5 +36,5 @@ ER図(https://drive.google.com/file/d/1ILpzuDwkcjIvWWPQ9YjYLXZyIqJ-6U1G/view?usp
 ​
 ## 使用素材
 - フリーイラスト素材として以下を使用
-  - てがきっず (https://tegakisozai.com/) 
   - Canva (https://www.canva.com/)
+  - Springin' Sound Stock (https://www.springin.org/sound-stock/)

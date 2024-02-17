@@ -21,6 +21,13 @@ body {
   z-index: -999;
 }
 
+.bg-bottom-left {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  z-index: -1;
+}
+
 .grayscaled {
   filter: grayscale(100%);
 }
