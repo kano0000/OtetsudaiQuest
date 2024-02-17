@@ -16,11 +16,16 @@
         </div>
 
         <div class="col-6 mt-5">
-          <%= link_to new_reward_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+          <%= link_to order_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
             <div class="card shadow-lg" style= "background-color:#f7c453;">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>プレゼントを作る</strong></h3><br>
-                <p class="text-center mt-3"><i class="fa-solid fa-gift fa-3x"></i></p>
+                <h3 class="text-center mt-2"><strong>プレゼント交換履歴</strong>
+                <% notifications_count = current_user.notifications.where(read: false).count %>
+                <% if notifications_count > 0 %>
+                  <span class="badge badge-danger"><%= notifications_count %></span>
+                <% end %>
+                </h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-cart-shopping fa-3x"></i></p>
               </div>
             </div>
           <% end %>
@@ -38,16 +43,11 @@
         </div>
 
         <div class="col-6 mt-5">
-          <%= link_to order_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
+          <%= link_to new_reward_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
             <div class="card shadow-lg" style= "background-color:#f7c453;">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>プレゼント交換履歴</strong>
-                <% notifications_count = current_user.notifications.where(read: false).count %>
-                <% if notifications_count > 0 %>
-                  <span class="badge badge-danger"><%= notifications_count %></span>
-                <% end %>
-                </h3><br>
-                <p class="text-center mt-3"><i class="fa-solid fa-cart-shopping fa-3x"></i></p>
+                <h3 class="text-center mt-2"><strong>プレゼントを作る</strong></h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-gift fa-3x"></i></p>
               </div>
             </div>
           <% end %>
