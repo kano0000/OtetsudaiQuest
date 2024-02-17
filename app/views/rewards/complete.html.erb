@@ -12,9 +12,11 @@
             <div class="side_text">
               <p><%= I18n.t("enums.child.level.#{@level}") %> のおてつだいヒーロー</p>
               <h3><%= @child.name%></h3>
-              <% new_point = @child.point - @reward.point %>
-              <% @child.update(point: new_point) %>
-              <p>のこり <%= new_point%>ポイント</p>
+              <% if request.post? %>
+                <% new_point = @child.point - @reward.point %>
+                <% @child.update(point: new_point) %>
+              <% end %>
+              <p>のこり <%= request.post? ? new_point : @child.point %> ポイント</p>
               <%= link_to child_path(@child), class:"btn btn-danger rounded-pill", :style => "text-decoration: none; font-weight:bold; color:#fff;" do %>
                 <i class="fa-solid fa-user"></i>マイページをみる
               <% end %>
