@@ -87,7 +87,7 @@ body {
 =============*/
 
 .main-visual {
-  background-image: url('/assets/top1.png');
+  background-image: url("../images/top1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -743,7 +743,7 @@ nav .inner ul li:not(:first-child):hover {
   0%{
     transform: translateY(0);
   }
-  
+
   100%{
     transform: translateY(-100vh);
   }
