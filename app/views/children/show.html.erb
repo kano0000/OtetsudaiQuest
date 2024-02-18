@@ -11,20 +11,16 @@
         <div>
           <%= image_tag @child.get_profile_image(250,250) %>
         </div>
+        <div class="m-3">
+          <%= link_to clear_tasks_path(@child), class: "btn btn-danger" do %>
+            <i class="fa-solid fa-star"></i>　クエスト
+          <% end %>
+          <%= link_to order_lists_path(@child), class: "btn btn-danger" do %>
+             <i class="fa-solid fa-gift"></i>　プレゼント 
+          <% end %>
+        </div>
       <table class="table table-border">
         <tbody>
-          <tr>
-            <th>お<ruby>誕生日<rt>たんじょうび</rt></ruby></th>
-            <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
-          </tr>
-          <tr>
-            <th><ruby>年齢<rt>ねんれい</rt></ruby></th>
-            <td><%= @child.age %>さい</td>
-          </tr>
-          <tr>
-            <th>ひとこと</th>
-            <td><%= @child.introduction %></td>
-          </tr>
           <tr>
             <th>ポイント</th>
             <td><%= @child.point %> ポイント</td>
@@ -34,12 +30,24 @@
             <td><%= @month_clear %>回　(トータル:<%= @total_clear %>回)</td>
           </tr>
           <tr>
+            <th>お<ruby>誕生日<rt>たんじょうび</rt></ruby></th>
+            <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
+          </tr>
+          <tr>
+            <th><ruby>年齢<rt>ねんれい</rt></ruby></th>
+            <td><%= @child.age %>さい</td>
+          </tr>
+          <tr>
             <th>すきなたべもの</th>
             <td><%= @child.favorite_food %></td>
           </tr>
           <tr>
             <th>しょうらいのゆめ</th>
             <td><%= @child.future_dream %></td>
+          </tr>
+          <tr>
+            <th>ひとこと</th>
+            <td><%= @child.introduction %></td>
           </tr>
         </tbody>
       </table>
@@ -49,14 +57,8 @@
     <%= link_to user_path(@child.user), class: "btn btn-info" do %>
       <i class="fa-solid fa-caret-left"></i> もどる
     <% end %>
-    <%= link_to edit_child_path(@child), class: "btn btn-success" do %>
+    <%= link_to edit_child_path(@child), class: "btn btn-warning" do %>
       <i class="fa-solid fa-pen-to-square"></i> <ruby>変更<rt>へんこう</rt></ruby>する
-    <% end %>
-    <%= link_to clear_tasks_path(@child), class: "btn btn-danger" do %>
-      クエスト<ruby>記録<rt>きろく</rt></ruby> <i class="fa-solid fa-caret-right"></i>
-    <% end %>
-    <%= link_to order_lists_path(@child), class: "btn btn-danger" do %>
-      オーダー<ruby>記録<rt>きろく</rt></ruby> <i class="fa-solid fa-caret-right"></i>
     <% end %>
   </div>
 </div>
