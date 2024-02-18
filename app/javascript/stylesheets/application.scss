@@ -721,7 +721,21 @@ nav .inner ul li:not(:first-child):hover {
 	}
 	100% {
 	opacity: 1;
+  }
 }
+
+.ufo-img {
+  transform-origin: center;
+  animation: ufo 1s infinite;
+}
+
+@keyframes ufo {
+  0% , 100%{
+      transform: rotate(6deg);
+  }
+  50%{
+      transform: rotate(-6deg);
+  }
 }
 
 /*============
@@ -743,18 +757,6 @@ nav .inner ul li:not(:first-child):hover {
   color: #fff;
   transition: all 0.3s;
 }
-
-// .mute_btn {
-//     box-sizing: border-box;
-//     background-color: #000;
-//     color: #fff;
-//     cursor: pointer;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     height: 45px;
-//     width: 80%;
-// }
 
 .custom-button:active {
   box-shadow: none;
