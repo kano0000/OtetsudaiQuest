@@ -37,7 +37,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -63,7 +63,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -133,6 +133,18 @@ ja:
     template:
       body: 次の項目を確認してください
       header: "%{model}に%{count}個のエラーが発生しました"
+  activerecord:
+    models:
+      task: お手伝い
+      task_list: お手伝いリスト
+    attributes:
+      task:
+        task: クエスト
+        task_list: お手伝いリスト
+        num_people: 人数
+        point: ポイント
+      tasl_list:
+        name: 名前
   helpers:
     select:
       prompt: 選択してください
