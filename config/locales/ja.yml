@@ -137,6 +137,7 @@ ja:
     models:
       task: お手伝い
       task_list: お手伝いリスト
+      reward: プレゼント
     attributes:
       task:
         task: クエスト
@@ -144,8 +145,11 @@ ja:
         num_people: 人数
         point: ポイント
         name: 名前
-      tasl_list:
-        name: 名前
+      task_list:
+        name: お手伝い名
+      reward:
+        name: プレゼント名
+        point: ポイント
   helpers:
     select:
       prompt: 選択してください

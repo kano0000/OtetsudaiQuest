@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :children, only: [:new, :create, :show, :edit, :update]
   get 'children/:id/clear_tasks' => 'children#clear_tasks', as: 'clear_tasks'
   get 'children/:id/order_lists' => 'children#order_lists', as: 'order_lists'
-  resources :rewards, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+  resources :rewards, only: [:new, :create, :index, :show, :edit, :update] do
     resources :child_rewards, only: [:create]
   end
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
   patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
-  resources :tasks, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
     resources :child_tasks, only: [:update]
   end
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'

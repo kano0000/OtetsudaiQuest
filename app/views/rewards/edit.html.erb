@@ -5,32 +5,29 @@
       <div class="p-3 bg-offwhite">
         <%= render "layouts/errors", obj: @reward %>
         <%= form_with model: @reward do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "なまえ" %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :point, "必要ポイント数" %>
-          <%= f.number_field :point, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :description, "ひとこと" %>
-          <%= f.text_area :description, class: "form-control"%>
-        </div>
-        <div class="form-group">
-          <%= f.label :image,  "写真を登録"%>
-          <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
-        <div class="form-group mt-3">
-          <%= f.radio_button :published, true %>
-          <%= f.label :published, "公開" %>
-          <%= f.radio_button :published, false %>
-          <%= f.label :published, "準備中" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "更新する", class: "btn btn-success", style: "border-radius: 12px;" %>
-        </div>
-        <div class="col mb-2 mx-auto">
-          <%= link_to "削除する", reward_path(@reward), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
+          <div class="form-group">
+            <%= f.label :name, "なまえ" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :point, "必要ポイント数" %>
+            <%= f.number_field :point, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, "ひとこと" %>
+            <%= f.text_area :description, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :image,  "写真を登録"%>
+            <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
+          <div class="form-group mt-3">
+            <%= f.radio_button :published, true %>
+            <%= f.label :published, "公開" %>
+            <%= f.radio_button :published, false %>
+            <%= f.label :published, "準備中" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "更新する", class: "btn btn-success btn-style" %>
           </div>
         <% end %>
     </div>

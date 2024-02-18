@@ -47,12 +47,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy
-    task = Task.find_by(id: params[:id])
-    task.destroy
-    redirect_to tasks_admin_index_path(id: current_user.id)
-  end
-
   def admin_index
     @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
   end

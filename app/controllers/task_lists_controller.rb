@@ -26,7 +26,7 @@ class TaskListsController < ApplicationController
   def update
     @task_list = TaskList.find(params[:id])
     if @task_list.update(task_list_params)
-      flash[:notice] = "更新しました。"
+      flash[:notice] = "更新しました"
       redirect_to task_lists_path
     else
       render :index
@@ -36,6 +36,7 @@ class TaskListsController < ApplicationController
   def destroy
     task_list = TaskList.find(params[:id])
     task_list.destroy
+    flash[:notice] = "削除しました"
     redirect_to task_lists_path
   end
   

@@ -47,12 +47,6 @@ class RewardsController < ApplicationController
     end
   end
 
-  def destroy
-    reward = Reward.find(params[:id])
-    reward.destroy
-    redirect_to rewards_admin_index_path(id: current_user.id)
-  end
-
   def admin_index
     @rewards = current_user.rewards.page(params[:page])
   end

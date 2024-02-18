@@ -19,13 +19,25 @@
   color: #0067C0;
   border: solid 1px #0067C0;
 }
- 
+
 .flash-message.alert {
   background-color: #ffd4d1;
   color: #930403;
   border: solid 1px #930403;
 }
 
+.error_message-box {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 10px auto;
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}
+
+.btn_style {
+  order-radius: 12px;
+}
 /*============
 #bg
 =============*/
