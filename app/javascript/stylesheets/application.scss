@@ -303,21 +303,118 @@ body {
   }
 }
 
-.top-main {
-   height: 1000px;
+.pros-area {
+  color: #7d7d7d;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
 }
 
-.top-main .container {
-  text-align: center; /* テキストを中央揃えにする */
+.pros1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffc0cb;
+  border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 10px;
 }
 
-
-.top-main p {
-  font-size: 16px; /* 任意のフォントサイズを追加 */
-  line-height: 1.6; /* 任意の行の高さを追加 */
-  margin-bottom: 10px; /* 任意の下部のマージンを追加 */
+.pros1 h3 {
+  margin: 0; /* h3要素のデフォルトのマージンを削除 */
 }
 
+.pros1 p {
+  margin-top: 10px; /* パラグラフとアイコンの間にマージンを追加 */
+}
+
+.pros2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdffbf;
+  border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 10px;
+}
+
+.pros2 h3 {
+  margin: 0; /* h3要素のデフォルトのマージンを削除 */
+}
+
+.pros2 p {
+  margin-top: 10px; /* パラグラフとアイコンの間にマージンを追加 */
+}
+
+.pros3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #bfffce;
+  border-radius: 80% 30% 50% 50%/50%;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 10px;
+}
+
+.pros3 h3 {
+  margin: 0; /* h3要素のデフォルトのマージンを削除 */
+}
+
+.pros3 p {
+  margin-top: 10px; /* パラグラフとアイコンの間にマージンを追加 */
+}
+
+.pros4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #bfe3ff;
+  border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 10px;
+}
+
+.pros4 h3 {
+  margin: 0; /* h3要素のデフォルトのマージンを削除 */
+}
+
+.pros4 p {
+  margin-top: 10px; /* パラグラフとアイコンの間にマージンを追加 */
+}
+
+.pros5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8bfff;
+  border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 20px;
+}
+
+.pros5 h3 {
+  margin: 0; /* h3要素のデフォルトのマージンを削除 */
+}
+
+.pros5 p {
+  margin-top: 10px; /* パラグラフとアイコンの間にマージンを追加 */
+}
 
 /*============
 ハンバーガーメニュー
