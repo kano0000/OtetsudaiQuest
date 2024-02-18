@@ -59,3 +59,12 @@ function createLines() {
 setInterval(function () {
   createLines();
 }, 200);
+
+// フラッシュメッセージ
+$(function(){
+  setTimeout("$('.notice').fadeOut('slow')", 1500);
+});
+
+$(function(){
+  setTimeout("$('.alert').fadeOut('slow')", 1500);
+});

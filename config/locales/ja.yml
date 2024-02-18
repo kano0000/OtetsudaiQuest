@@ -143,6 +143,7 @@ ja:
         task_list: お手伝いリスト
         num_people: 人数
         point: ポイント
+        name: 名前
       tasl_list:
         name: 名前
   helpers:

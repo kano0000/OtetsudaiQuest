@@ -18,7 +18,9 @@
       </header>
     <% end %>
       <main class="text-center">
-        <%=flash[:notice] %>
+        <% flash.each do |message_type, message| %>
+          <div class="flash-message <%= message_type %>"><%= message %></div>
+        <% end %>
         <%= yield %>
         <span id="back">
           <a href="#" id="scrollButton">

@@ -13,7 +13,8 @@ class ChildTasksController < ApplicationController
     end
 
     if task.num_people < mission_children # タスクの人数より計算人数が多ければエラーを出す
-      redirect_to request.referer, notice: "人数が多すぎるよ"
+      flash[:alert] = "人数が多すぎるよ"
+      redirect_to request.referer
       return
     end
 
@@ -23,8 +24,8 @@ class ChildTasksController < ApplicationController
       next if ct.to_i == 0 # 送られてきたデータが0の場合、処理しない
       child_task.create(child_id: ct) # 送られてきたデータを中間テーブルに書き込む
     end
-
-    redirect_to request.referer, notice: "エントリーしました！"
+    flash[:notice] ="エントリーしたよ！"
+    redirect_to request.referer
   end
 
 

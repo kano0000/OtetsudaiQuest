@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-8 mx-auto">
       <h2 class="m-5 title"><strong><%= @task_list.name %> を編集する</strong></h2>
+        <%= render "layouts/errors", obj: @task_list %>
         <%= form_with model: @task_list, method: :patch do |f| %>
           <div class="form-row align-items-center p-5 bg-offwhite">
             <div class="col-md-3 mb-1 text-md-right mx-auto">
