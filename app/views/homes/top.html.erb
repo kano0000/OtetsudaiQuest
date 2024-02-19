@@ -91,7 +91,7 @@
           <div class="scroll_left">
             <h4 class="box3">おてつだいクエストには楽しく続けることができる工夫がたくさん！！</h4>
             <div class="text-left">
-              <%= image_tag "astronaut3.png" %>
+              <%= image_tag "astronaut3.png", class: "img-fluid" %>
             </div>
           </div>
           <h1 class="text-white mb-5">・・・おてつだいクエストの特徴 ・・・</h1>
@@ -121,18 +121,16 @@
             </p>
           </div>
         </div>
-
       </div>
-
-
-
-
       <div class=" btn-wrapper col-5 mx-auto mt-5">
         <p class="sectTit"> ためしにつかってみよう！<p>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, :style => "text-decoration: none;", class: "btn-guest btn-block mb-5 text-white" %>
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, :style => "text-decoration: none;", class: "btn-guest btn-block text-white" %>
       </div>
     </div>
   </div>
+</div>
+<div>
+  <%= image_tag "aliens.png", class: "img-fluid bg-bottom-center" %>
 </div>
 
 <script>

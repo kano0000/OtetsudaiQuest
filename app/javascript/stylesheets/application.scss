@@ -52,6 +52,12 @@ body {
   z-index: -999;
 }
 
+.bg-bottom-center {
+  bottom: 0;
+  width: 50%;
+  z-index: -999;
+}
+
 .bg-bottom-right {
   position: fixed;
   bottom: 0;
@@ -514,15 +520,6 @@ body {
   border-radius: 30px;
 }
 
-// .oq-pros1 {
-// }
-
-// .oq-pros2 {
-// }
-
-// .oq-pros3 {
-// }
-
 .sectTit {
   position: relative;
   text-align: center;
@@ -608,6 +605,21 @@ body {
   transition-delay: .4s;
 }
 
+/*============
+devise
+=============*/
+.earth {
+  animation: rotate_anime 30s linear infinite;
+}
+
+@keyframes rotate_anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*============
 ハンバーガーメニュー
 =============*/
