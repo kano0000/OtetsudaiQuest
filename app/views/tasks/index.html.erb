@@ -9,6 +9,7 @@
       <%= link_to 'ポイント順', tasks_path(most_point: "true"), :style => "text-decoration: none; color:#ffffff;"%></h5>
     </div>
       <div class="row">
+        <!--完了しているクエストは表示できないようにする-->
         <% @tasks.each do |task| %>
           <div class="col-12 col-md-6 col-lg-4">
             <% if task.completed? %>

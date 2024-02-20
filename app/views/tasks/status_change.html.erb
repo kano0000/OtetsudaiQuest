@@ -59,7 +59,7 @@
     if ($("#mute").prop("checked")) {
       audio.pause(); // 停止
     } else {
-      audio.volume = 0.3; // 音量を 0.5 に設定（必要に応じて調整）
+      audio.volume = 0.3; // 音量を設定
       audio.currentTime = 0; // 再生開始位置を0秒に設定
       audio.play(); // 再生
     }

@@ -16,6 +16,7 @@
                 <% new_point = @child.point - @reward.point %>
                 <% @child.update(point: new_point) %>
               <% end %>
+              <!--postかgetを判別する。（リロードでポイントが増えないようにする）-->
               <p>のこり <%= request.post? ? new_point : @child.point %> ポイント</p>
               <%= link_to child_path(@child), class:"btn btn-danger rounded-pill", :style => "text-decoration: none; font-weight:bold; color:#fff;" do %>
                 <i class="fa-solid fa-user"></i>マイページをみる

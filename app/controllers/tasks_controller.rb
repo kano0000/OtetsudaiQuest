@@ -75,7 +75,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @children = @task.children
   end
-
+  # thanks_pageでリロードした際にポイントが加算されないようにする
   def thanks_view
     @task = Task.find(params[:id])
     @children = @task.children
