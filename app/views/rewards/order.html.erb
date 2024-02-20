@@ -21,7 +21,7 @@
                        <%= f.date_field :presented_date, class: "form-control" %>
                      </div>
                      <div style="display:inline-block">
-                       <%= f.submit "登録", class: "btn btn-primary" %>
+                       <%= f.submit "登録", class: "btn btn-success" %>
                     </div>
                   <% end %>
                 <% else %>
@@ -33,6 +33,11 @@
       </table>
       <div class="pagination">
         <%= paginate @child_rewards %>
+      </div>
+      <div>
+        <%= link_to menu_path, class: "btn btn-info" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
       </div>
     </div>
   </div>
