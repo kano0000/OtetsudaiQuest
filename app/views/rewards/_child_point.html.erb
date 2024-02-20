@@ -1,8 +1,8 @@
 <div class = "m-3 p-3 text-center" style="background-color: #FFF7D8;">
 <h2 class = "border-bottom m-3"><%= child.name %></h2>
-<h4>持っているポイント : <strong><%= child.point %> ポイント</strong></h4>
+<h4>持っているポイント : <strong><span class="text-green"><%= child.point %></span> ポイント</strong></h4>
 <% if child.point.to_i > reward.point.to_i %>
-  <h4><ruby>交換<rt>こうかん</rt></ruby>すると<strong><%= child.point - reward.point %>ポイント</strong>になるよ</h4>
+  <h4><ruby>交換<rt>こうかん</rt></ruby>すると <strong><span class="text-green"><%= child.point - reward.point %></span>ポイント</strong> になるよ</h4>
   <div class = "m-3">
     <%= link_to update_child_point_path(reward, child_id: child.id), method: :post, class: "btn btn-danger" do %>
       ほんとうに<ruby>交換<rt>こうかん</rt></ruby>する？
