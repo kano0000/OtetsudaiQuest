@@ -35,7 +35,7 @@ ER図(https://drive.google.com/file/d/1ILpzuDwkcjIvWWPQ9YjYLXZyIqJ-6U1G/view?usp
 - IDE：Cloud9
 ​
 ## 使用素材
-- フリーイラスト素材として以下を使用
+- フリー素材の以下を使用
   - Canva (https://www.canva.com/)
   - Springin' Sound Stock (https://soundeffect-lab.info/)
   - 効果音ラボ (https://soundeffect-lab.info/)
