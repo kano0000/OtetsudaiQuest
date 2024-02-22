@@ -15,9 +15,11 @@
             <th><%= @user.introduction %></th>
           </tr>
         </table>
+        <% unless @user.guest_user? %>
           <%= link_to edit_user_path(@user), class: "btn btn-warning btn-block" do %>
             <i class="fa-solid fa-pen-to-square"></i>
           <% end %>
+        <% end %>
     </div>
     <div class = "col-md-7 offset-md-1">
       <h1 class = "mb-3 title"><strong>パーティーメンバー</strong></h1>
