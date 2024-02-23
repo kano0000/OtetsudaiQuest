@@ -138,6 +138,7 @@ ja:
       task: お手伝い
       task_list: お手伝いリスト
       reward: プレゼント
+      child: メンバー
     attributes:
       task:
         task: クエスト
@@ -150,6 +151,9 @@ ja:
       reward:
         name: プレゼント名
         point: ポイント
+      child:
+        name: なまえ
+        birth_at: おたんじょうび
   helpers:
     select:
       prompt: 選択してください

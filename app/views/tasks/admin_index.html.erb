@@ -1,7 +1,17 @@
-<div class="container mt-5">
+<div class="container my-5">
   <div class="row">
     <div class="col-10 mx-auto">
       <h2 class="mb-4 title"><strong>クエスト一覧</strong></h2>
+      <div class = "text-right my-3">
+        <h5>
+          <% unless params[:not_finish].present? %>
+            <%= link_to '未完了のみ表示', tasks_admin_index_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
+          <% else %>
+            <span class="text-white">(未完了のみ表示中. . .)　</span>
+            <%= link_to '戻す', tasks_admin_index_path, :style => "text-decoration: none; color:#ffffff;" %>
+          <% end %>
+        </h5>
+      </div>
       <table class = "table table-borderd" style="background-color: #FFF7D8;">
         <tr style="background-color:#FF8C00;">
           <th>日にち</th>

@@ -9,6 +9,7 @@ class Child < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true, length: {in: 2..20}
+  validates :birth_at, presence: true
 
   # レベル => 0:かけだし 1:ふつう 2:達人 3:伝説
   enum level: {

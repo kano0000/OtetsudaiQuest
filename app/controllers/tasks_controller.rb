@@ -48,7 +48,11 @@ class TasksController < ApplicationController
   end
 
   def admin_index
-    @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
+    if params[:not_finish]
+      @tasks = current_user.tasks.where(status: "preparing").order(created_at: :desc).page(params[:page])
+    else
+      @tasks = current_user.tasks.order(created_at: :desc).page(params[:page])
+    end
   end
 
   def status_change
