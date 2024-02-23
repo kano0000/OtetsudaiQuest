@@ -2,6 +2,16 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title m-3">交換履歴</h1>
+      <div class = "text-right my-3">
+        <h5>
+          <% unless params[:not_finish].present? %>
+            <%= link_to '未完了のみ表示', order_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
+          <% else %>
+            <span class="text-white">(未完了のみ表示中. . .)　</span>
+            <%= link_to '戻す', order_path, :style => "text-decoration: none; color:#ffffff;" %>
+          <% end %>
+        </h5>
+      </div>
       <table class = "table bg-offwhite">
         <tr class = "bg-orange">
           <th>日にち</th>

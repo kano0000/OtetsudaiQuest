@@ -4,8 +4,9 @@
 <% if child.point.to_i > reward.point.to_i %>
   <h4><ruby>交換<rt>こうかん</rt></ruby>すると <strong><span class="text-green"><%= child.point - reward.point %></span>ポイント</strong> になるよ</h4>
   <div class = "m-3">
-    <%= link_to update_child_point_path(reward, child_id: child.id), method: :post, class: "btn btn-danger" do %>
-      ほんとうに<ruby>交換<rt>こうかん</rt></ruby>する？
+    <p>ほんとうに<ruby>交換<rt>こうかん</rt></ruby>する？</p>
+    <%= link_to update_child_point_path(reward, child_id: child.id), method: :post, class: "btn btn-danger p-2" do %>
+      <ruby>交換<rt>こうかん</rt>する</ruby>
     <% end %>
   </div>
 <% else %>

@@ -74,7 +74,11 @@ class RewardsController < ApplicationController
   end
 
   def order
-    @child_rewards = current_user.child_rewards.order(created_at: :desc).page(params[:page])
+    if params[:not_finish]
+      @child_rewards = current_user.child_rewards.where(presented_date: nil).order(created_at: :desc).page(params[:page])
+    else
+      @child_rewards = current_user.child_rewards.order(created_at: :desc).page(params[:page])
+    end
     unread_notifications = current_user.notifications.where(read: false)
     unread_notifications.update_all(read: true)
   end
