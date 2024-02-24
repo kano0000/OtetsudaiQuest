@@ -58,19 +58,21 @@ class RewardsController < ApplicationController
     @child = Child.find(selected_child_id) if selected_child_id.present?
   end
 
-  def update_child_point
-    @child = Child.find(params[:child_id])
-    @reward = Reward.find(params[:id])
-    #@child_reward = ChildReward.find_by(child: @child, reward: @reward)
-    ChildReward.create(child: @child, reward: @reward)
-    redirect_to complete_path(child_id: @child)
-  end
 
   def complete
     @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:id])
     month_clear = @child.tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
     @level = @child.level(month_clear)
+    ChildReward.create(child: @child, reward: @reward)
+  end
+
+  def conplete_view
+    @child = Child.find(params[:child_id])
+    @reward = Reward.find(params[:id])
+    month_clear = @child.tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
+    @level = @child.level(month_clear)
+    render 'rewards/complete'
   end
 
   def order

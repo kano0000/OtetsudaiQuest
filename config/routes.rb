@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     resources :child_rewards, only: [:create]
   end
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
-  post 'rewards/:id/update_child_point' => 'rewards#update_child_point', as: 'update_child_point'
-  get 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
+  post 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
+  get 'rewards/:id/complete' => 'rewards#complete'
   patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
