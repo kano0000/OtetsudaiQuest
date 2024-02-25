@@ -353,8 +353,8 @@ nav .inner ul li:not(:first-child):hover {
   z-index: 9999;
 }
 .arrow{
-  width: 200px;
-  height: 300px;
+  width: 100px;
+  height: 150px;
 }
 
 /*============
@@ -475,7 +475,8 @@ devise
     }
 
   .table {
-    width: 700px
+    width: 430px;
+    font-size: 80%;
   }
 
   /*============
@@ -503,4 +504,9 @@ devise
     font-size: 15px;
     padding: 3px;
   }
+
+  .arrow {
+  width: 50px;
+  height: 80px;
+}
 }
