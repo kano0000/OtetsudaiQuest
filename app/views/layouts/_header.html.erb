@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item">
           <%= link_to menu_path do %>
-            <i class="fa-solid fa-gear"></i> おうちの方はこちら
+            <i class="fa-solid fa-gear"></i> おうちの方は<br class="sp_br">こちら
             <% notifications_count = current_user.notifications.where(read: false).count %>
             <% if notifications_count > 0 %>
               <span class="badge badge-danger"><%= notifications_count %></span>

@@ -3,7 +3,9 @@
     <div class = "row">
       <div class= "btn-wrapper col-5 mx-auto btn-area">
         <%= link_to "つづきから", new_user_session_path, :style => "text-decoration: none; color:#ffffff;", class: "btn-login btn-block mb-5"%>
-        <%= link_to "あたらしくはじめる", new_user_registration_path, :style => "text-decoration: none; color:#ffffff;", class: "btn-signin btn-block" %>
+        <%= link_to  new_user_registration_path, :style => "text-decoration: none; color:#ffffff;", class: "btn-signin btn-block" do %>
+          あたらしく<br class="sp_br">はじめる
+        <% end %>
       </div>
     </div>
     <div class="scroll-area">
@@ -122,12 +124,14 @@
           </div>
         </div>
       </div>
-      <div class=" btn-wrapper col-5 mx-auto mt-5">
-        <p class="sectTit"> ためしにつかってみよう！<p>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, :style => "text-decoration: none;", class: "btn-guest btn-block text-white" %>
-      </div>
     </div>
   </div>
+</div>
+<div class=" btn-wrapper col-5 mx-auto">
+  <p class="sectTit"> ためしに<br class="sp_br">つかってみよう！<p>
+  <%= link_to users_guest_sign_in_path, method: :post, :style => "text-decoration: none;", class: "btn-guest btn-block text-white" do %>
+    ゲスト<br class="sp_br">ログイン
+  <% end %>
 </div>
 <div>
   <%= image_tag "aliens.png", class: "img-fluid bg-bottom-center" %>

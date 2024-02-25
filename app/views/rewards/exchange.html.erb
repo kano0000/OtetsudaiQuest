@@ -40,9 +40,11 @@
         <%= render "child_point", {child: @child, reward: @reward} %>
       </div>
       <% end %>
-      <%= link_to rewards_path, class: "btn btn-info" do %>
-        <i class="fa-solid fa-caret-left"></i> もどる
-      <% end %>
+      <div class="my-3">
+        <%= link_to rewards_path, class: "btn btn-info" do %>
+          <i class="fa-solid fa-caret-left"></i> もどる
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

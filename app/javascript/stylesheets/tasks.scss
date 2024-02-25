@@ -151,6 +151,8 @@
   background-color: #111;
   box-shadow: 0 0 0 8px #fff;
   border-radius: 10px;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .bg-bottom-game {
@@ -219,6 +221,11 @@
   z-index: -100;
 }
 
+.astronaut-container img {
+  width: 300px;
+  height: 300px;
+}
+
 @keyframes bound {
   0%, 100% {
     top: 20%;
@@ -242,6 +249,11 @@
   animation: yurayura 3s linear infinite;
 }
 
+.alien {
+  width: 500px;
+  height: 500px;
+}
+
 @keyframes yurayura {
   0% , 100%{
       transform: rotate(6deg);
@@ -249,4 +261,59 @@
   50%{
       transform: rotate(-6deg);
   }
+}
+
+@media screen and (max-width: 430px) {
+
+  .status_box {
+    background-color: #111;
+    box-shadow: 0 0 0 4px #fff;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .astronaut-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .alien {
+    width: 300px;
+    height: 300px;
+  }
+
+  /*============
+  #status_btn
+  =============*/
+  .custom-button {
+  text-align: center;
+  line-height: 120px; /* 高さの調整 */
+  font-weight: 700;
+  font-size: 20px; /* フォントサイズの調整 */
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 24px 24px; /* パディングの調整 */
+  background-color: #e3364a;
+  box-shadow: 0 12px 0 #ca1c30; /* ボックスシャドウの調整 */
+  border-radius: 50%;
+  width: 160px; /* 幅の調整 */
+  height: 160px; /* 高さの調整 */
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.custom-button:active {
+  box-shadow: none;
+  transform: translateY(4px); /* ボタンが押されたときの動きの調整 */
+}
+
+.custom-button,
+.custom-button:link,
+.custom-button:visited {
+  text-decoration: none;
+  color: #fff;
+}
+  
+
 }

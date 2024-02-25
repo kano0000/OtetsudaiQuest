@@ -432,3 +432,75 @@ devise
   font-size: 20px;
   padding: 8px;
 }
+
+.sp_br {
+  display: none;
+}
+
+@media screen and (max-width: 430px) {
+
+  h1, h2, h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 15px;
+  }
+
+  .title {
+    color: #f7c453;
+    font-size: 30px;
+  }
+
+  .subtitle {
+    color: #f7c453;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .sp_br {
+    display: block;
+  }
+
+
+  .font-bordering {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    font-size: 20px;
+    background: linear-gradient(transparent 80%, #ffff66 0%);
+  }
+
+  .card {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+  .table {
+    width: 700px
+  }
+
+  /*============
+  #pagination
+  =============*/
+
+  .pagination>li>a {
+    border: none;
+    color: #f7c453;
+    padding: 10px;
+  }
+
+  .pagination>.active>a {
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  /*ホバー時のデザイン*/
+  .pagination>li>a:hover {
+    border-radius: 10px;
+  }
+
+  .pagination {
+    margin: 0 auto;
+    font-size: 15px;
+    padding: 3px;
+  }
+}
