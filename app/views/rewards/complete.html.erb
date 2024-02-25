@@ -6,26 +6,40 @@
         <div class="text-white">
           <h4><ruby>交換<rt>こうかん</rt></ruby>したよ！これからもおてつだいがんばってね</h4>
           <div class="brown-box col-7">
-            <div class="side_image text-left">
-              <%= image_tag @child.get_profile_image(200,200) %>
-            </div>
-            <div class="side_text">
-              <p><%= I18n.t("enums.child.level.#{@level}") %> のおてつだいヒーロー</p>
-              <h3><%= @child.name%></h3>
-              <% if request.post? %>
-                <% new_point = @child.point - @reward.point %>
-                <% @child.update(point: new_point) %>
-              <% end %>
-              <!--postかgetを判別する。（リロードでポイントが増えないようにする）-->
-              <p>のこり <%= request.post? ? new_point : @child.point %> ポイント</p>
-              <%= link_to child_path(@child), class:"btn btn-danger rounded-pill", :style => "text-decoration: none; font-weight:bold; color:#fff;" do %>
-                <i class="fa-solid fa-user"></i>マイページをみる
-              <% end %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= image_tag @child.get_profile_image(200,200) %>
+              </div>
+              <div class="col-md-6">
+                <p><%= I18n.t("enums.child.level.#{@level}") %> のおてつだいヒーロー</p>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <h3><%= @child.name%></h3>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <% if request.post? %>
+                      <% new_point = @child.point - @reward.point %>
+                      <% @child.update(point: new_point) %>
+                    <% end %>
+                    <!--postかgetを判別する。（リロードでポイントが増えないようにする）-->
+                    <p>のこり <%= request.post? ? new_point : @child.point %> ポイント</p>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <%= link_to child_path(@child), class:"btn btn-danger rounded-pill", :style => "text-decoration: none; font-weight:bold; color:#fff;" do %>
+                      <i class="fa-solid fa-user"></i>マイページをみる
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-         <div>
-          <%= image_tag "complete.png", class: "img-fluid treasure" %>
+          <div>
+            <%= image_tag "complete.png", class: "img-fluid treasure" %>
+          </div>
         </div>
       </div>
     </div>

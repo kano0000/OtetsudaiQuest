@@ -5,22 +5,30 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title"><ruby>交換<rt>こうかん</rt></ruby>する</h1>
-     <div class="brown-box">
-        <div class="side_image col-8">
-          <%= image_tag @reward.get_gift_image(200,200) %>
-        </div>
-        <div class="side_text">
-          <h1 class="mb-4"><%=  @reward.name %></h1>
-          <table class="table table-borderless">
-            <tr class="border-blackdot">
-              <th>ポイント数</th>
-              <td><%=  @reward.point %> ポイント</td>
-            </tr>
-            <tr class="border-blackdot">
-              <th>メッセージ</th>
-              <td><%=  @reward.description %></td>
-            </tr>
-          </table>
+      <div class="brown-box">
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag @reward.get_gift_image(250,250) %>
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-danger my-3"><strong><%=  @reward.name %></strong></h2>
+            <div class="row mt-3 border-bottom">
+              <div class="col-md-6">
+                <h4>ポイント</h4>
+              </div>
+              <div class="col-md-6">
+                <h4><%=  @reward.point %> ポイント</h4>
+              </div>
+            </div>
+            <div class="row mt-3 border-bottom">
+              <div class="col-md-6">
+                <h4>メッセージ</h4>
+              </div>
+              <div class="col-md-6">
+                <h4><%=  @reward.description %></h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class = "m-1 p-1 text-center text-white">

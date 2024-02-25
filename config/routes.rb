@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   resources :children, only: [:new, :create, :show, :edit, :update]
   get 'children/:id/clear_tasks' => 'children#clear_tasks', as: 'clear_tasks'
   get 'children/:id/order_lists' => 'children#order_lists', as: 'order_lists'
-  resources :rewards, only: [:new, :create, :index, :show, :edit, :update] do
+  resources :rewards, only: [:new, :create, :index, :edit, :update] do
     resources :child_rewards, only: [:create]
   end
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
   post 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
-  get 'rewards/:id/complete' => 'rewards#complete'
+  get 'rewards/:id/complete' => 'rewards#complete_view'
   patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
   resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do

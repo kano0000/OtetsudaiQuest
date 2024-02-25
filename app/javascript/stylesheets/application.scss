@@ -94,7 +94,7 @@ body {
 
 .brown-box {
  position:relative;
- padding: 30px 20px 15px;
+ padding: 30px;
  margin: 2.5em auto;
  width: 90%;
  color: #555555;
@@ -448,13 +448,13 @@ devise
 
   .title {
     color: #f7c453;
-    font-size: 30px;
+    font-size: calc(30px + .8vw)
   }
 
   .subtitle {
     color: #f7c453;
-    font-size: 18px;
     text-align: center;
+    font-size: calc(20px + .8vw)
   }
 
   .sp_br {

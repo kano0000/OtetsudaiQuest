@@ -11,7 +11,7 @@ class RewardsController < ApplicationController
     @reward.user_id = current_user.id
     if @reward.save
       flash[:notice] = "登録しました"
-      redirect_to reward_path(@reward)
+      redirect_to rewards_path
     else
       render :new
     end
@@ -29,10 +29,6 @@ class RewardsController < ApplicationController
     end
   end
 
-  def show
-    @reward = Reward.find(params[:id])
-  end
-
   def edit
     @reward = Reward.find(params[:id])
   end
@@ -40,7 +36,7 @@ class RewardsController < ApplicationController
   def update
     @reward = Reward.find(params[:id])
     if @reward.update(reward_params)
-      redirect_to reward_path(@reward)
+      redirect_to exchange_path(@reward)
       flash[:notice] = "更新しました。"
     else
       render :edit
@@ -58,7 +54,6 @@ class RewardsController < ApplicationController
     @child = Child.find(selected_child_id) if selected_child_id.present?
   end
 
-
   def complete
     @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:id])
@@ -67,7 +62,7 @@ class RewardsController < ApplicationController
     ChildReward.create(child: @child, reward: @reward)
   end
 
-  def conplete_view
+  def complete_view
     @child = Child.find(params[:child_id])
     @reward = Reward.find(params[:id])
     month_clear = @child.tasks.where(status: "completed").where(updated_at: Date.current.all_month).count

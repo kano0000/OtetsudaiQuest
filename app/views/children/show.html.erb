@@ -11,7 +11,7 @@
         <div>
           <%= image_tag @child.get_profile_image(250,250) %>
         </div>
-        <div class="m-3">
+        <div class="my-3">
           <%= link_to clear_tasks_path(@child), class: "btn btn-danger" do %>
             <i class="fa-solid fa-star"></i>　クエスト
           <% end %>
@@ -19,38 +19,102 @@
              <i class="fa-solid fa-gift"></i>　プレゼント
           <% end %>
         </div>
-      <table class="table table-border">
-        <tbody>
-          <tr>
-            <th>ポイント</th>
-            <td><%= @child.point %> ポイント</td>
-          </tr>
-          <tr>
-            <th><ruby>今月<rt>こんげつ</rt></ruby>のおてつだいクリア<ruby>数<rt>すう</rt></ruby></th>
-            <td><%= @month_clear %>回　(トータル:<%= @total_clear %>回)</td>
-          </tr>
-          <tr>
-            <th>お<ruby>誕生日<rt>たんじょうび</rt></ruby></th>
-            <td><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>
-          </tr>
-          <tr>
-            <th><ruby>年齢<rt>ねんれい</rt></ruby></th>
-            <td><%= @child.age %>さい</td>
-          </tr>
-          <tr>
-            <th>すきなたべもの</th>
-            <td><%= @child.favorite_food %></td>
-          </tr>
-          <tr>
-            <th>しょうらいのゆめ</th>
-            <td><%= @child.future_dream %></td>
-          </tr>
-          <tr>
-            <th>ひとこと</th>
-            <td><%= @child.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="col-8 mx-auto">
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong>ポイント</strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.point %> ポイント</strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong><ruby>今月<rt>こんげつ</rt></ruby>のおてつだい<br>クリア<ruby>数<rt>すう</rt></ruby></strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @month_clear %>回<br>(トータル:<%= @total_clear %>回)</strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong>お<ruby>誕生日<rt>たんじょうび</rt></ruby></strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.birth_at.strftime("%Y年 %m月 %d日") %></strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong><ruby>年齢<rt>ねんれい</rt></ruby></strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.age %>さい</strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong>すきなたべもの</strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.favorite_food %></strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong>しょうらいのゆめ</strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.future_dream %></strong></h5>
+            </div>
+          </div>
+          <div class="row mt-3 border-bottom">
+            <div class="col-md-6">
+              <h5><strong>ひとこと</strong></h5>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><%= @child.introduction %></strong></h5>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      <!--<table class="table table-border table-responsive">-->
+      <!--  <tbody>-->
+      <!--    <tr>-->
+      <!--      <th>ポイント</th>-->
+      <!--      <td><%#= @child.point %> ポイント</td>-->
+      <!--    </tr>-->
+          <!--<tr>-->
+          <!--  <th><ruby>今月<rt>こんげつ</rt></ruby>のおてつだいクリア<ruby>数<rt>すう</rt></ruby></th>-->
+          <!--  <td><%#= @month_clear %>回　(トータル:<%#= @total_clear %>回)</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th>お<ruby>誕生日<rt>たんじょうび</rt></ruby></th>-->
+          <!--  <td><%#= @child.birth_at.strftime("%Y年 %m月 %d日") %></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th><ruby>年齢<rt>ねんれい</rt></ruby></th>-->
+          <!--  <td><%#= @child.age %>さい</td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th>すきなたべもの</th>-->
+          <!--  <td><%#= @child.favorite_food %></td>-->
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th>しょうらいのゆめ</th>-->
+          <!--  <td><%#= @child.future_dream %></td>-->
+          <!--</tr>-->
+      <!--    <tr>-->
+      <!--      <th>ひとこと</th>-->
+      <!--      <td><%#= @child.introduction %></td>-->
+      <!--    </tr>-->
+      <!--  </tbody>-->
+      <!--</table>-->
     </div>
   </div>
   <div class = "m-3">

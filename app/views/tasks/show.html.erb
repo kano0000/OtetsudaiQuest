@@ -3,59 +3,108 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-10 mx-auto bg-offwhite">
-      <div class = "col-5 mx-auto m-4">
+    <div class="col-10 mx-auto bg-offwhite py-3">
+      <div class = "col-10 mx-auto m-4">
         <h2 class="p-3 subtitle border border-radius rounded-pill bg-orange text-white"><strong><%= @task.task_list.name %></strong></h2>
       </div>
       <div>
         <%= image_tag @task.get_quest_image(200,200) %>
       </div>
-      <table class="table table-border text-center" style="font-size: 20px;">
-        <tbody>
-          <tr style="font-size: 25px;">
-            <th><ruby>獲得<rt>かくとく</rt></ruby>ポイント</th>
-            <th class="text-red"><%= @task.point %> ポイント</th>
-          </tr>
-          <tr>
-            <th>メッセージ</th>
-            <td><%= @task.description %></td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              <ruby>参加<rt>さんか</rt></ruby>メンバー<br>
-              <ruby>(必要人数<rt>ひつようにんずう</rt></ruby>: <%= @task.num_people %>人)
-            </th>
-            <td>
-              <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
-                <% @children.each do |child| %>
-                  <label>
-                    <%# checkedは、child_tasksのchild_idの配列に今ループしているchild.idがあるかチェックして true / false を返す (include?) %>
-                    <%= f.check_box :child_tasks, {multiple: true, checked: @task.child_tasks.pluck(:child_id).include?(child.id)}, child.id %>
-                    <%= child.name %>
-                  </label><br>
-                <% end %>
-                <% unless @task.status == "completed" %>
-                  <%= f.submit "えらぶ", class: "btn btn-primary" %>
-                <% end %>
+
+      <div class="row">
+        <div class="col-12 mx-auto mt-3">
+            <h3 class="text-danger"><strong><%= @task.point %> ポイント</strong></h3>
+        </div>
+      </div>
+      <div class="col-8 mx-auto">
+        <div class="row mt-3 border-bottom">
+          <div class="col-md-6">
+            <h5><strong>メッセージ</strong></h5>
+          </div>
+          <div class="col-md-6">
+            <h5><strong><%= @task.description %></strong></h5>
+          </div>
+        </div>
+
+        <div class="row mt-3 border-bottom">
+          <div class="col-md-6">
+            <h5><strong><ruby>参加<rt>さんか</rt></ruby>メンバー<br></strong></h5>
+          </div>
+          <div class="col-md-6">
+            <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
+              <% @children.each do |child| %>
+                <label>
+                  <%# checkedは、child_tasksのchild_idの配列に今ループしているchild.idがあるかチェックして true / false を返す (include?) %>
+                  <%= f.check_box :child_tasks, {multiple: true, checked: @task.child_tasks.pluck(:child_id).include?(child.id)}, child.id %>
+                  <%= child.name %>
+                </label><br>
               <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th>ステータス</th>
-            <td><%= I18n.t("enums.task.status.#{@task.status}") %></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class = "mb-3">
-        <%= link_to :back, class: "btn btn-info" do %>
-          <i class="fa-solid fa-caret-left"></i> もどる
-        <% end %>
-        <% unless @task.status == "completed" %>
-          <%= link_to status_change_path(@task), class: "btn btn-danger" do %>
-            <i class="fa-solid fa-flag-checkered"></i> はじめる
-          <% end %>
-        <% end %>
+              <% unless @task.status == "completed" %>
+                <%= f.submit "えらぶ", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h5><strong>ステータス</strong></h5>
+          </div>
+          <div class="col-md-6">
+            <h5><strong><%= I18n.t("enums.task.status.#{@task.status}") %></strong></h5>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+
+      <!--<div class="table-responsive-lg">-->
+      <!--<table class="table table-border">-->
+      <!--  <tbody>-->
+      <!--    <tr>-->
+      <!--      <th><ruby>獲得<rt>かくとく</rt></ruby>ポイント</th>-->
+      <!--      <th class="text-red"><strong><%#= @task.point %> ポイント</strong></th>-->
+      <!--    </tr>-->
+      <!--    <tr>-->
+      <!--      <th>メッセージ</th>-->
+      <!--      <td><%#= @task.description %></td>-->
+      <!--    </tr>-->
+      <!--    <tr>-->
+      <!--      <th class="align-middle">-->
+      <!--        <ruby>参加<rt>さんか</rt></ruby>メンバー<br>-->
+      <!--        <ruby>(必要人数<rt>ひつようにんずう</rt></ruby>: <%#= @task.num_people %>人)-->
+      <!--      </th>-->
+      <!--      <td>-->
+      <!--        <%#= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>-->
+      <!--          <%# @children.each do |child| %>-->
+      <!--            <label>-->
+                    <%# checkedは、child_tasksのchild_idの配列に今ループしているchild.idがあるかチェックして true / false を返す (include?) %>
+      <!--              <%#= f.check_box :child_tasks, {multiple: true, checked: @task.child_tasks.pluck(:child_id).include?(child.id)}, child.id %>-->
+      <!--              <#%= child.name %>-->
+      <!--            </label><br>-->
+      <!--          <%# end %>-->
+      <!--          <%# unless @task.status == "completed" %>-->
+      <!--            <%#= f.submit "えらぶ", class: "btn btn-primary" %>-->
+      <!--          <%# end %>-->
+      <!--        <%# end %>-->
+      <!--      </td>-->
+      <!--    </tr>-->
+      <!--    <tr>-->
+      <!--      <th>ステータス</th>-->
+      <!--      <td><%#= I18n.t("enums.task.status.#{@task.status}") %></td>-->
+      <!--    </tr>-->
+      <!--  </tbody>-->
+      <!--</table>-->
+      <!--</div>-->
+
+  <div class = "my-3">
+    <%= link_to :back, class: "btn btn-info" do %>
+      <i class="fa-solid fa-caret-left"></i> もどる
+    <% end %>
+    <% unless @task.status == "completed" %>
+      <%= link_to status_change_path(@task), class: "btn btn-danger" do %>
+        <i class="fa-solid fa-flag-checkered"></i> はじめる
+      <% end %>
+    <% end %>
   </div>
 </div>
