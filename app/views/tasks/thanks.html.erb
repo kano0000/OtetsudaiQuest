@@ -8,28 +8,55 @@
           </div>
           <div class="point-area my-4">
             <h2 class = "text-center m-0">持っているポイント</h2>
-            <table class = "table mt-4"  style = "font-size: 20px;">
-              <% @children.each do |child| %>
-              <tr>
-                <th><%= child.name %></th>
-                <th><%= child.point %></th>
-                <th> >> </th>
-                <% if request.post? %>
-                  <% new_point = child.point + @task.point %>
-                  <% child.update(point: new_point) %>
-                <% end %>
-                <th><%= request.post? ? new_point : child.point %></th>
-              </tr>
-              <% end %>
-            </table>
+
+            <% @children.each do |child| %>
+              <div class="row mt-3">
+                <div class="col-md-3">
+                  <p><strong><%= child.name %></strong></p>
+                </div>
+                <div class="col-md-3">
+                  <p><strong><%= child.point %></strong></p>
+                </div>
+                <div class="col-md-3">
+                  <p><strong> >> </strong></p>
+                </div>
+                <div class="col-md-3">
+                  <% if request.post? %>
+                    <% new_point = child.point + @task.point %>
+                    <% child.update(point: new_point) %>
+                  <% end %>
+                  <p><%= request.post? ? new_point : child.point %></p>
+                </div>
+              </div>
+            <% end %>
+
+
+
+            <!--<table class = "table mt-4"  style = "font-size: 20px;">-->
+            <!--  <%# @children.each do |child| %>-->
+            <!--  <tr>-->
+            <!--    <th><%#= child.name %></th>-->
+            <!--    <th><%#= child.point %></th>-->
+            <!--    <th> >> </th>-->
+            <!--    <%# if request.post? %>-->
+            <!--      <%# new_point = child.point + @task.point %>-->
+            <!--      <%# child.update(point: new_point) %>-->
+            <!--    <%# end %>-->
+            <!--    <th><%#= request.post? ? new_point : child.point %></th>-->
+            <!--  </tr>-->
+            <!--  <%# end %>-->
+            <!--</table>-->
+
+
+
         </div>
       </div>
-      <div class="m-3 col-9 mx-auto">
-        <%= link_to about_path,class: "btn btn-info" do %>
+      <div class="col-9 mx-auto">
+        <%= link_to about_path,class: "btn btn-info my-3" do %>
           <i class="fa-solid fa-caret-left"></i> もどる
         <% end %>
-        <%= link_to user_path(current_user),class: "btn btn-success" do %>
-          <i class="fa-solid fa-user"></i> マイページへ
+        <%= link_to user_path(current_user),class: "btn btn-success my-3" do %>
+          <i class="fa-solid fa-user"></i> マイページ
         <% end %>
       </div>
     </div>
