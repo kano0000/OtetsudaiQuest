@@ -5,30 +5,32 @@
   <div class = "row">
     <div class = "col-8 mx-auto">
       <h1 class="title mb-5"><%= @child.name %> の<br class="sp_br">プレゼント<ruby>交換<rt>こうかん</rt></ruby><ruby>一覧<rt>いちらん</rt></ruby></h1>
-      <table class = "table bg-offwhite">
-        <tr class = "bg-orange">
-          <th>日にち</th>
-          <th>プレゼント名</th>
-          <th>もらった日</th>
-        </tr>
-          <% @child_rewards.each do |child_reward| %>
-            <tr>
-              <td><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></td>
-              <td><%= child_reward.reward.name %></td>
-              <td>
-                <% if child_reward.presented_date.nil? %>
-                  <p class="text-red">もうすこしまっててね</p>
-                <% else %>
-                  <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-      </table>
+      <div class="table-responsive-lg">
+        <table class = "table bg-offwhite">
+          <tr class = "bg-orange">
+            <th>日にち</th>
+            <th>プレゼント名</th>
+            <th>もらった日</th>
+          </tr>
+            <% @child_rewards.each do |child_reward| %>
+              <tr>
+                <td><%= child_reward.created_at.strftime("%Y年 %m月 %d日") %></td>
+                <td><%= child_reward.reward.name %></td>
+                <td>
+                  <% if child_reward.presented_date.nil? %>
+                    <p class="text-red">もうすこしまっててね</p>
+                  <% else %>
+                    <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
       <div class="pagination">
         <%= paginate @child_rewards %>
       </div>
-      <%= link_to child_path(@child), class: "btn btn-info m-5" do %>
+      <%= link_to child_path(@child), class: "btn btn-info m-3" do %>
           <i class="fa-solid fa-caret-left"></i> もどる
         <% end %>
     </div>

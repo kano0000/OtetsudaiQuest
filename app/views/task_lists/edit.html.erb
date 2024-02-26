@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h2 class="m-5 title"><strong><%= @task_list.name %> を編集する</strong></h2>
+      <h2 class="m-5 title"><strong><%= @task_list.name %> <br class="sp_br">を編集</strong></h2>
         <%= render "layouts/errors", obj: @task_list %>
         <%= form_with model: @task_list, method: :patch do |f| %>
           <div class="form-row align-items-center p-5 bg-offwhite">
@@ -12,10 +12,10 @@
               <%= f.text_field :name, class: "form-control" %>
             </div>
             <div class="col mb-2 mx-auto">
-              <%= f.submit "保存する", class: "btn btn-success", style: "border-radius: 12px;" %>
+              <%= f.submit "保存", class: "btn btn-success", style: "border-radius: 12px;" %>
             </div>
             <div class="col mb-2 mx-auto">
-            <%= link_to "削除する", task_list_path(@task_list), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
+            <%= link_to "削除", task_list_path(@task_list), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
             </div>
           </div>
         <% end %>
