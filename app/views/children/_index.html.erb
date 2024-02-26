@@ -9,7 +9,9 @@
     <tr>
       <% children.each do |child| %>
       <td>
-        <%= image_tag child.get_profile_image(100,100) %>
+        <%= link_to child_path(child) do %>
+          <%= image_tag child.get_profile_image(100,100) %>
+        <% end %>
       </td>
       <td>
         <%= child.name %>
@@ -17,7 +19,6 @@
       <td>
         <%= child.point %> ポイント
       </td>
-      <td><%= link_to "みる", child_path(child) %></td>
     </tr>
     <% end %>
   </table>

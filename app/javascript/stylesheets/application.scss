@@ -362,6 +362,8 @@ devise
 =============*/
 .earth {
   animation: rotate_anime 30s linear infinite;
+  width: 400px;
+  height: auto;
 }
 
 @keyframes rotate_anime {
@@ -376,6 +378,14 @@ devise
 /*============
 #card
 =============*/
+
+.menu-card1{
+  background-color: #f46c5c;
+}
+
+.menu-card2{
+  background-color: #f7c453;
+}
 
 .panel-box .panel {
   position:relative;
@@ -439,28 +449,35 @@ devise
 
 @media screen and (max-width: 430px) {
 
-  h1, h2, h3 {
-    font-size: calc(20px + .8vw)
+  body {
+    font-size: 0.8em;
   }
-  h4 {
-    font-size: calc(15px + .8vw)
+
+  h1, h2, h3 {
+    font-size: calc(20px + .6vw)
+  }
+  h4, h5 {
+    font-size: calc(15px + .6vw)
   }
 
   .title {
     color: #f7c453;
-    font-size: calc(30px + .8vw)
+    font-size: calc(20px + .6vw)
   }
 
   .subtitle {
     color: #f7c453;
     text-align: center;
-    font-size: calc(20px + .8vw)
+    font-size: calc(15px + .6vw)
+  }
+
+  .menu-text {
+    font-size: calc(10px + .6vw)
   }
 
   .sp_br {
     display: block;
   }
-
 
   .font-bordering {
     color: transparent;
@@ -477,6 +494,12 @@ devise
   .table {
     width: 430px;
     font-size: 80%;
+  }
+
+  .earth {
+    animation: rotate_anime 30s linear infinite;
+    width: 200px;
+    height: auto;
   }
 
   /*============
@@ -501,7 +524,7 @@ devise
 
   .pagination {
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 8px;
     padding: 3px;
   }
 

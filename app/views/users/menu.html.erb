@@ -3,23 +3,21 @@
   <div class= "col-10 mt-5 mx-auto">
     <h1 class="mb-5 title"><strong>メニュー</strong></h1>
       <div class="row mb-5">
-
         <div class="col-6 mt-5">
-          <%= link_to new_task_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f46c5c;">
+          <%= link_to new_task_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card1 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>クエストを投稿する</strong></h3><br>
+                <h3 class="text-center mt-2 menu-text"><strong>クエストを<br class="sp_br">投稿する</strong></h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-pen-to-square fa-3x"></i></p>
               </div>
             </div>
           <% end %>
         </div>
-
         <div class="col-6 mt-5">
-          <%= link_to order_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f7c453;">
+          <%= link_to order_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card2 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>プレゼント交換履歴</strong>
+                <h3 class="text-center mt-2 menu-text"><strong>プレゼント<br class="sp_br">交換履歴</strong>
                 <% notifications_count = current_user.notifications.where(read: false).count %>
                 <% if notifications_count > 0 %>
                   <span class="badge badge-danger"><%= notifications_count %></span>
@@ -30,51 +28,46 @@
             </div>
           <% end %>
         </div>
-
         <div class="col-6 mt-5">
-          <%= link_to task_lists_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f46c5c;">
+          <%= link_to task_lists_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card1 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>クエストを作る</strong></h3><br>
+                <h3 class="text-center mt-2 menu-text"><strong>クエストを<br class="sp_br">作る</strong></h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-house-chimney fa-3x"></i></p>
               </div>
             </div>
           <% end %>
         </div>
-
         <div class="col-6 mt-5">
-          <%= link_to new_reward_path, :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f7c453;">
+          <%= link_to new_reward_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card2 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>プレゼントを作る</strong></h3><br>
+                <h3 class="text-center mt-2 menu-text"><strong>プレゼントを<br class="sp_br">作る</strong></h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-gift fa-3x"></i></p>
               </div>
             </div>
           <% end %>
         </div>
-
         <div class="col-6 mt-5">
-          <%= link_to tasks_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f46c5c;">
+          <%= link_to tasks_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card1 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>クエストを編集する</strong></h3><br>
+                <h3 class="text-center mt-2 menu-text"><strong>クエストを<br class="sp_br">編集する</strong></h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-gears fa-3x"></i></p>
               </div>
             </div>
           <% end %>
         </div>
-
         <div class="col-6 mt-5">
-          <%= link_to rewards_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center"  do %>
-            <div class="card shadow-lg" style= "background-color:#f7c453;">
+          <%= link_to rewards_admin_index_path(id: current_user.id), :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+            <div class="card menu-card2 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2"><strong>プレゼントを編集する</strong></h3><br>
+                <h3 class="text-center mt-2 menu-text"><strong>プレゼントを<br class="sp_br">編集する</strong></h3><br>
                 <p class="text-center mt-3"><i class="fa-solid fa-gears fa-3x"></i></p>
               </div>
             </div>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>

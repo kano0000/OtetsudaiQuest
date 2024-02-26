@@ -18,7 +18,7 @@
             <% @tasks.each do |task| %>
             <td><%= task.updated_at.strftime("%Y年 %m月 %d日") %></td>
             <td>
-              <%= image_tag task.get_quest_image(100,100) %>
+              <%= image_tag task.get_quest_image(80,80) %>
             </td>
             <td>
               <%= task.task_list.name %>
