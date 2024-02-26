@@ -298,32 +298,32 @@
   /*============
   #status_btn
   =============*/
- .custom-button {
-  text-align: center;
-  line-height: 90px; /* 高さの調整 */
-  font-weight: 700;
-  font-size: 15px; /* フォントサイズの調整 */
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 18px 18px; /* パディングの調整 */
-  background-color: #e3364a;
-  box-shadow: 0 9px 0 #ca1c30; /* ボックスシャドウの調整 */
-  border-radius: 50%;
-  width: 120px; /* 幅の調整 */
-  height: 120px; /* 高さの調整 */
-  color: #fff;
-  transition: all 0.3s;
-}
+   .custom-button {
+    text-align: center;
+    line-height: 90px; /* 高さの調整 */
+    font-weight: 700;
+    font-size: 13px; /* フォントサイズの調整 */
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 18px 18px; /* パディングの調整 */
+    background-color: #e3364a;
+    box-shadow: 0 9px 0 #ca1c30; /* ボックスシャドウの調整 */
+    border-radius: 50%;
+    width: 120px; /* 幅の調整 */
+    height: 120px; /* 高さの調整 */
+    color: #fff;
+    transition: all 0.3s;
+  }
 
-.custom-button:active {
-  box-shadow: none;
-  transform: translateY(3px); /* ボタンが押されたときの動きの調整 */
-}
+  .custom-button:active {
+    box-shadow: none;
+    transform: translateY(3px); /* ボタンが押されたときの動きの調整 */
+  }
 
-.custom-button,
-.custom-button:link,
-.custom-button:visited {
-  text-decoration: none;
-  color: #fff;
-}
+  .custom-button,
+  .custom-button:link,
+  .custom-button:visited {
+    text-decoration: none;
+    color: #fff;
+  }
 }
