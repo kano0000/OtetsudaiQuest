@@ -27,9 +27,10 @@
         </div>
         <div class="row mt-3 border-bottom">
           <div class="col-md-6">
-            <h5><strong><ruby>参加<rt>さんか</rt></ruby>メンバー<br></strong></h5>
+            <h5><strong><ruby>参加<rt>さんか</rt></ruby>メンバー<br></strong></h5><br>
+            <p>（<%= @task.num_people %>人まで）</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 text-left">
             <%= form_with model: @task, url: task_child_task_path(@task), method: :patch do |f| %>
               <% @children.each do |child| %>
                 <label>

@@ -12,43 +12,23 @@
             <% @children.each do |child| %>
               <div class="row mt-3">
                 <div class="col-md-3">
-                  <p><strong><%= child.name %></strong></p>
+                  <h5><strong><%= child.name %></strong></h5>
                 </div>
                 <div class="col-md-3">
-                  <p><strong><%= child.point %></strong></p>
+                  <h5><strong><%= child.point %></strong></h5>
                 </div>
                 <div class="col-md-3">
-                  <p><strong> >> </strong></p>
+                  <h5><strong> >> </strong></h5>
                 </div>
                 <div class="col-md-3">
                   <% if request.post? %>
                     <% new_point = child.point + @task.point %>
                     <% child.update(point: new_point) %>
                   <% end %>
-                  <p><%= request.post? ? new_point : child.point %></p>
+                  <h5><%= request.post? ? new_point : child.point %></h5>
                 </div>
               </div>
             <% end %>
-
-
-
-            <!--<table class = "table mt-4"  style = "font-size: 20px;">-->
-            <!--  <%# @children.each do |child| %>-->
-            <!--  <tr>-->
-            <!--    <th><%#= child.name %></th>-->
-            <!--    <th><%#= child.point %></th>-->
-            <!--    <th> >> </th>-->
-            <!--    <%# if request.post? %>-->
-            <!--      <%# new_point = child.point + @task.point %>-->
-            <!--      <%# child.update(point: new_point) %>-->
-            <!--    <%# end %>-->
-            <!--    <th><%#= request.post? ? new_point : child.point %></th>-->
-            <!--  </tr>-->
-            <!--  <%# end %>-->
-            <!--</table>-->
-
-
-
         </div>
       </div>
       <div class="col-9 mx-auto">

@@ -7,11 +7,11 @@
           <%= form_with model: @task do |f| %>
           <div class="form-group">
             <%= f.label :name, "お手伝い" %>
-            <%= f.collection_select :task_list_id, TaskList.all, :id, :name, include_blank: "選択して下さい" %>
+            <%= f.collection_select :task_list_id, current_user.task_lists.all, :id, :name, include_blank: "選択して下さい" %>
           </div>
           <div>
             <%= f.label :num_people, "必要人数" %>
-            <%= f.select :num_people,[["1人", 1],["2人", 2],["3人", 3],["4人", 4],["5人", 5]], {include_blank: "人数を選択して下さい"} %>
+            <%= f.select :num_people, options_for_select((1..current_user.children.count).map { |num| ["#{num}人", num] }), { include_blank: "人数を選択して下さい" } %>
           </div>
           <div class="form-group">
             <%= f.label :point, "獲得ポイント数" %>
@@ -22,8 +22,16 @@
             <%= f.text_area :description, class: "form-control"%>
           </div>
           <div class="form-group">
-            <%= f.label :quest_image,  "写真を登録"%>
-            <%= f.file_field :quest_image, class: "form-control-file",accept: "image/*" %>
+            <div class="row">
+              <div class="col-12">
+                <%= f.label :quest_image, "写真を登録", class: "col-form-label text-center" %>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-6">
+                <%= f.file_field :quest_image, class: "form-control-file", accept: "image/*" %>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <%= f.submit "追加する", class: "btn btn-success" %>
