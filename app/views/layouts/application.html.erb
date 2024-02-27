@@ -23,7 +23,7 @@
         <% end %>
         <%= yield %>
         <span id="back">
-          <a href="#" id="scrollButton">
+          <a href="#" id="scrollButton" hidden>
             <%= image_tag asset_path('rocket.png'), data: {"turbolinks"=>false}, class: "arrow" %>
           </a>
         </span>
