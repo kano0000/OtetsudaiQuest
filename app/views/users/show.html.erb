@@ -8,18 +8,18 @@
 
         <div class="row mt-3 border-bottom">
           <div class="col-md-6">
-            <p><strong>なまえ</strong></p>
+            <p><b>なまえ</b></p>
           </div>
           <div class="col-md-6">
-            <p><strong><%= @user.name %></strong></p>
+            <p><b><%= @user.name %></b></p>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col-md-6">
-            <p><strong>ひとこと</strong></p>
+            <p><b>ひとこと</b></p>
           </div>
           <div class="col-md-6">
-            <p><strong><%= @user.introduction %></strong></p>
+            <p><b><%= @user.introduction %></b></p>
           </div>
         </div>
         <div class="mb-3">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class = "col-md-7 offset-md-1">
-      <h1 class = "mb-3 title"><strong>パーティーメンバー</strong></h1>
+      <h1 class = "mb-3 title"><b>パーティーメンバー</b></h1>
         <%= render 'children/index', children: @children %>
     </div>
   </div>
