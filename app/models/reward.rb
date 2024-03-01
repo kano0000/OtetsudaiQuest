@@ -13,7 +13,7 @@ class Reward < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/gift_image.png')
       gift_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')      
     end
-    gift_image.variant(resize_to_limit: [width,height]).processed
+    gift_image.variant(resize_to_fill: [width,height]).processed
   end
   
 end

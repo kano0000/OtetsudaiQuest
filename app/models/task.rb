@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   has_many :children, through: :child_tasks
 
   has_one_attached :quest_image
-  
+
   validates :num_people, presence: true
   validates :point, presence: true
 
@@ -23,7 +23,7 @@ class Task < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/quest_image.png')
       quest_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    quest_image.variant(resize_to_limit: [width,height]).processed
+    quest_image.variant(resize_to_fill: [width,height]).processed
   end
 
 end
