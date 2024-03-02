@@ -25,7 +25,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
+    tags = Vision.get_image_data(task_params[:quest_image])
     if @task.save
+      @tag_names = tags
       flash[:notice] = "登録しました"
       redirect_to tasks_path
     else
