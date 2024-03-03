@@ -9,13 +9,20 @@ class RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     @reward.user_id = current_user.id
+    gift_image_safety = Vision.get_image_data(reward_params[:gift_image])
+    
+    unless gift_image_safety
+      @reward.errors.add(:base, '画像が不適切です。')
+      render :new
+      return
+    end
+    
     if @reward.save
       flash[:notice] = "登録しました"
       redirect_to rewards_path
     else
       render :new
     end
-
   end
 
   def index
@@ -35,6 +42,14 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
+    gift_image_safety = Vision.get_image_data(reward_params[:gift_image])
+    
+    unless gift_image_safety
+      @reward.errors.add(:base, '画像が不適切です。')
+      render :new
+      return
+    end
+    
     if @reward.update(reward_params)
       redirect_to exchange_path(@reward)
       flash[:notice] = "更新しました。"

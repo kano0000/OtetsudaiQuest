@@ -20,45 +20,26 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    # @tags = Vision.get_image_data(@task.quest_image)
-    # @tags = Vision.get_image_data(task_params[:quest_image])
   end
-
-  # def tag_create
-  #   @task = Task.new
-  #   @tags = Vision.get_image_data(@task.quest_image)
-  #   render :new
-  # end
 
   def create
-  @task = Task.new(task_params)
-  @task.user_id = current_user.id
-
-  quest_image_safety = Vision.get_image_data(task_params[:quest_image])
-
-  # similar_task_list = Language.get_tags(@tags.join(' '))
-
-  # 一番初めに抽出されたタグを取得
-  # similar_tag = similar_task_list.first
-
-  # タグに基づいて該当するタスクリストを検索
-  # task_list = TaskList.find_by(name: similar_tag)
-
-  # 該当するタスクリストが見つかった場合にのみ代入
-  # @task.task_list = task_list.name if task_list
-  
-  unless quest_image_safety
-    @task.errors.add(:base, '画像が不適切です。')
-    render :new
-    return
+    @task = Task.new(task_params)
+    @task.user_id = current_user.id
+    quest_image_safety = Vision.get_image_data(task_params[:quest_image])
+    
+    unless quest_image_safety
+      @task.errors.add(:base, '画像が不適切です。')
+      render :new
+      return
+    end
+    
+    if @task.save
+      flash[:notice] = "登録しました"
+      redirect_to tasks_path
+    else
+      render :new
+    end
   end
-  if @task.save
-    flash[:notice] = "登録しました"
-    redirect_to tasks_path
-  else
-    render :new
-  end
-end
 
   def edit
     @task = Task.find(params[:id])
@@ -66,6 +47,14 @@ end
 
   def update
     @task = Task.find(params[:id])
+    quest_image_safety = Vision.get_image_data(task_params[:quest_image])
+    
+    unless quest_image_safety
+      @task.errors.add(:base, '画像が不適切です。')
+      render :new
+      return
+    end
+    
     if @task.update(task_params)
       flash[:notice] = "更新しました。"
       redirect_to task_path(@task)
