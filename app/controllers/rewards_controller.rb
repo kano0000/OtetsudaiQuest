@@ -46,7 +46,7 @@ class RewardsController < ApplicationController
     
     unless gift_image_safety
       @reward.errors.add(:base, '画像が不適切です。')
-      render :new
+      render :edit
       return
     end
     

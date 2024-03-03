@@ -14,6 +14,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    profile_image_safety = Vision.get_image_data(user_params[:profile_image])
+    
+    unless profile_image_safety
+      @user.errors.add(:base, '画像が不適切です。')
+      render :edit
+      return
+    end
     if @user.update(user_params)
       redirect_to user_path(@user)
       flash[:notice] = "更新しました。"

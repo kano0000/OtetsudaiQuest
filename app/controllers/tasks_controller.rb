@@ -51,7 +51,7 @@ class TasksController < ApplicationController
     
     unless quest_image_safety
       @task.errors.add(:base, '画像が不適切です。')
-      render :new
+      render :edit
       return
     end
     

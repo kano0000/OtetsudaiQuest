@@ -447,7 +447,13 @@ devise
   display: none;
 }
 
-.new-img{
+.new-img {
+  width: 200px;
+  object-fit: cover;
+  margin: 1rem;
+}
+
+.edit-img {
   width: 200px;
   object-fit: cover;
   margin: 1rem;
