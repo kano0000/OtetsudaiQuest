@@ -25,5 +25,4 @@ class Task < ApplicationRecord
     end
     quest_image.variant(resize_to_fill: [width,height]).processed
   end
-
 end

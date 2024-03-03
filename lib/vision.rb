@@ -19,7 +19,7 @@ module Vision
           },
           features: [
             {
-              type: 'LABEL_DETECTION'
+              type: 'SAFE_SEARCH_DETECTION',
             }
           ]
         }]
@@ -33,12 +33,26 @@ module Vision
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
+
+      # APIレスポンスをログに出力
+      # Rails.logger.debug "API response: #{response_body}"
+
       # APIレスポンス出力
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
       else
-        response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
+        safe_flag = true
+        response_body['responses'][0]['safeSearchAnnotation'].each do |label, level|
+          # ref: https://docs.ruby-lang.org/ja/latest/method/Regexp/i/match=3f.html
+          # ref: https://qiita.com/ko30005/items/7e2366e9488be2c8584e
+          if /^POSSIBLE|^LIKELY|^VERY_LIKELY/.match?(level) == true
+            safe_flag = false
+          end
+        end
       end
+
+      safe_flag
+
     end
   end
 end

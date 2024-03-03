@@ -6,6 +6,26 @@
           <%= render "layouts/errors", obj: @task %>
           <%= form_with model: @task do |f| %>
           <div class="form-group">
+            <div class="row">
+              <div class="col-12">
+                <%= f.label :quest_image, "写真を登録", class: "col-form-label text-center", for: "task_quest_image" %>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-6">
+                <%= f.file_field :quest_image, class: "form-control-file", accept: "image/*", id: "task_quest_image" %>
+                <div id="new-image"></div>
+                <%#= link_to "タグを取得", tag_create_path, class: "btn btn-success" %>
+                <!--<%# if @tags.present? %>-->
+                <!--  <p><%#= @tags.join(" ")%></p>-->
+                <!--<%# end %>-->
+                <!--<div id="tag-display">-->
+                <!--  <%#= render 'tag_display', tags: @tags %>-->
+                <!--</div>-->
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
             <%= f.label :name, "お手伝い" %>
             <%= f.collection_select :task_list_id, current_user.task_lists.all, :id, :name, include_blank: "選択して下さい" %>
           </div>
@@ -20,25 +40,6 @@
           <div class="form-group">
             <%= f.label :description, "メッセージ" %>
             <%= f.text_area :description, class: "form-control"%>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-12">
-                <%= f.label :quest_image, "写真を登録", class: "col-form-label text-center", for: "task_quest_image" %>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12 col-sm-6">
-                <%= f.file_field :quest_image, class: "form-control-file", accept: "image/*", id: "task_quest_image" %>
-                <div id="new-image"></div>
-                <div id="tag-display">
-                  <%= @tags.inspect %>
-                  <% if @tags.present? %>
-                    <p>タグ: <%= @tags.join(', ') %></p>
-                  <% end %>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="form-group">
             <%= f.submit "追加する", class: "btn btn-success" %>

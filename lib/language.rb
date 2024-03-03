@@ -4,7 +4,7 @@ require 'net/https'
 
 module Language
   class << self
-    def get_data(text)
+    def get_tags(text)
       # APIのURL作成
       api_url = "https://language.googleapis.com/v1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
       # APIリクエスト用のJSONパラメータ
@@ -26,8 +26,18 @@ module Language
       if (error = response_body['error']).present?
         raise error['message']
       else
-        response_body['documentSentiment']['score']
+        get_tags(response_body)
       end  
     end
+    
+    def get_tags(response_body)
+      # タグを抽出するロジック
+      # 例: レスポンスから必要な情報を取得してタグを抽出
+      tags = []
+      entities = response_body['entities'] || []
+      entities.map { |entity| entity['name'] }
+    
+    end
+    
   end
 end
