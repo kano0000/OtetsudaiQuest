@@ -27,6 +27,7 @@
             <div class="row justify-content-center">
               <div class="col-12 col-sm-6">
                 <%= f.file_field :gift_image, class: "form-control-file", accept: "image/*" %>
+                <div id="edit-image"></div>
               </div>
             </div>
           </div>
@@ -53,3 +54,25 @@
   <%= image_tag "star2.png", class: "img-fluid bg-bottom" %>
 </div>
 
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    const createImageHTML = (blob) => {
+      const imageElement = document.getElementById('edit-image');
+      const blobImage = document.createElement('img');
+      blobImage.setAttribute('class', 'edit-img')
+      blobImage.setAttribute('src', blob);
+      imageElement.appendChild(blobImage);
+      document.getElementById('tag-display').style.display = 'block';
+    };
+
+    document.getElementById('reward_gift_image').addEventListener('change', (e) => {
+      const imageContent = document.querySelector('.edit-img');
+      if (imageContent){
+        imageContent.remove();
+      }
+      const file = e.target.files[0];
+      const blob = window.URL.createObjectURL(file);
+      createImageHTML(blob);
+    });
+  });
+</script>
