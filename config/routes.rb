@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about', as: "about"
-  # get 'tasks/tag_create' => 'tasks#tag_create', as: 'tag_create'
   resources :users, only: [:show, :edit, :update]
   get 'user/menu' => 'users#menu', as: 'menu'
   get 'rewards/order' => 'rewards#order', as: 'order'
