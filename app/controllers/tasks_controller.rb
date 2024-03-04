@@ -25,14 +25,17 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
-    quest_image_safety = Vision.get_image_data(task_params[:quest_image])
-    
-    unless quest_image_safety
-      @task.errors.add(:base, '画像が不適切です。')
-      render :new
-      return
+
+    if task_params[:quest_image].present? # 画像があれば処理
+      quest_image_safety = Vision.get_image_data(task_params[:quest_image])
+
+      unless quest_image_safety
+        @task.errors.add(:base, '画像が不適切です。')
+        render :new
+        return
+      end
     end
-    
+
     if @task.save
       flash[:notice] = "登録しました"
       redirect_to tasks_path
@@ -47,14 +50,17 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    quest_image_safety = Vision.get_image_data(task_params[:quest_image])
-    
-    unless quest_image_safety
-      @task.errors.add(:base, '画像が不適切です。')
-      render :edit
-      return
+
+    if task_params[:quest_image].present? # 画像があれば処理
+      quest_image_safety = Vision.get_image_data(task_params[:quest_image])
+
+      unless quest_image_safety
+        @task.errors.add(:base, '画像が不適切です。')
+        render :edit
+        return
+      end
     end
-    
+
     if @task.update(task_params)
       flash[:notice] = "更新しました。"
       redirect_to task_path(@task)

@@ -2,19 +2,24 @@
 $(document).on('turbolinks:load', function() {
   var scrollButton = $('#scrollButton');
 
-  toggleScrollButtonVisibility();
+  scrollButton.hide(); // まずは非表示
 
-  $(window).on('scroll', function() {
+  toggleScrollButtonVisibility(); // 現在地判定
+
+  $(window).on('scroll', function() { // スクロール時の現在地判定
     toggleScrollButtonVisibility();
   });
 
+  // スクロールボタンがクリックされたら、
+  // 800msかけて頁のトップへ戻る
   scrollButton.on('click', function(event) {
     $('body, html').animate({
       scrollTop: 0
     }, 800);
-    event.preventDefault();
+    event.preventDefault(); // リンクの動作を止める
   });
 
+  // 上に戻る
   function toggleScrollButtonVisibility() {
     if ($(window).scrollTop() > 250) {
       scrollButton.fadeIn();
