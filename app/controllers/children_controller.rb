@@ -8,12 +8,15 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(child_params)
     @child.user_id = current_user.id
-    profile_image_safety = Vision.get_image_data(child_params[:profile_image])
-
-    unless profile_image_safety
-      @child.errors.add(:base, 'ほかのしゃしんにかえてね！')
-      render :new
-      return
+    
+    if child_params[:profile_image].present? # 画像があれば処理
+      profile_image_safety = Vision.get_image_data(child_params[:profile_image])
+      
+      unless profile_image_safety
+        @child.errors.add(:base, 'ほかのしゃしんにかえてね！')
+        render :new
+        return
+      end
     end
 
     if @child.save
@@ -38,13 +41,17 @@ class ChildrenController < ApplicationController
 
   def update
     @child = Child.find(params[:id])
-    profile_image_safety = Vision.get_image_data(child_params[:profile_image])
-
-    unless profile_image_safety
-      @child.errors.add(:base, 'ほかのしゃしんにかえてね！')
-      render :edit
-      return
+    
+    if child_params[:profile_image].present?
+      profile_image_safety = Vision.get_image_data(child_params[:profile_image])
+  
+      unless profile_image_safety
+        @child.errors.add(:base, 'ほかのしゃしんにかえてね！')
+        render :edit
+        return
+      end
     end
+    
     if @child.update(child_params)
       redirect_to child_path(@child)
       flash[:notice] = "更新しました。"
