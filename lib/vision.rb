@@ -40,8 +40,6 @@ module Vision
       else
         safe_flag = true
         response_body['responses'][0]['safeSearchAnnotation'].each do |label, level|
-          # ref: https://docs.ruby-lang.org/ja/latest/method/Regexp/i/match=3f.html
-          # ref: https://qiita.com/ko30005/items/7e2366e9488be2c8584e
           if /^POSSIBLE|^LIKELY|^VERY_LIKELY/.match?(level) == true
             safe_flag = false
           end
