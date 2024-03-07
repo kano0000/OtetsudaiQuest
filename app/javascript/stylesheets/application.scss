@@ -466,10 +466,10 @@ devise
   }
 
   h1, h2, h3 {
-    font-size: calc(20px + .6vw)
+    font-size: calc(20px + .4vw)
   }
   h4, h5 {
-    font-size: calc(15px + .6vw)
+    font-size: calc(15px + .4vw)
   }
 
   .title {
@@ -480,11 +480,11 @@ devise
   .subtitle {
     color: #f7c453;
     text-align: center;
-    font-size: calc(15px + .6vw)
+    font-size: calc(15px + .6vw);
   }
 
   .menu-text {
-    font-size: calc(10px + .6vw)
+    font-size: calc(10px + .6vw);
   }
 
   .sp_br {
@@ -512,6 +512,16 @@ devise
     animation: rotate_anime 30s linear infinite;
     width: 200px;
     height: auto;
+  }
+
+  .error_message-box {
+    border-radius: 5px;
+    padding: 16px 24px;
+    margin: 10px auto;
+    background-color: #ffd4d1;
+    color: #930403;
+    border: solid 1px #930403;
+    font-size: 0.8em;
   }
 
   /*============
