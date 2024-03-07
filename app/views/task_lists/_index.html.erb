@@ -11,17 +11,52 @@
         <tr class="text-center align-middle">
           <td><%= task_list.name %></td>
           <td>
-            <%= link_to edit_task_list_path(task_list), class: "btn btn-warning btn-sm btn-style" do %>
+            <button type="button" class="btn btn-warning btn-sm btn-style" data-toggle="modal" data-target="#editModal<%= task_list.id %>">
               <i class="fa-solid fa-pen-to-square"></i>
-            <% end %>
+            </button>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <div>
-    <%= link_to menu_path, class: "btn btn-info btn-style" do %>
-      <i class="fa-solid fa-caret-left"></i> もどる
-    <% end %>
-  </div>
+
+  <!-- モーダル -->
+  <% task_lists.each do |task_list| %>
+    <div class="modal fade" id="editModal<%= task_list.id %>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-light text-dark text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">お手伝い名を編集</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-dark">
+            <!-- 編集フォーム -->
+            <%= form_with model: task_list, method: :patch do |f| %>
+              <div class="form-row align-items-center p-5 bg-light">
+                <div class="col-md-4 mb-1 text-md-right mx-auto">
+                  <%= f.label :name, "お手伝い名" %>
+                </div>
+                <div class="col-md-6 mb-1 mx-auto">
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+                <div class="col mb-2 mx-auto">
+                  <%= f.submit "保存", class: "btn btn-success", style: "border-radius: 12px;" %>
+                </div>
+                <div class="col mb-2 mx-auto">
+                  <%= link_to "削除", task_list_path(task_list), method: :delete, class: "btn btn-danger", style: "border-radius: 12px;" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div>
+  <%= link_to menu_path, class: "btn btn-info btn-style" do %>
+    <i class="fa-solid fa-caret-left"></i> もどる
+  <% end %>
 </div>

@@ -19,10 +19,6 @@ class TaskListsController < ApplicationController
     end
   end
   
-  def edit
-    @task_list = TaskList.find(params[:id])
-  end
-  
   def update
     @task_list = TaskList.find(params[:id])
     if @task_list.update(task_list_params)

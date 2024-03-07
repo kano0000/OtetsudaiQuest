@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
   get 'rewards/:id/complete' => 'rewards#complete_view'
   patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
-  resources :task_lists, only: [:index, :create, :edit, :update, :destroy]
+  resources :task_lists, only: [:index, :create, :update, :destroy]
   resources :tasks, only: [:index, :show, :new, :create, :edit, :update] do
     resources :child_tasks, only: [:update]
   end
