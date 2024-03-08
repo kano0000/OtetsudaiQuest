@@ -35,7 +35,7 @@
         <h2 class = "mb-3"><ruby>交換<rt>こうかん</rt></ruby>する人を<ruby>選<rt>えら</rt></ruby>んでね</h2>
         <%= form_with model: @reward, url: exchange_path, method: :get do |f| %>
           <div class="form-group">
-            <%= f.label :name, "なまえ" %>
+            <%= f.label :child_id, "なまえ" %>
             <%= f.collection_select :child_id, @children, :id, :name, include_blank: "なまえをえらんでね" %>
           </div>
           <div class="form-group">
@@ -44,7 +44,7 @@
         <% end %>
       </div>
       <% if @child.present? %>
-      <div id = "exchange_point", class = "mb-3 text-center">
+      <div class = "mb-3 text-center">
         <%= render "child_point", {child: @child, reward: @reward} %>
       </div>
       <% end %>
