@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
   post 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
   get 'tasks/:id/thanks' => 'tasks#thanks_view'
-
+  
+  post "/chatbots", to: "chatbots#create"
+  
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
   get 'rewards/:id/admin_index' => 'rewards#admin_index', as: 'rewards_admin_index'
