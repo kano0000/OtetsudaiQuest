@@ -21,12 +21,12 @@
           <div class="form-group">
             <div class="row">
               <div class="col-12">
-                <%= f.label :gift_image, "写真を登録", class: "col-form-label" %>
+                <%= f.label :gift_image, "写真を登録", class: "col-form-label", for: "reward_gift_image" %>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-12 col-sm-6">
-                <%= f.file_field :gift_image, class: "form-control-file", accept: "image/*" %>
+                <%= f.file_field :gift_image, class: "form-control-file", accept: "image/*", id: "reward_gift_image" %>
                 <div id="edit-image"></div>
               </div>
             </div>
@@ -59,20 +59,22 @@
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById('edit-image');
       const blobImage = document.createElement('img');
-      blobImage.setAttribute('class', 'edit-img')
+      blobImage.setAttribute('class', 'edit-image');
       blobImage.setAttribute('src', blob);
       imageElement.appendChild(blobImage);
-      document.getElementById('tag-display').style.display = 'block';
     };
 
-    document.getElementById('reward_gift_image').addEventListener('change', (e) => {
-      const imageContent = document.querySelector('.edit-img');
-      if (imageContent){
-        imageContent.remove();
-      }
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-      createImageHTML(blob);
-    });
+    const rewardGiftImageElement = document.getElementById('reward_gift_image');
+    if (rewardGiftImageElement) {
+      rewardGiftImageElement.addEventListener('change', (e) => {
+        const imageContent = document.querySelector('.edit-image');
+        if (imageContent) {
+          imageContent.remove();
+        }
+        const file = e.target.files[0];
+        const blob = window.URL.createObjectURL(file);
+        createImageHTML(blob);
+      });
+    }
   });
 </script>

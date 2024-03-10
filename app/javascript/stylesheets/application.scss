@@ -447,13 +447,13 @@ devise
   display: none;
 }
 
-.new-img {
+.new-image {
   width: 200px;
   object-fit: cover;
   margin: 1rem;
 }
 
-.edit-img {
+.edit-image {
   width: 200px;
   object-fit: cover;
   margin: 1rem;
@@ -551,7 +551,19 @@ devise
   }
 
   .arrow {
-  width: 50px;
-  height: 80px;
+    width: 50px;
+    height: 80px;
+    }
+  
+  .new-image {
+    width: 100px;
+    object-fit: cover;
+    margin: 1rem;
+  }
+  
+  .edit-image {
+    width: 100px;
+    object-fit: cover;
+    margin: 1rem;
   }
 }

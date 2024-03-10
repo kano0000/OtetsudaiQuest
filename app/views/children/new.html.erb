@@ -28,12 +28,12 @@
         <div class="form-group">
           <div class="row">
             <div class="col-12">
-              <%= f.label :profile_image,  "しゃしんをとうろく", class: "col-form-label"%>
+              <%= f.label :profile_image,  "しゃしんをとうろく", class: "col-form-label", for: "child_profile_image" %>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-12 col-sm-6">
-              <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
+              <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*", id: "child_profile_image" %>
               <div id="new-image"></div>
             </div>
           </div>
@@ -60,20 +60,22 @@
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById('new-image');
       const blobImage = document.createElement('img');
-      blobImage.setAttribute('class', 'new-img')
+      blobImage.setAttribute('class', 'new-image');
       blobImage.setAttribute('src', blob);
       imageElement.appendChild(blobImage);
-      document.getElementById('tag-display').style.display = 'block';
     };
 
-    document.getElementById('child_profile_image').addEventListener('change', (e) => {
-      const imageContent = document.querySelector('.new-img');
-      if (imageContent){
-        imageContent.remove();
-      }
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-      createImageHTML(blob);
-    });
+    const childProfileImageElement = document.getElementById('child_profile_image');
+    if (childProfileImageElement) {
+      childProfileImageElement.addEventListener('change', (e) => {
+        const imageContent = document.querySelector('.new-image');
+        if (imageContent) {
+          imageContent.remove();
+        }
+        const file = e.target.files[0];
+        const blob = window.URL.createObjectURL(file);
+        createImageHTML(blob);
+      });
+    }
   });
 </script>

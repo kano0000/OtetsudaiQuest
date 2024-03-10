@@ -14,8 +14,8 @@
             <%= f.text_area :introduction, class: "form-control"%>
           </div>
           <div class="form-group">
-            <%= f.label :image, "写真" %>
-            <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*" %>
+            <%= f.label :profile_image, "写真", class: "col-form-label", for: "user_profile_image" %>
+            <%= f.file_field :profile_image, class: "form-control-file",accept: "image/*", id: "user_profile_image" %>
             <div id="edit-image"></div>
           </div>
           <div class="form-group">
@@ -40,20 +40,22 @@
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById('edit-image');
       const blobImage = document.createElement('img');
-      blobImage.setAttribute('class', 'edit-img')
+      blobImage.setAttribute('class', 'edit-image');
       blobImage.setAttribute('src', blob);
       imageElement.appendChild(blobImage);
-      document.getElementById('tag-display').style.display = 'block';
     };
 
-    document.getElementById('user_profile_image').addEventListener('change', (e) => {
-      const imageContent = document.querySelector('.edit-img');
-      if (imageContent){
-        imageContent.remove();
-      }
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-      createImageHTML(blob);
-    });
+    const userProfileImageElement = document.getElementById('user_profile_image');
+    if (userProfileImageElement) {
+      userProfileImageElement.addEventListener('change', (e) => {
+        const imageContent = document.querySelector('.edit-image');
+        if (imageContent) {
+          imageContent.remove();
+        }
+        const file = e.target.files[0];
+        const blob = window.URL.createObjectURL(file);
+        createImageHTML(blob);
+      });
+    }
   });
 </script>

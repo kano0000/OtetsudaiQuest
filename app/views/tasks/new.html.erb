@@ -56,20 +56,22 @@
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById('new-image');
       const blobImage = document.createElement('img');
-      blobImage.setAttribute('class', 'new-img')
+      blobImage.setAttribute('class', 'new-image');
       blobImage.setAttribute('src', blob);
       imageElement.appendChild(blobImage);
-      document.getElementById('tag-display').style.display = 'block';
     };
 
-    document.getElementById('task_quest_image').addEventListener('change', (e) => {
-      const imageContent = document.querySelector('.new-img');
-      if (imageContent){
-        imageContent.remove();
-      }
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-      createImageHTML(blob);
-    });
+    const taskQuestImageElement = document.getElementById('task_quest_image');
+    if (taskQuestImageElement) {
+      taskQuestImageElement.addEventListener('change', (e) => {
+        const imageContent = document.querySelector('.new-image');
+        if (imageContent) {
+          imageContent.remove();
+        }
+        const file = e.target.files[0];
+        const blob = window.URL.createObjectURL(file);
+        createImageHTML(blob);
+      });
+    }
   });
 </script>
