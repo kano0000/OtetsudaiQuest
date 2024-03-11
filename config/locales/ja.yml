@@ -3,16 +3,16 @@ ja:
     task:
       status:
         preparing: "<ruby>準備中<rt>じゅんびちゅう</rt></ruby>"
-        in_progress: "実行中"
-        reported_complete: "完了報告"
+        in_progress: "<ruby>実行中<rt>じっこうちゅう</rt></ruby>"
+        reported_complete: "<ruby>完了報告<rt>かんりょうほうこく</rt></ruby>"
         again: "やりなおし"
-        completed: "完了"
+        completed: "<ruby>完了<rt>かんりょう</rt></ruby>"
     child:
       level:
         beginner: "かけだし"
         normal: "ふつう"
-        master: "達人"
-        legend: "伝説"
+        master: "<ruby>達人<rt>たつじん</rt></ruby>"
+        legend: "<ruby>伝説<rt>でんせつ</rt></ruby>"
   views:
     pagination:
       first: "はじめ"

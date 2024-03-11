@@ -1,9 +1,8 @@
 <div class="modal-body">
-  <h4>いまのポイント : <b><span class="text-green"><%= child.point %></span> ポイント</b></h4>
+  <h4><%= child.name %>のいまのポイント : <b><span class="text-green"><%= child.point %></span> ポイント</b></h4>
   <% if child.point.to_i >= reward.point.to_i %>
     <h4><ruby>交換<rt>こうかん</rt></ruby>すると <b><span class="text-green"><%= child.point - reward.point %></span>ポイント</b> になるよ</h4>
     <div class = "m-3">
-      <p>ほんとうに<ruby>交換<rt>こうかん</rt></ruby>する？</p>
       <%= link_to complete_path(reward, child_id: child.id), method: :post, class: "btn btn-danger p-2" do %>
         <ruby>交換<rt>こうかん</rt>する</ruby>
       <% end %>
