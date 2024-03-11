@@ -11,7 +11,7 @@
     <div class="scroll-area">
       <div class="container">
         <div class="row">
-          <div class="mx-auto col-11">
+          <div class="mx-auto col-11 chevron-area">
             <div class="chevron"></div>
             <div class="chevron"></div>
             <div class="chevron"></div>
@@ -36,7 +36,7 @@
         </div>
         <div class="text-white top-explain">
           <div class="scroll_right">
-            <h4 class="box2">おてつだいをすることで、子供たちはたくさんのことを学ぶことができます</h4>
+            <h4 class="box2">おてつだいをすることで、<br>子供たちはたくさんのことを学ぶことができます</h4>
             <div class="text-right">
               <%= image_tag "astronaut2.png", class: "img-fluid" %>
             </div>
@@ -130,7 +130,7 @@
 <div class=" btn-wrapper col-5 mx-auto">
   <p class="sectTit"> ためしに<br class="sp_br">つかってみよう！<p>
   <%= link_to users_guest_sign_in_path, method: :post, :style => "text-decoration: none;", class: "btn-guest btn-block text-white" do %>
-    ゲスト<br class="sp_br">ログイン
+    <b>ゲスト<br class="sp_br">ログイン</b>
   <% end %>
 </div>
 <div>
