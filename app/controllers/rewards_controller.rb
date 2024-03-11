@@ -9,17 +9,17 @@ class RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     @reward.user_id = current_user.id
-    
+
     if reward_params[:gift_image].present? # 画像があれば処理
       gift_image_safety = Vision.get_image_data(reward_params[:gift_image])
-      
+
       unless gift_image_safety
         @reward.errors.add(:base, '画像が不適切です。')
         render :new
         return
       end
     end
-    
+
     if @reward.save
       flash[:notice] = "登録しました"
       redirect_to rewards_path
@@ -45,17 +45,17 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
-    
+
     if reward_params[:gift_image].present?
       gift_image_safety = Vision.get_image_data(reward_params[:gift_image])
-      
+
       unless gift_image_safety
         @reward.errors.add(:base, '画像が不適切です。')
         render :edit
         return
       end
     end
-    
+
     if @reward.update(reward_params)
       redirect_to exchange_path(@reward)
       flash[:notice] = "更新しました。"
@@ -73,6 +73,13 @@ class RewardsController < ApplicationController
     @children = current_user.children
     selected_child_id = params[:reward][:child_id] if params[:reward].present?
     @child = Child.find(selected_child_id) if selected_child_id.present?
+  end
+
+  def confirm
+    @reward = Reward.find(params[:id])
+    # @children = current_user.children
+    # selected_child_id = params[:child_id] if params[:reward].present?
+    @child = Child.find(params[:child_id]) # if selected_child_id.present?
   end
 
   def complete

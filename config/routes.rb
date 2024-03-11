@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :child_rewards, only: [:create]
   end
   get 'rewards/:id/exchange' => 'rewards#exchange', as: 'exchange'
+  post 'rewards/:id/confirm' => 'rewards#confirm', as: 'exchange_confirm'
   post 'rewards/:id/complete' => 'rewards#complete', as: 'complete'
   get 'rewards/:id/complete' => 'rewards#complete_view'
   patch 'reward/:child_reward_id/order' => 'rewards#order_update', as: 'order_update'
@@ -28,9 +29,9 @@ Rails.application.routes.draw do
   get 'tasks/:id/status_change' => 'tasks#status_change', as: 'status_change'
   post 'tasks/:id/thanks' => 'tasks#thanks', as: 'thanks'
   get 'tasks/:id/thanks' => 'tasks#thanks_view'
-  
+
   post "/chatbots", to: "chatbots#create"
-  
+
   #保護者使用画面
   get 'tasks/:id/admin_index' => 'tasks#admin_index', as: 'tasks_admin_index'
   get 'rewards/:id/admin_index' => 'rewards#admin_index', as: 'rewards_admin_index'

@@ -21,7 +21,7 @@
             <h5><b>ステータス</b></h5>
           </div>
           <div class="col-md-6">
-            <h5><b><%= I18n.t("enums.task.status.#{@task.status}") %></b></h5>
+            <h5><b><%= I18n.t("enums.task.status.#{@task.status}").html_safe %></b></h5>
           </div>
         </div>
         <div class="row mt-3 border-bottom">

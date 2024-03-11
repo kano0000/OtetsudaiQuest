@@ -2,7 +2,7 @@ ja:
   enums:
     task:
       status:
-        preparing: "準備中"
+        preparing: "<ruby>準備中<rt>じゅんびちゅう</rt></ruby>"
         in_progress: "実行中"
         reported_complete: "完了報告"
         again: "やりなおし"

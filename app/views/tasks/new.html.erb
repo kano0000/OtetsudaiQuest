@@ -6,7 +6,7 @@
           <%= render "layouts/errors", obj: @task %>
           <%= form_with model: @task do |f| %>
           <div class="form-group">
-            <%= f.label :name, "お手伝い" %>
+            <%= f.label :task_list_id, "お手伝い" %>
             <%= f.collection_select :task_list_id, current_user.task_lists.all, :id, :name, include_blank: "選択して下さい" %>
           </div>
           <div>
