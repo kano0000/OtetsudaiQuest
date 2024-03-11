@@ -44,7 +44,7 @@
           // /chatbots (routes.rbに記述)
           // inputはcontroller.rbに記述）
           $.post('/chatbots', {input: input})
-              // controllerで成功した時はこちにくる
+              // controllerで成功した時はこっちにくる
               // data.responseにはcontrollerのactionでreturn jsonするところに記述してるデータが入る。
               .done(function (data) {
                   //     respond_to do |format|
