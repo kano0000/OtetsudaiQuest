@@ -77,9 +77,7 @@ class RewardsController < ApplicationController
 
   def confirm
     @reward = Reward.find(params[:id])
-    # @children = current_user.children
-    # selected_child_id = params[:child_id] if params[:reward].present?
-    @child = Child.find(params[:child_id]) # if selected_child_id.present?
+    @child = Child.find(params[:child_id])
   end
 
   def complete

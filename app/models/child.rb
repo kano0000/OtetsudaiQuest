@@ -18,6 +18,10 @@ class Child < ApplicationRecord
     master: 2,
     legend: 3,
   }
+  
+  def month_clear
+    tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
+  end
 
   def level(month_clear)
     case month_clear.to_i
