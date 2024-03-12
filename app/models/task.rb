@@ -8,7 +8,7 @@ class Task < ApplicationRecord
 
   validates :num_people, presence: true
   validates :point, presence: true
-  validates :quest_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..5.megabytes }
+  validates :quest_image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..5.megabytes }
 
   # ステータス => 0:準備中 1:実行中 2:完了報告 3:やりなおし 4:完了
   enum status: {

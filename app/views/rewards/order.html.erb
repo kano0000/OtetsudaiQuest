@@ -2,55 +2,59 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h1 class= "title m-3">交換履歴</h1>
-      <div class = "text-right my-3">
-        <h5>
-          <% unless params[:not_finish].present? %>
-            <%= link_to '未完了のみ表示', order_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
-          <% else %>
-            <span class="text-white">(未完了のみ表示中. . .)　</span>
-            <%= link_to '戻す', order_path, :style => "text-decoration: none; color:#ffffff;" %>
-          <% end %>
-        </h5>
-      </div>
-      <div class="table-responsive-lg js-scrollable">
-        <table class = "table bg-offwhite">
-          <tr class = "bg-orange">
-            <th>日にち</th>
-            <th>名前</th>
-            <th>プレゼント名</th>
-            <th>渡した日</th>
-          </tr>
-            <% @child_rewards.each do |child_reward| %>
-              <tr>
-                <td><%= child_reward.created_at.strftime("%Y/%m/%d") %></td>
-                <td><%= child_reward.child.name %></td>
-                <td><%= child_reward.reward.name %></td>
-                <td>
-                  <% if child_reward.presented_date.nil? %>
-                    <%= form_with model: child_reward, url: order_update_path(child_reward.id) do |f| %>
-                      <div style="display:inline-block">
-                        <%= f.date_field :presented_date, class: "form-control form-control-date" %>
-                      </div>
-                      <div style="display:inline-block">
-                        <%= f.submit "登録", class: "btn btn-success" %>
-                      </div>
-                    <% end %>
-                  <% else %>
-                    <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
-                  <% end %>
-                </td>
-              </tr>
+      <% if @child_rewards.present? %>
+        <div class = "text-right my-3">
+          <h5>
+            <% unless params[:not_finish].present? %>
+              <%= link_to '未完了のみ表示', order_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
+            <% else %>
+              <span class="text-white">(未完了のみ表示中. . .)　</span>
+              <%= link_to '戻す', order_path, :style => "text-decoration: none; color:#ffffff;" %>
             <% end %>
-        </table>
-      </div>
-      <div class="pagination">
-        <%= paginate @child_rewards %>
-      </div>
-      <div>
-        <%= link_to menu_path, class: "btn btn-info my-3" do %>
-          <i class="fa-solid fa-caret-left"></i> もどる
-        <% end %>
-      </div>
+          </h5>
+        </div>
+        <div class="table-responsive-lg js-scrollable">
+          <table class = "table bg-offwhite">
+            <tr class = "bg-orange">
+              <th>日にち</th>
+              <th>名前</th>
+              <th>プレゼント名</th>
+              <th>渡した日</th>
+            </tr>
+              <% @child_rewards.each do |child_reward| %>
+                <tr>
+                  <td><%= child_reward.created_at.strftime("%Y/%m/%d") %></td>
+                  <td><%= child_reward.child.name %></td>
+                  <td><%= child_reward.reward.name %></td>
+                  <td>
+                    <% if child_reward.presented_date.nil? %>
+                      <%= form_with model: child_reward, url: order_update_path(child_reward.id) do |f| %>
+                        <div style="display:inline-block">
+                          <%= f.date_field :presented_date, class: "form-control form-control-date" %>
+                        </div>
+                        <div style="display:inline-block">
+                          <%= f.submit "登録", class: "btn btn-success" %>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <%= child_reward.presented_date.strftime("%Y年 %m月 %d日") %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+          </table>
+        </div>
+        <div class="pagination">
+          <%= paginate @child_rewards %>
+        </div>
+        <div>
+          <%= link_to menu_path, class: "btn btn-info my-3" do %>
+            <i class="fa-solid fa-caret-left"></i> もどる
+          <% end %>
+        </div>
+      <% else %>
+        <h2 class="text-white">登録されていません</h2>
+      <% end %>
     </div>
   </div>
 </div>

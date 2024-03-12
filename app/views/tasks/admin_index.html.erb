@@ -2,56 +2,60 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <h2 class="mb-4 title"><b>クエスト一覧</b></h2>
-      <div class = "text-right my-3">
-        <h5>
-          <% unless params[:not_finish].present? %>
-            <%= link_to '未完了のみ表示', tasks_admin_index_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
-          <% else %>
-            <span class="text-white">(未完了のみ表示中. . .)　</span>
-            <%= link_to '戻す', tasks_admin_index_path, :style => "text-decoration: none; color:#ffffff;" %>
+      <% if @tasks.presence %>
+        <div class = "text-right my-3">
+          <h5>
+            <% unless params[:not_finish].present? %>
+              <%= link_to '未完了のみ表示', tasks_admin_index_path(not_finish: "true"), :style => "text-decoration: none; color:#ffffff;" %>
+            <% else %>
+              <span class="text-white">(未完了のみ表示中. . .)　</span>
+              <%= link_to '戻す', tasks_admin_index_path, :style => "text-decoration: none; color:#ffffff;" %>
+            <% end %>
+          </h5>
+        </div>
+        <div class="table-responsive-lg js-scrollable">
+          <table class = "table table-borderd" style="background-color: #FFF7D8;">
+            <tr style="background-color:#FF8C00;">
+              <th>日にち</th>
+              <th></th>
+              <th>なまえ</th>
+              <th>獲得ポイント数</th>
+              <th colspan="3"></th>
+            </tr>
+            <tr>
+              <% @tasks.each do |task| %>
+              <td>
+                <%= task.created_at.strftime("%Y/%m/%d") %>
+              </td>
+              <td>
+                <%= image_tag task.get_quest_image(100,100) %>
+              </td>
+              <td>
+                <%= task.task_list.name %>
+              </td>
+              <td>
+                <%= task.point %> ポイント
+              </td>
+              <td>
+                <%= link_to edit_task_path(task), class: "btn btn-warning" do %>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="pagination">
+            <%= paginate @tasks %>
+        </div>
+        <div>
+          <%= link_to menu_path, class: "btn btn-info" do %>
+            <i class="fa-solid fa-caret-left"></i> もどる
           <% end %>
-        </h5>
-      </div>
-      <div class="table-responsive-lg js-scrollable">
-        <table class = "table table-borderd" style="background-color: #FFF7D8;">
-          <tr style="background-color:#FF8C00;">
-            <th>日にち</th>
-            <th></th>
-            <th>なまえ</th>
-            <th>獲得ポイント数</th>
-            <th colspan="3"></th>
-          </tr>
-          <tr>
-            <% @tasks.each do |task| %>
-            <td>
-              <%= task.created_at.strftime("%Y/%m/%d") %>
-            </td>
-            <td>
-              <%= image_tag task.get_quest_image(100,100) %>
-            </td>
-            <td>
-              <%= task.task_list.name %>
-            </td>
-            <td>
-              <%= task.point %> ポイント
-            </td>
-            <td>
-              <%= link_to edit_task_path(task), class: "btn btn-warning" do %>
-                <i class="fa-solid fa-pen-to-square"></i>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </table>
-      </div>
-      <div class="pagination">
-          <%= paginate @tasks %>
-      </div>
-      <div>
-        <%= link_to menu_path, class: "btn btn-info" do %>
-          <i class="fa-solid fa-caret-left"></i> もどる
-        <% end %>
-      </div>
+        </div>
+      <% else %>
+        <h2 class="text-white">登録されていません</h2>
+      <% end %>
     </div>
   </div>
 </div>

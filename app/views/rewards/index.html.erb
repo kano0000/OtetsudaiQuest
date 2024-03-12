@@ -4,43 +4,47 @@
 <div class="container">
   <div class="col-10 mx-auto">
     <h2 class="mb-4 title"><b>プレゼントメニュー</b></h2>
-    <div class = "text-right m-3">
-      <h5>
-        <%= link_to 'あたらしい順', rewards_path(latest: "true"), :style => "text-decoration: none; color:#ffffff;" %>　|
-        <%= link_to 'ポイント順', rewards_path(most_point: "true"), :style => "text-decoration: none; color:#ffffff;" %>
-      </h5>
-    </div>
-      <div class="row">
-        <% @rewards.each do |reward| %>
-          <div class="col-12 col-md-6 col-lg-4">
-            <% if reward.published == true %>
-              <%= link_to exchange_path(reward), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
+    <% if @rewards.present? %>
+      <div class = "text-right m-3">
+        <h5>
+          <%= link_to 'あたらしい順', rewards_path(latest: "true"), :style => "text-decoration: none; color:#ffffff;" %>　|
+          <%= link_to 'ポイント順', rewards_path(most_point: "true"), :style => "text-decoration: none; color:#ffffff;" %>
+        </h5>
+      </div>
+        <div class="row">
+          <% @rewards.each do |reward| %>
+            <div class="col-12 col-md-6 col-lg-4">
+              <% if reward.published == true %>
+                <%= link_to exchange_path(reward), :style => "text-decoration: none; font-weight:bold; color:#000000;　text-align:center" do %>
+                  <div class = "panel-box">
+                    <div class="card mb-4 shadow-lg panel">
+                      <%= image_tag reward.get_gift_image(200,200) %>
+                        <div class="card-body">
+                          <p class="text-center"><%= reward.name %><p>
+                          <p class="text-center"><%= reward.point %> ポイント</p>
+                        </div>
+                     </div>
+                  </div>
+                <% end %>
+              <% else %>
                 <div class = "panel-box">
-                  <div class="card mb-4 shadow-lg panel">
+                  <div class="card mb-4 shadow-lg panel grayscaled">
                     <%= image_tag reward.get_gift_image(200,200) %>
                       <div class="card-body">
                         <p class="text-center"><%= reward.name %><p>
                         <p class="text-center"><%= reward.point %> ポイント</p>
                       </div>
-                   </div>
+                  </div>
                 </div>
               <% end %>
-            <% else %>
-              <div class = "panel-box">
-                <div class="card mb-4 shadow-lg panel grayscaled">
-                  <%= image_tag reward.get_gift_image(200,200) %>
-                    <div class="card-body">
-                      <p class="text-center"><%= reward.name %><p>
-                      <p class="text-center"><%= reward.point %> ポイント</p>
-                    </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-    </div>
-    <div class="pagination">
-      <%= paginate @rewards %>
-    </div>
+            </div>
+          <% end %>
+      </div>
+      <div class="pagination">
+        <%= paginate @rewards %>
+      </div>
+    <% else %>
+      <h2 class="text-white"><ruby>登録<rt>とうろく</rt></ruby>されていません</h2>
+    <% end %>
   </div>
 </div>

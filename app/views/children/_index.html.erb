@@ -1,27 +1,31 @@
 <div class="table-responsive-lg js-scrollable">
-  <table class = "table table-borderd" style="background-color: #c0c0c0;">
-    <tr style="background-color: #ea5550;">
-      <th></th>
-      <th>なまえ</th>
-      <th>ポイント数</th>
-      <th colspan="3"></th>
-    </tr>
-    <tr>
-      <% children.each do |child| %>
-      <td>
-        <%= link_to child_path(child) do %>
-          <%= image_tag child.get_profile_image(100,100) %>
-        <% end %>
-      </td>
-      <td>
-        <%= child.name %>
-      </td>
-      <td>
-        <%= child.point %> ポイント
-      </td>
-    </tr>
-    <% end %>
-  </table>
+  <% if children.present? %>
+    <table class = "table table-borderd" style="background-color: #c0c0c0;">
+      <tr style="background-color: #ea5550;">
+        <th></th>
+        <th>なまえ</th>
+        <th>ポイント数</th>
+        <th colspan="3"></th>
+      </tr>
+      <tr>
+        <% children.each do |child| %>
+        <td>
+          <%= link_to child_path(child) do %>
+            <%= image_tag child.get_profile_image(100,100) %>
+          <% end %>
+        </td>
+        <td>
+          <%= child.name %>
+        </td>
+        <td>
+          <%= child.point %> ポイント
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h2 class="text-white">登録されていません</h2>
+  <% end %>
 </div>
 <%= link_to new_child_path, class:"btn btn-danger rounded-pill my-3" do %>
   <i class="fa-solid fa-plus"></i> メンバーを増やす
