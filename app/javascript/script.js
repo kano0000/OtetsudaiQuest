@@ -73,3 +73,18 @@ $(function(){
 $(function(){
   setTimeout("$('.alert').fadeOut('slow')", 1500);
 });
+
+// ScrollHint
+document.addEventListener('turbolinks:load', function() {
+  new ScrollHint('.js-scrollable', {
+    scrollHintIconAppendClass: 'scroll-hint-icon-white',
+    suggestiveShadow: true,
+    i18n: {
+      scrollable: "スクロールできます"
+    }
+  });
+
+  setTimeout(function() {
+    $('.alert').fadeOut('slow');
+  }, 1500);
+});

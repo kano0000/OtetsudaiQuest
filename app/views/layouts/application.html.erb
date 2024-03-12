@@ -9,6 +9,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/ac7cef6f2b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+    <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        new ScrollHint('.js-scrollable');
+      });
+    </script>
   </head>
 
   <body>
