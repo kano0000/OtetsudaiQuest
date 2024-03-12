@@ -7,6 +7,7 @@ class Reward < ApplicationRecord
   
   validates :name, presence: true
   validates :point, presence: true
+  validates :gift_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..5.megabytes }
   
   def get_gift_image(width,height)
     unless gift_image.attached?

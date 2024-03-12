@@ -8,6 +8,7 @@ class Child < ApplicationRecord
 
   has_one_attached :profile_image
 
+  validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..5.megabytes }
   validates :name, presence: true, length: {in: 2..20}
   validates :birth_at, presence: true
 

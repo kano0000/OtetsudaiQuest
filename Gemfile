@@ -68,3 +68,4 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 gem "ruby-openai"
+gem 'activestorage-validator'
