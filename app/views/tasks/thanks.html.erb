@@ -1,13 +1,13 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-10 mx-auto">
+    <div class="col-12 mx-auto">
       <h1 class= "title m-0">おめでとう !!</h1>
        <div class="m-3 p-3 col-9 mx-auto bg-offwhite">
           <div class="m-3 p-3" style="background-color: #ffff99;" >
-            <h2 class = "text-center m-0", style = "color:#ff3333;"><b><%= @task.point %> ポイントゲット</b></h2>
+            <h2 class = "text-center m-0", style = "color:#ff3333;"><b><%= @task.point %> ポイント<br class="sp_br">ゲット</b></h2>
           </div>
           <div class="point-area my-4">
-            <h2 class = "text-center m-0">持っているポイント</h2>
+            <!--<h2 class = "text-center m-0">持っているポイント</h2>-->
             <% @children.each do |child| %>
               <div class="row mt-3">
                 <div class="col-md-3">
