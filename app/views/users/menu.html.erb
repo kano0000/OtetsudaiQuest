@@ -4,11 +4,11 @@
     <h1 class="mb-5 title"><b>メニュー</b></h1>
       <div class="row mb-5">
         <div class="col-6 mt-5">
-          <%= link_to new_task_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+          <%= link_to task_lists_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
             <div class="card menu-card1 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2 menu-text"><b>クエストを<br class="sp_br">投稿する</b></h3><br>
-                <p class="text-center mt-3"><i class="fa-solid fa-pen-to-square fa-3x"></i></p>
+                <h3 class="text-center mt-2 menu-text"><b>クエストを<br class="sp_br">作る</b></h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-house-chimney fa-3x"></i></p>
               </div>
             </div>
           <% end %>
@@ -28,12 +28,13 @@
             </div>
           <% end %>
         </div>
+        
         <div class="col-6 mt-5">
-          <%= link_to task_lists_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
+          <%= link_to new_task_path, :style => "text-decoration: none; color:#ffffff; text-align:center" do %>
             <div class="card menu-card1 shadow-lg">
               <div class="card-body">
-                <h3 class="text-center mt-2 menu-text"><b>クエストを<br class="sp_br">作る</b></h3><br>
-                <p class="text-center mt-3"><i class="fa-solid fa-house-chimney fa-3x"></i></p>
+                <h3 class="text-center mt-2 menu-text"><b>クエストを<br class="sp_br">投稿する</b></h3><br>
+                <p class="text-center mt-3"><i class="fa-solid fa-pen-to-square fa-3x"></i></p>
               </div>
             </div>
           <% end %>
