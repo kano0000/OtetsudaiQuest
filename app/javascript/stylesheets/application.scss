@@ -45,6 +45,11 @@ p {
   line-height: 2.0;
 }
 
+.underline {
+  display: inline-block;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
 /*============
 #bg
 =============*/
@@ -556,25 +561,25 @@ devise
     width: 50px;
     height: 80px;
     }
-  
+
   .new-image {
     width: 100px;
     object-fit: cover;
     margin: 1rem;
   }
-  
+
   .edit-image {
     width: 100px;
     object-fit: cover;
     margin: 1rem;
   }
-  
+
  .btn {
    font-size: 0.7rem;
  }
-  
+
   .form-control-date {
     font-size: 0.5rem;
   }
-  
+
 }
