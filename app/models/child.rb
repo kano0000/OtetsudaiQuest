@@ -19,11 +19,12 @@ class Child < ApplicationRecord
     master: 2,
     legend: 3,
   }
-  
+  # 月のクリア数
   def month_clear
     tasks.where(status: "completed").where(updated_at: Date.current.all_month).count
   end
 
+  # 月のクリア数によりレベルを
   def level(month_clear)
     case month_clear.to_i
     when 0..5
