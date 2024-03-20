@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matching_login_user, only: [:edit, :update, :show]
 
   def index
     # 実行できるものを前に出して並び替え
@@ -113,5 +114,11 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:task_list_id, :description, :point, :num_people, :quest_image)
   end
-
+  
+  def is_matching_login_user
+    task = Task.find_by(id: params[:id])
+    if task.nil? || task.user_id != current_user.id
+      redirect_to tasks_path
+    end
+  end
 end

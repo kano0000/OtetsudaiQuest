@@ -1,5 +1,6 @@
 class ChildrenController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matching_login_user, only: [:edit, :update, :show]
 
   def new
     @child = Child.new
@@ -74,4 +75,12 @@ private
   def child_params
     params.require(:child).permit(:name, :birth_at, :introduction, :profile_image, :favorite_food, :future_dream)
   end
+  
+  def is_matching_login_user
+    child = Child.find_by(id: params[:id])
+    if child.nil? || child.user_id != current_user.id
+      redirect_to about_path
+    end
+  end
+  
 end

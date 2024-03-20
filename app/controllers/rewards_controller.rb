@@ -1,5 +1,6 @@
 class RewardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matching_login_user, only: [:edit, :update, :exchange]
 
   def new
     @is_parent = params[:is_parent]
@@ -121,4 +122,12 @@ class RewardsController < ApplicationController
   def presented_date_params
     params.require(:child_reward).permit(:presented_date)
   end
+  
+  def is_matching_login_user
+    reward = Reward.find_by(id: params[:id])
+    if reward.nil? || reward.user_id != current_user.id
+      redirect_to rewards_path
+    end
+  end
+  
 end
