@@ -154,6 +154,8 @@ ja:
       child:
         name: なまえ
         birth_at: おたんじょうび
+      user:
+        name: 名前
   helpers:
     select:
       prompt: 選択してください
