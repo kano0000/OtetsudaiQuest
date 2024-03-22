@@ -35,6 +35,10 @@ ER図(https://drive.google.com/file/d/1ILpzuDwkcjIvWWPQ9YjYLXZyIqJ-6U1G/view?usp
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 外部API
+- Google Vision API
+- Open AI API
 ​
 ## 使用素材
 - フリー素材の以下を使用
