@@ -22,9 +22,9 @@ RSpec.describe User, type: :model do
         is_expected.to eq true
       end
       
-      it '2文字未満であると向こうであること' do
+      it '2文字未満であると無効であること' do
         user.name = Faker::Lorem.characters(number: 1)
-        is_expected.to eq true
+        is_expected.to eq false
       end
 
       it '20文字を超えると無効であること' do

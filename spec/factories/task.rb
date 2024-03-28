@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :task do
-    name { Faker::Lorem.characters(number: 20) }
+    title { Faker::Lorem.characters(number: 20) }
     description { Faker::Lorem.characters(number: 50) }
-    points { Faker::Number.between(from: 1, to: 50) }
-    due_date { Faker::Date.forward(days: 30) }
+    point { Faker::Number.between(from: 1, to: 50) }
+    num_people { Faker::Number.between(from: 1, to: 10) }
   end
 end
