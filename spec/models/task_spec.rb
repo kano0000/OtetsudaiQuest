@@ -4,7 +4,8 @@ RSpec.describe Task, type: :model do
   describe 'バリデーションのテスト' do
     subject { task.valid? }
 
-    let(:task) { build(:task) }
+    let(:user) { create(:user) }
+    let!(:task) { build(:task, user_id: user.id) }
 
     context 'num_peopleカラム' do
       it '空欄でないこと' do

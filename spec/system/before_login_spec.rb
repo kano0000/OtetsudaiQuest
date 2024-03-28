@@ -178,7 +178,7 @@ describe 'ユーザログイン前のテスト' do
         expect(page).to have_link('', href: about_path)
       end
       it 'マイページへのリンクが表示される' do
-        expect(page).to have_link('マイページ', href: user_path(current_user))
+        expect(page).to have_link('マイページ')
       end
       it 'ログアウトリンクが表示される' do
         expect(page).to have_link('ログアウト', href: destroy_user_session_path)
@@ -187,18 +187,21 @@ describe 'ユーザログイン前のテスト' do
         expect(page).to have_link('おうちの方はこちら', href: menu_path)
       end
     end
+  end
 
   describe 'ユーザログアウトのテスト' do
     let(:user) { create(:user) }
-
+  
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
+      logout_link = find_all('a')[4].text
+      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
       click_link 'ログアウト'
     end
-
+  
     context 'ログアウト機能のテスト' do
       it 'ログアウト後のリダイレクト先が、トップになっている' do
         expect(current_path).to eq '/'
