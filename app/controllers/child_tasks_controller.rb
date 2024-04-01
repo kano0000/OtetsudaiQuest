@@ -5,7 +5,6 @@ class ChildTasksController < ApplicationController
     task = current_user.tasks.find(params[:task_id])
     child_task = task.child_tasks
 
-
     mission_children = 0 # 初期人数
     child_task_params[:child_tasks].each do |ct|
       next if ct.to_i == 0 # 参加していない人はカウントさせない
