@@ -6,7 +6,7 @@ class ChildTasksController < ApplicationController
     child_task = task.child_tasks
 
     mission_children = 0 # 初期人数
-    child_task_params[:child_tasks].each do |ct|
+    child_task_params[:child_tasks].each do |ct| #フォームから送信された子タスクの情報を処理
       next if ct.to_i == 0 # 参加していない人はカウントさせない
       mission_children = mission_children + 1 # 参加している人がいれば+1する
     end
@@ -17,7 +17,7 @@ class ChildTasksController < ApplicationController
       return
     end
 
-    child_task.destroy_all # 中間テーブルに書き込む前に一旦リセット
+    child_task.destroy_all # 中間テーブルに書き込む前に一旦リセット(更新操作を行う前に、関連付けられたデータを一旦削除し、新しいデータを再度関連付けることで、データの整合性を保つ。)
     # フォームから受け取ったデータをループで書き込む
     child_task_params[:child_tasks].each do |ct|
       next if ct.to_i == 0 # 送られてきたデータが0の場合、処理しない
@@ -27,6 +27,7 @@ class ChildTasksController < ApplicationController
     redirect_to request.referer
   end
 
+  private
 
   def child_task_params
     params.require(:task).permit(child_tasks: [])

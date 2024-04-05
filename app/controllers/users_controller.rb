@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       profile_image_safety = Vision.get_image_data(user_params[:profile_image])
       
       unless profile_image_safety
+        # :base は、Railsでモデルにエラーメッセージを追加する際に使用される特別なシンボル。
         @user.errors.add(:base, '画像が不適切です。')
         render :edit
         return

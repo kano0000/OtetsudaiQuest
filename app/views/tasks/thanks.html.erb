@@ -19,6 +19,7 @@
                 <% new_point = child.point + @task.point %>
                 <% child.update(point: new_point) %>
               <% end %>
+              <!-- POST メソッドで送信された場合は new_point を、そうでなければ child.point を表示。 -->
               <%= request.post? ? new_point : child.point %> ポイント
             </p>
             <p>今月クリア回数　<%= child.month_clear %>回</p>
@@ -43,14 +44,12 @@
 
 
 <script>
-
+// 5秒間のアニメーション
 var duration = 5 * 1000;
 
 var animationEnd = Date.now() + duration;
-
+// 開始速度、広がり、発生回数、Zインデックス
 var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-
 
 function randomInRange(min, max) {
 
@@ -67,17 +66,16 @@ var timeLeft = animationEnd - Date.now();
 
 
 if (timeLeft <= 0) {
-
+// インターバルを停止
 return clearInterval(interval);
 
 }
 
 
-
+// 残りの時間に基づいて生成されるパーティクルの数を計算。時間が経つにつれてパーティクルの数が減少
 var particleCount = 50 * (timeLeft / duration);
 
-// since particles fall down, start a bit higher than random
-
+// パーティクルを生成（y座標は-0.2から0.8の）
 confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
 
 confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });

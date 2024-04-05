@@ -31,18 +31,19 @@
 <script>
   $(document).ready(function () {
       $('#chat-form').submit(function (event) {
-        // デフォルトform eventを消す
+        // デフォルトform eventを消す。（再読み込みされないように）
           event.preventDefault();
           //　InputのValue（Chatbotにタイピングしたワード）を取る
           const input = $('#chat-input').val();
           // d-none: display: none → bootstrap
-          // chat-btnにd-noneを追加する→ボタンを消す
+          // chat-btnにd-noneを追加する→送信ボタンを消す
           $('#chat-btn').addClass('d-none');
           // chat-loaderに設定されてるd-noneを消す→ローディングを出す
           $('#chat-loader').removeClass('d-none');
 
           // /chatbots (routes.rbに記述)
           // inputはcontroller.rbに記述）
+          // jQuery の post() メソッドを使って、指定された URL（/chatbots）にデータを送信。チャットボックスの入力値をサーバーに送る。
           $.post('/chatbots', {input: input})
               // controllerで成功した時はこっちにくる
               // data.responseにはcontrollerのactionでreturn jsonするところに記述してるデータが入る。
@@ -65,7 +66,7 @@
                   // ボタンを表示する
                   $('#chat-btn').removeClass('d-none');
               })
-              // controllerで失敗した時はこちにくる
+              // controllerで失敗した時はこちらにくる
               .fail(function (xhr, status, error) {
                   console.log("Error:", error)
                   // Display input and response in chat-messages div

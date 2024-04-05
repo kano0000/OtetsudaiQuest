@@ -23,7 +23,7 @@
                       <% new_point = @child.point - @reward.point %>
                       <% @child.update(point: new_point) %>
                     <% end %>
-                    <!--postかgetを判別する。（リロードでポイントが増えないようにする）-->
+                    <!--postかgetを判別する。（リロードでポイントが減らないようにする）-->
                     <p>のこり <%= request.post? ? new_point : @child.point %> ポイント</p>
                   </div>
                 </div>
